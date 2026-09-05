@@ -399,8 +399,9 @@
 .authorbox{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;background:var(--surface);
   border:1px solid var(--line);border-radius:16px;padding:26px;margin:26px 0}
 @media(min-width:760px){.authorbox{grid-template-columns:120px 1fr;gap:28px}}
-.avatar{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;
-  background:var(--accent-soft);color:var(--accent-ink);font-family:var(--serif);font-weight:700;font-size:46px}
+.avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 32%;
+  display:block;background:var(--accent-soft);border:3px solid var(--surface);
+  box-shadow:0 0 0 1px var(--line), 0 6px 20px rgba(0,0,0,.12)}
 .authorbox h3{margin-top:0}
 .authorbox p:last-child{margin-bottom:0}
 
