@@ -8,12 +8,10 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# Ничего не кэшируем «намертво»: сайт правится вручную, имена файлов
+# не меняются, поэтому после каждого обновления нужна свежая версия.
+# Netlify всё равно отдаёт с CDN, но сверяется по ETag — быстро и без устаревания.
 [[headers]]
-  for = "/*.webp"
+  for = "/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=600"
+    Cache-Control = "public, max-age=0, must-revalidate"
