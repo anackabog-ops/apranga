@@ -1061,7 +1061,7 @@ function renderSchemas(host){
       c.type = 'button';
       c.appendChild(el('b', null, v.inf));
       c.appendChild(el('span', null, v.ru));
-      c.addEventListener('click', function(){ openDetail(v.inf); });
+      c.addEventListener('click', function(){ openDetail(v.inf, true); });
       chips.appendChild(c);
     });
     var cap = el('p', 'sch-cap', 'В базе этой семьи: ' + list.length +
@@ -1229,7 +1229,7 @@ function renderBase(host){
       var td = el('td');
       var b = el('button', 'vb-open', 'Разбор');
       b.type = 'button';
-      b.addEventListener('click', function(){ openDetail(x.inf); });
+      b.addEventListener('click', function(){ openDetail(x.inf, true); });
       td.appendChild(b);
       r.appendChild(td);
       tbody.appendChild(r);
@@ -1267,12 +1267,46 @@ function renderBase(host){
    11. ПОДРОБНЫЙ РАЗБОР
    ============================================================ */
 var detailHost = null, detailPick = null;  /* detailPick — инфинитив выбранного глагола */
-function openDetail(inf){
+var repaintPick = null;                    /* перерисовать чипы выбора */
+var backTo = null;                         /* куда вернуться после прыжка к разбору */
+
+/* Разбор живёт в своём разделе, а нажимают на глагол за много экранов
+   отсюда — из карточки семьи или из базы. Поэтому после открытия
+   переносим к нему экран и оставляем кнопку «назад». */
+function jumpToDetail(){
+  var host = document.getElementById('vk-detail');
+  if (!host) return;
+  var from = window.scrollY;
+  var to = host.getBoundingClientRect().top + window.scrollY - 12;
+  var far = Math.abs(to - from) > window.innerHeight * 3;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  backTo = from;
+  try { window.scrollTo({ top: to, behavior: (far || still) ? 'auto' : 'smooth' }); }
+  catch (e) { window.scrollTo(0, to); }
+  host.classList.remove('flash');
+  void host.offsetWidth;          /* перезапускаем подсветку */
+  host.classList.add('flash');
+}
+
+function openDetail(inf, jump){
   if (!detailHost) return;
   var v = VERBS.filter(function(x){ return x.inf === inf; })[0];
   if (!v) return;
   detailPick = inf;
   detailHost.textContent = '';
+
+  if (jump) {
+    var back = el('button', 'det-back');
+    back.type = 'button';
+    back.textContent = '← Вернуться туда, где нажали';
+    back.addEventListener('click', function(){
+      if (backTo == null) return;
+      try { window.scrollTo({ top: backTo, behavior: 'smooth' }); }
+      catch (e) { window.scrollTo(0, backTo); }
+    });
+    detailHost.appendChild(back);
+  }
+
   detailHost.appendChild(conjTable(v));
   var g = famOf(v);
   if (g) {
@@ -1306,6 +1340,8 @@ function openDetail(inf){
     });
     detailHost.appendChild(steps);
   }
+  if (repaintPick) repaintPick();
+  if (jump) jumpToDetail();
 }
 
 /* ============================================================
@@ -2045,13 +2081,14 @@ if ((h = document.getElementById('vk-detail'))) {
       b.type = 'button';
       b.appendChild(el('b', null, v.inf));
       b.appendChild(el('span', null, v.ru));
-      b.addEventListener('click', function(){ openDetail(v.inf); paintPick(); });
+      b.addEventListener('click', function(){ openDetail(v.inf); });
       grid.appendChild(b);
     });
     if (!shown.length) grid.appendChild(el('p', 'wb-count', 'Ничего не найдено — попробуйте другое слово.'));
     more.hidden = !!q || !limited;
   }
   more.addEventListener('click', function(){ limited = false; paintPick(); });
+  repaintPick = paintPick;
   find.addEventListener('input', paintPick);
 
   pick.appendChild(find);
