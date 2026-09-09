@@ -563,3 +563,34 @@ td.h-Ė{color:var(--bad)}
 .fork-c p:last-child{margin-bottom:0}
 .fork-c .f-ex{font-family:var(--serif);font-weight:700;color:var(--ink);
   border-top:1px solid var(--line);padding-top:10px;font-size:15px}
+
+/* ---- конструктор «посмотрите вокруг» и выбор глагола ---- */
+.sp-group{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.sp-group:first-of-type{border-top:1px solid var(--line);margin-top:12px}
+.sp-lbl{
+  font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--accent-ink);margin:0 0 10px;
+}
+.sp-lbl span{font-weight:600;letter-spacing:0;text-transform:none;color:var(--muted);font-size:12.5px}
+.sp-row{display:flex;flex-wrap:wrap;gap:7px}
+.sp-chip{
+  display:flex;flex-direction:column;align-items:flex-start;gap:1px;cursor:pointer;
+  background:var(--surface-2);border:1px solid var(--line);border-radius:10px;
+  padding:7px 12px;transition:border-color .12s,background .12s;
+}
+.sp-chip:hover{border-color:var(--accent)}
+.sp-chip b{font-family:var(--serif);font-weight:800;font-size:14.5px;color:var(--ink)}
+.sp-chip span{font-size:11.5px;color:var(--muted)}
+.sp-chip.on{background:var(--accent-soft);border-color:var(--accent)}
+.sp-chip.on b{color:var(--accent-ink)}
+.sp-out{
+  margin-top:18px;border-top:1px solid var(--line);padding-top:16px;
+}
+.sp-ru{font-size:15px;color:var(--muted);margin:0 0 6px}
+.sp-lt{
+  font-family:var(--serif);font-weight:800;font-size:clamp(20px,3.4vw,27px);
+  line-height:1.25;letter-spacing:-.02em;color:var(--accent-ink);margin:0 0 12px;
+  text-wrap:balance;
+}
+.vpick{margin-bottom:20px}
+.vpick-grid{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}

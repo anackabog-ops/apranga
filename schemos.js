@@ -502,6 +502,151 @@ var VERBS = [
 ];
 
 /* ============================================================
+   4b. ПРОСТРАНСТВО
+
+   Всё, что мы видим вокруг, можно назвать, описать и направить
+   на это действие. Здесь лежат предметы с их формой galininkas,
+   прилагательные в обоих родах и русские формы — без них нельзя
+   честно составить задание на перевод.
+   ============================================================ */
+
+/* Лицо: литовское местоимение и русское. */
+var PRON = [
+  {lt:'aš',  ru:'я'},   {lt:'tu',  ru:'ты'},  {lt:'jis', ru:'он'},
+  {lt:'mes', ru:'мы'},  {lt:'jūs', ru:'вы'},  {lt:'jie', ru:'они'}
+];
+
+/* Предметы вокруг. p — jis/ji/jie/jos в литовском, rg — род в русском
+   (m / f / n / p), потому что роды в двух языках не совпадают:
+   kėdė женское, а «стул» мужской. */
+var SPACE_OBJ = [
+  {lt:'langas',      acc:'langą',        p:'jis', ru:'окно',      ra:'окно',      rg:'n', v:['matyti','atidaryti','uždaryti','valyti','plauti','dažyti']},
+  {lt:'durys',       acc:'duris',        p:'jos', ru:'дверь',     ra:'дверь',     rg:'f', pl:1, v:['matyti','atidaryti','uždaryti','dažyti']},
+  {lt:'stalas',      acc:'stalą',        p:'jis', ru:'стол',      ra:'стол',      rg:'m', v:['matyti','valyti','taisyti','statyti','dažyti']},
+  {lt:'kėdė',        acc:'kėdę',         p:'ji',  ru:'стул',      ra:'стул',      rg:'m', v:['matyti','taisyti','statyti','dažyti','valyti']},
+  {lt:'knyga',       acc:'knygą',        p:'ji',  ru:'книга',     ra:'книгу',     rg:'f', v:['skaityti','matyti','laikyti','rodyti','pirkti','dovanoti']},
+  {lt:'laiškas',     acc:'laišką',       p:'jis', ru:'письмо',    ra:'письмо',    rg:'n', v:['rašyti','skaityti','matyti','rodyti']},
+  {lt:'telefonas',   acc:'telefoną',     p:'jis', ru:'телефон',   ra:'телефон',   rg:'m', v:['matyti','laikyti','taisyti','pirkti','rodyti','valyti']},
+  {lt:'kompiuteris', acc:'kompiuterį',   p:'jis', ru:'компьютер', ra:'компьютер', rg:'m', v:['matyti','taisyti','pirkti','valyti']},
+  {lt:'kava',        acc:'kavą',         p:'ji',  ru:'кофе',      ra:'кофе',      rg:'m', v:['gerti','pirkti','šildyti','gaminti']},
+  {lt:'arbata',      acc:'arbatą',       p:'ji',  ru:'чай',       ra:'чай',       rg:'m', v:['gerti','pirkti','šildyti','gaminti']},
+  {lt:'vanduo',      acc:'vandenį',      p:'jis', ru:'вода',      ra:'воду',      rg:'f', v:['gerti','šildyti','matyti']},
+  {lt:'pienas',      acc:'pieną',        p:'jis', ru:'молоко',    ra:'молоко',    rg:'n', v:['gerti','šildyti','pirkti']},
+  {lt:'duona',       acc:'duoną',        p:'ji',  ru:'хлеб',      ra:'хлеб',      rg:'m', v:['valgyti','pirkti','pjauti','laikyti']},
+  {lt:'obuolys',     acc:'obuolį',       p:'jis', ru:'яблоко',    ra:'яблоко',    rg:'n', v:['valgyti','pirkti','pjauti','matyti']},
+  {lt:'sriuba',      acc:'sriubą',       p:'ji',  ru:'суп',       ra:'суп',       rg:'m', v:['gaminti','valgyti','šildyti']},
+  {lt:'namas',       acc:'namą',         p:'jis', ru:'дом',       ra:'дом',       rg:'m', v:['statyti','matyti','dažyti','tvarkyti','pirkti']},
+  {lt:'kambarys',    acc:'kambarį',      p:'jis', ru:'комната',   ra:'комнату',   rg:'f', v:['tvarkyti','valyti','matyti','dažyti']},
+  {lt:'siena',       acc:'sieną',        p:'ji',  ru:'стена',     ra:'стену',     rg:'f', v:['dažyti','matyti','valyti']},
+  {lt:'grindys',     acc:'grindis',      p:'jos', ru:'пол',       ra:'пол',       rg:'m', pl:1, v:['plauti','valyti','matyti']},
+  {lt:'lova',        acc:'lovą',         p:'ji',  ru:'кровать',   ra:'кровать',   rg:'f', v:['tvarkyti','matyti','statyti']},
+  {lt:'veidrodis',   acc:'veidrodį',     p:'jis', ru:'зеркало',   ra:'зеркало',   rg:'n', v:['valyti','matyti','plauti']},
+  {lt:'lempa',       acc:'lempą',        p:'ji',  ru:'лампа',     ra:'лампу',     rg:'f', v:['matyti','pirkti','valyti','taisyti']},
+  {lt:'puodelis',    acc:'puodelį',      p:'jis', ru:'чашка',     ra:'чашку',     rg:'f', v:['plauti','laikyti','matyti','pirkti']},
+  {lt:'lėkštė',      acc:'lėkštę',       p:'ji',  ru:'тарелка',   ra:'тарелку',   rg:'f', v:['plauti','laikyti','matyti']},
+  {lt:'peilis',      acc:'peilį',        p:'jis', ru:'нож',       ra:'нож',       rg:'m', v:['laikyti','plauti','matyti']},
+  {lt:'raktas',      acc:'raktą',        p:'jis', ru:'ключ',      ra:'ключ',      rg:'m', v:['laikyti','matyti','rasti']},
+  {lt:'gėlė',        acc:'gėlę',         p:'ji',  ru:'цветок',    ra:'цветок',    rg:'m', v:['dovanoti','pirkti','matyti','laikyti']},
+  {lt:'katė',        acc:'katę',         p:'ji',  ru:'кошка',     ra:'кошку',     rg:'f', v:['matyti','laikyti','mylėti']},
+  {lt:'šuo',         acc:'šunį',         p:'jis', ru:'собака',    ra:'собаку',    rg:'f', v:['matyti','mylėti','laikyti']},
+  {lt:'mašina',      acc:'mašiną',       p:'ji',  ru:'машина',    ra:'машину',    rg:'f', v:['taisyti','plauti','pirkti','matyti']},
+  {lt:'batai',       acc:'batus',        p:'jie', ru:'ботинки',   ra:'ботинки',   rg:'p', pl:1, v:['valyti','pirkti','matyti','taisyti']},
+  {lt:'marškiniai',  acc:'marškinius',   p:'jie', ru:'рубашка',   ra:'рубашку',   rg:'f', pl:1, v:['dažyti','pirkti','matyti','plauti']},
+  {lt:'muzika',      acc:'muziką',       p:'ji',  ru:'музыка',    ra:'музыку',    rg:'f', v:['girdėti','mylėti']}
+];
+
+/* Прилагательные для образа. Литовские формы galininkas — по роду
+   и числу предмета; русские — по роду русского слова. */
+var SPACE_ADJ = [
+  {k:'naujas',    nom:['naujas', 'nauja', 'nauji', 'naujos'], lt:['naują','naują','naujus','naujas'],           ru:['новый','новую','новое','новые']},
+  {k:'senas',     nom:['senas', 'sena', 'seni', 'senos'], lt:['seną','seną','senus','senas'],               ru:['старый','старую','старое','старые']},
+  {k:'didelis',   nom:['didelis', 'didelė', 'dideli', 'didelės'], lt:['didelį','didelę','didelius','dideles'],      ru:['большой','большую','большое','большие']},
+  {k:'mažas',     nom:['mažas', 'maža', 'maži', 'mažos'], lt:['mažą','mažą','mažus','mažas'],               ru:['маленький','маленькую','маленькое','маленькие']},
+  {k:'gražus',    nom:['gražus', 'graži', 'gražūs', 'gražios'], lt:['gražų','gražią','gražius','gražias'],        ru:['красивый','красивую','красивое','красивые']},
+  {k:'švarus',    nom:['švarus', 'švari', 'švarūs', 'švarios'], lt:['švarų','švarią','švarius','švarias'],        ru:['чистый','чистую','чистое','чистые']},
+  {k:'šiltas',    nom:['šiltas', 'šilta', 'šilti', 'šiltos'], lt:['šiltą','šiltą','šiltus','šiltas'],           ru:['тёплый','тёплую','тёплое','тёплые']},
+  {k:'šaltas',    nom:['šaltas', 'šalta', 'šalti', 'šaltos'], lt:['šaltą','šaltą','šaltus','šaltas'],           ru:['холодный','холодную','холодное','холодные']},
+  {k:'baltas',    nom:['baltas', 'balta', 'balti', 'baltos'], lt:['baltą','baltą','baltus','baltas'],           ru:['белый','белую','белое','белые']},
+  {k:'juodas',    nom:['juodas', 'juoda', 'juodi', 'juodos'], lt:['juodą','juodą','juodus','juodas'],           ru:['чёрный','чёрную','чёрное','чёрные']},
+  {k:'medinis',   nom:['medinis', 'medinė', 'mediniai', 'medinės'], lt:['medinį','medinę','medinius','medines'],      ru:['деревянный','деревянную','деревянное','деревянные']},
+  {k:'stiklinis', nom:['stiklinis', 'stiklinė', 'stikliniai', 'stiklinės'], lt:['stiklinį','stiklinę','stiklinius','stiklines'], ru:['стеклянный','стеклянную','стеклянное','стеклянные']},
+  {k:'skanus',    nom:['skanus', 'skani', 'skanūs', 'skanios'], lt:['skanų','skanią','skanius','skanias'],        ru:['вкусный','вкусную','вкусное','вкусные']},
+  {k:'įdomus',    nom:['įdomus', 'įdomi', 'įdomūs', 'įdomios'], lt:['įdomų','įdomią','įdomius','įdomias'],        ru:['интересный','интересную','интересное','интересные']}
+];
+
+/* Русские личные формы глаголов — только для тех, что участвуют
+   в предметных заданиях. Русский спрягается нерегулярно, поэтому
+   формы записаны прямо, а не выведены. */
+var RU_VERB = {
+  matyti:     ['вижу','видишь','видит','видим','видите','видят'],
+  atidaryti:  ['открываю','открываешь','открывает','открываем','открываете','открывают'],
+  uždaryti:   ['закрываю','закрываешь','закрывает','закрываем','закрываете','закрывают'],
+  valyti:     ['чищу','чистишь','чистит','чистим','чистите','чистят'],
+  plauti:     ['мою','моешь','моет','моем','моете','моют'],
+  gerti:      ['пью','пьёшь','пьёт','пьём','пьёте','пьют'],
+  valgyti:    ['ем','ешь','ест','едим','едите','едят'],
+  skaityti:   ['читаю','читаешь','читает','читаем','читаете','читают'],
+  rašyti:     ['пишу','пишешь','пишет','пишем','пишете','пишут'],
+  laikyti:    ['держу','держишь','держит','держим','держите','держат'],
+  pirkti:     ['покупаю','покупаешь','покупает','покупаем','покупаете','покупают'],
+  dažyti:     ['крашу','красишь','красит','красим','красите','красят'],
+  taisyti:    ['чиню','чинишь','чинит','чиним','чините','чинят'],
+  statyti:    ['ставлю','ставишь','ставит','ставим','ставите','ставят'],
+  gaminti:    ['готовлю','готовишь','готовит','готовим','готовите','готовят'],
+  šildyti:    ['грею','греешь','греет','греем','греете','греют'],
+  pjauti:     ['режу','режешь','режет','режем','режете','режут'],
+  dovanoti:   ['дарю','даришь','дарит','дарим','дарите','дарят'],
+  rodyti:     ['показываю','показываешь','показывает','показываем','показываете','показывают'],
+  tvarkyti:   ['убираю','убираешь','убирает','убираем','убираете','убирают'],
+  mylėti:     ['люблю','любишь','любит','любим','любите','любят'],
+  girdėti:    ['слышу','слышишь','слышит','слышим','слышите','слышат'],
+  rasti:      ['нахожу','находишь','находит','находим','находите','находят']
+};
+
+/* Индекс литовской формы прилагательного по предмету:
+   0 — мужское ед., 1 — женское ед., 2 — мужское мн., 3 — женское мн. */
+function adjSlotLT(o){
+  if (o.pl) return o.p === 'jie' ? 2 : 3;
+  return o.p === 'jis' ? 0 : 1;
+}
+/* Индекс русской формы: 0 — м., 1 — ж., 2 — ср., 3 — мн. */
+function adjSlotRU(o){
+  return o.rg === 'm' ? 0 : o.rg === 'f' ? 1 : o.rg === 'n' ? 2 : 3;
+}
+
+/* Собирает фразу «кто + действие + какой предмет» на двух языках
+   и разбирает её по словам. */
+function buildPhrase(o, verbInf, pi, adjKey){
+  var v = VERBS.filter(function(x){ return x.inf === verbInf; })[0];
+  var c = conjugate(v);
+  var a = adjKey ? SPACE_ADJ.filter(function(x){ return x.k === adjKey; })[0] : null;
+  var ci = cityOf(v.pres);
+
+  var ltAdj = a ? a.lt[adjSlotLT(o)] : '';
+  var ruAdj = a ? a.ru[adjSlotRU(o)] : '';
+  var lt = c.pres[pi] + ' ' + (ltAdj ? ltAdj + ' ' : '') + o.acc;
+  var ru = PRON[pi].ru + ' ' + RU_VERB[verbInf][pi] + ' ' + (ruAdj ? ruAdj + ' ' : '') + o.ra;
+
+  var parts = [
+    {w: c.pres[pi],
+     e: v.inf + ' (' + v.ru + ') — ' + ci.n + ', ' + PERSONS[pi] + '. Основа ' + v.pres.slice(0, -1) + '-.'}
+  ];
+  if (a) parts.push({w: ltAdj,
+     e: 'предмет ' + o.lt + ' — это ' + o.p + (o.pl ? ' (только множественное)' : '') + ', поэтому в vardininkas было бы ' + a.nom[adjSlotLT(o)] + ', а в galininkas — ' + ltAdj + '.'});
+  parts.push({w: o.acc,
+     e: o.lt + ' (' + o.ru + ') → ' + o.acc + '. Действие переходит на предмет, поэтому galininkas: ką? — ' + o.acc + '.'});
+
+  return {
+    lt: lt.charAt(0).toUpperCase() + lt.slice(1) + '.',
+    ru: ru.charAt(0).toUpperCase() + ru.slice(1) + '.',
+    bare: lt,
+    withPron: PRON[pi].lt + ' ' + lt,
+    parts: parts,
+    obj: o, verb: v, pi: pi, adj: a
+  };
+}
+
+/* ============================================================
    5. ПРИСТАВКИ
    ============================================================ */
 var PREFIXES = [
@@ -857,12 +1002,12 @@ function renderBase(host){
 /* ============================================================
    11. ПОДРОБНЫЙ РАЗБОР
    ============================================================ */
-var detailHost = null, detailPick = null;
+var detailHost = null, detailPick = null;  /* detailPick — инфинитив выбранного глагола */
 function openDetail(inf){
   if (!detailHost) return;
   var v = VERBS.filter(function(x){ return x.inf === inf; })[0];
   if (!v) return;
-  if (detailPick) detailPick.value = inf;
+  detailPick = inf;
   detailHost.textContent = '';
   detailHost.appendChild(conjTable(v));
   var g = famOf(v);
@@ -979,11 +1124,17 @@ function cityTask(v, seed){
 function buildTasks(groupKey, n){
   var list = VERBS.filter(function(v){ return groupKey === 'all' || v.g === groupKey; });
   var out = [];
+  var seed = Date.now() % 9973;
   for (var i = 0; i < n; i++) {
     var v = list[(i * 7 + 3) % list.length];
-    /* каждое третье задание — про адрес, а не про форму */
-    if (i % 3 === 0) { out.push(cityTask(v, i)); continue; }
-    var ti = (i * 3 + 1) % TENSES.length;
+    var kind = i % 5;
+    /* пять типов по кругу: адрес, форма, направь действие, перевод, образ */
+    if (kind === 0) { out.push(cityTask(v, i)); continue; }
+    if (kind === 2) { out.push(taskDirect(seed + i * 137)); continue; }
+    if (kind === 3) { out.push(taskTranslate(seed + i * 211)); continue; }
+    if (kind === 4) { out.push(taskImage(seed + i * 307)); continue; }
+    /* шаг подобран так, чтобы времена не повторялись из подхода в подход */
+    var ti = (i + Math.floor(i / 5) * 2) % TENSES.length;
     var pi = (i * 5 + 2) % PERSONS.length;
     out.push(makeTask(v, ti, pi, i * 31 + 7));
   }
@@ -1079,9 +1230,9 @@ function taskNode(item, idx, total, mode, onDone){
 
   var verdict = el('div', 'tq-verdict');
   var why = el('div', 'tq-why');
-  why.appendChild(el('b', null, 'Разбор всех вариантов'));
+  why.appendChild(el('b', null, item.opts && item.opts.length ? 'Разбор всех вариантов' : 'Разбор'));
   var ul = el('ul', 'wl');
-  item.opts.forEach(function(o){
+  (item.opts || []).forEach(function(o){
     var li = el('li');
     li.appendChild(el('span', 'mk ' + (o.ok ? 'y' : 'n'), o.ok ? 'верно' : 'мимо'));
     var body = el('div');
@@ -1090,7 +1241,23 @@ function taskNode(item, idx, total, mode, onDone){
     li.appendChild(body);
     ul.appendChild(li);
   });
-  why.appendChild(ul);
+  if (item.opts && item.opts.length) why.appendChild(ul);
+
+  if (item.bd) {
+    var bh = el('b', null, 'Фраза по словам');
+    bh.style.marginTop = item.opts && item.opts.length ? '12px' : '0';
+    why.appendChild(bh);
+    var bl = el('ul', 'bd');
+    item.bd.forEach(function(x){
+      var li = el('li');
+      li.appendChild(el('b', null, x.w));
+      li.appendChild(el('span', null, x.e));
+      bl.appendChild(li);
+    });
+    why.appendChild(bl);
+  }
+  if (item.alt) why.appendChild(el('p', 'alt', item.alt));
+
   var r = el('p', 'alt');
   r.appendChild(el('b', null, 'Правило: '));
   r.appendChild(document.createTextNode(item.rule));
@@ -1107,7 +1274,7 @@ function taskNode(item, idx, total, mode, onDone){
     onDone(state === 'ok');
   }
 
-  if (mode === 'choice') {
+  if (mode === 'choice' && item.opts && item.opts.length) {
     var opts = el('div', 'tq-opts');
     item.opts.forEach(function(o){
       var b = el('button', 'tq-opt', o.t);
@@ -1128,7 +1295,7 @@ function taskNode(item, idx, total, mode, onDone){
     var form = el('div', 'tq-form');
     var input = document.createElement('input');
     input.className = 'tq-in';
-    input.setAttribute('placeholder', 'Впишите форму…');
+    input.setAttribute('placeholder', item.bd ? 'Напишите фразу по-литовски…' : 'Впишите форму…');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('spellcheck', 'false');
     input.setAttribute('aria-label', 'Ваш ответ');
@@ -1137,8 +1304,8 @@ function taskNode(item, idx, total, mode, onDone){
     function check(){
       if (closed || !norm(input.value)) return;
       input.disabled = true; go.disabled = true;
-      var exact = norm(input.value) === norm(item.ans[0]);
-      var loose = flat(input.value) === flat(item.ans[0]);
+      var exact = item.ans.some(function(a){ return norm(input.value) === norm(a); });
+      var loose = item.ans.some(function(a){ return flat(input.value) === flat(a); });
       if (exact) { input.classList.add('ok'); finish('ok', 'Верно.', 'Эталон: ' + item.ans[0] + '.'); }
       else if (loose) { input.classList.add('near'); finish('near', 'Почти. Форма угадана, но потерялись литовские буквы.', 'Эталон: ' + item.ans[0] + '.'); }
       else {
@@ -1158,6 +1325,186 @@ function taskNode(item, idx, total, mode, onDone){
   wrap.appendChild(verdict);
   wrap.appendChild(why);
   return wrap;
+}
+
+/* ============================================================
+   12b. ЗАДАНИЯ ПО ПРОСТРАНСТВУ
+
+   Три новых типа. Все собираются из базы предметов, поэтому эталон
+   всегда верен, а неверные варианты — настоящие формы, только не те.
+   ============================================================ */
+
+/* Псевдослучайный, но воспроизводимый выбор: одинаковый набор
+   заданий при одинаковом seed. */
+function rnd(seed){ return function(n){ seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed % n; }; }
+
+function spaceTriple(seed){
+  var r = rnd(seed);
+  var o = SPACE_OBJ[r(SPACE_OBJ.length)];
+  var vi = o.v[r(o.v.length)];
+  var pi = r(6);
+  return { o: o, vi: vi, pi: pi };
+}
+
+/* 1. Направь действие: дан предмет, действие и лицо — собери фразу. */
+function taskDirect(seed){
+  var t = spaceTriple(seed), r = rnd(seed + 11);
+  var ph = buildPhrase(t.o, t.vi, t.pi, null);
+  var v = ph.verb, c = conjugate(v);
+  var wrongPi = (t.pi + 1 + r(5)) % 6;
+  var opts = [
+    {t: ph.bare, ok: 1,
+     w: 'Действие в нужном лице (' + PERSONS[t.pi] + ') и предмет в galininkas: ' + t.o.acc + '.'},
+    {t: c.pres[t.pi] + ' ' + t.o.lt, ok: 0,
+     w: 'Предмет остался в vardininkas — он назван, но действие на него не направлено. После переходного глагола нужен ответ на ką?'},
+    {t: c.pres[wrongPi] + ' ' + t.o.acc, ok: 0,
+     w: 'Предмет верен, а глагол стоит в лице «' + PERSONS[wrongPi] + '», хотя нужно «' + PERSONS[t.pi] + '».'},
+    {t: c.past[t.pi] + ' ' + t.o.acc, ok: 0,
+     w: 'Это прошедшее время (' + houseOf(v.past).n + '), а спрашивали про настоящее.'}
+  ];
+  return {
+    q: 'Вы видите: <b>' + t.o.lt + '</b> <i>(' + t.o.ru + ')</i>. Действие: <b>' + v.inf + '</b> <i>(' + v.ru + ')</i>. Кто: <b>' + PRON[t.pi].lt + '</b>.',
+    hint: 'Три главные формы: ' + v.inf + ' · ' + v.pres + ' · ' + v.past + '. Предмет в galininkas: ' + t.o.acc + '.',
+    ans: [ph.bare, ph.withPron],
+    rule: 'Называем предмет → направляем на него действие → предмет уходит в galininkas.',
+    opts: opts,
+    bd: ph.parts,
+    alt: 'Принимается и с местоимением: «' + ph.withPron + '».'
+  };
+}
+
+/* 2. Перевод: русская фраза → литовская. Свободный ввод. */
+function taskTranslate(seed){
+  var t = spaceTriple(seed + 7), r = rnd(seed + 23);
+  var useAdj = r(2) === 0;
+  var adj = useAdj ? SPACE_ADJ[r(SPACE_ADJ.length)].k : null;
+  var ph = buildPhrase(t.o, t.vi, t.pi, adj);
+  return {
+    q: 'Переведите на литовский: <b>' + ph.ru + '</b>',
+    hint: 'Предмет: ' + t.o.lt + ' → ' + t.o.acc + '. Глагол: ' + ph.verb.inf + ' · ' + ph.verb.pres + ' · ' + ph.verb.past + '.',
+    ans: [ph.bare, ph.withPron],
+    rule: 'Сначала лицо и время у глагола, потом предмет в galininkas. Местоимение можно опустить — окончание уже показывает лицо.',
+    bd: ph.parts,
+    alt: 'Принимается и с местоимением, и без: «' + ph.bare + '» или «' + ph.withPron + '».',
+    free: 1
+  };
+}
+
+/* 3. Опиши и направь: с прилагательным — образ плюс действие. */
+function taskImage(seed){
+  var t = spaceTriple(seed + 3), r = rnd(seed + 41);
+  var a = SPACE_ADJ[r(SPACE_ADJ.length)];
+  var ph = buildPhrase(t.o, t.vi, t.pi, a.k);
+  var wrongSlot = (adjSlotLT(t.o) + 1) % 4;
+  var opts = [
+    {t: ph.bare, ok: 1, w: 'Прилагательное согласовано с предметом (' + t.o.p + ') и оба слова в galininkas.'},
+    {t: conjugate(ph.verb).pres[t.pi] + ' ' + a.lt[wrongSlot] + ' ' + t.o.acc, ok: 0,
+     w: 'Предмет — ' + t.o.p + ', а прилагательное взято в другой форме: ' + a.lt[wrongSlot] + '. Форма прилагательного всегда идёт за предметом.'},
+    {t: conjugate(ph.verb).pres[t.pi] + ' ' + a.nom[adjSlotLT(t.o)] + ' ' + t.o.acc, ok: 0,
+     w: 'Прилагательное осталось в словарной форме (vardininkas), а предмет уже ушёл в galininkas. Уходят оба слова.'},
+    {t: conjugate(ph.verb).pres[t.pi] + ' ' + a.lt[adjSlotLT(t.o)] + ' ' + t.o.lt, ok: 0,
+     w: 'Наоборот: прилагательное в galininkas, а предмет остался в vardininkas.'}
+  ];
+  return {
+    q: 'Опишите и направьте действие: <b>' + a.nom[adjSlotLT(t.o)] + ' ' + t.o.lt + '</b> <i>(' + a.ru[adjSlotRU(t.o)] + ' ' + t.o.ru + ')</i>. Действие: <b>' + ph.verb.inf + '</b>. Кто: <b>' + PRON[t.pi].lt + '</b>.',
+    hint: 'Предмет ' + t.o.lt + ' — это ' + t.o.p + ', поэтому прилагательное стоит в форме ' + a.nom[adjSlotLT(t.o)] + '. Теперь оба слова отправляем в galininkas.',
+    ans: [ph.bare, ph.withPron],
+    rule: 'Предмет решает форму прилагательного, действие отправляет в galininkas оба слова сразу.',
+    opts: opts,
+    bd: ph.parts
+  };
+}
+
+/* ============================================================
+   12c. КОНСТРУКТОР: посмотрите вокруг
+   ============================================================ */
+function renderSpace(host){
+  var state = { o: SPACE_OBJ[0], v: SPACE_OBJ[0].v[0], pi: 0, adj: null };
+
+  function group(label, hint){
+    var g = el('div', 'sp-group');
+    var h = el('p', 'sp-lbl', label);
+    if (hint) h.appendChild(el('span', null, ' ' + hint));
+    g.appendChild(h);
+    var row = el('div', 'sp-row');
+    g.appendChild(row);
+    return { node: g, row: row };
+  }
+
+  var gObj  = group('1 · Что вы видите вокруг', '— выберите предмет');
+  var gAdj  = group('2 · Какой он', '— необязательно, но с образом запоминается лучше');
+  var gVerb = group('3 · Что вы с ним делаете', '— действие');
+  var gWho  = group('4 · Кто действует', '');
+  var out   = el('div', 'sp-out');
+
+  function chip(text, sub, active, on){
+    var b = el('button', 'sp-chip' + (active ? ' on' : ''));
+    b.type = 'button';
+    b.appendChild(el('b', null, text));
+    if (sub) b.appendChild(el('span', null, sub));
+    b.addEventListener('click', on);
+    return b;
+  }
+
+  function paintVerbs(){
+    gVerb.row.textContent = '';
+    state.o.v.forEach(function(vi){
+      var v = VERBS.filter(function(x){ return x.inf === vi; })[0];
+      gVerb.row.appendChild(chip(v.inf, v.ru, state.v === vi, function(){ state.v = vi; paint(); }));
+    });
+  }
+
+  function paint(){
+    gObj.row.textContent = '';
+    SPACE_OBJ.forEach(function(o){
+      gObj.row.appendChild(chip(o.lt, o.ru, state.o === o, function(){
+        state.o = o;
+        if (o.v.indexOf(state.v) === -1) state.v = o.v[0];
+        paint();
+      }));
+    });
+
+    gAdj.row.textContent = '';
+    gAdj.row.appendChild(chip('без описания', '', state.adj === null, function(){ state.adj = null; paint(); }));
+    SPACE_ADJ.forEach(function(a){
+      gAdj.row.appendChild(chip(a.nom[adjSlotLT(state.o)], a.ru[adjSlotRU(state.o)], state.adj === a.k,
+        function(){ state.adj = a.k; paint(); }));
+    });
+
+    paintVerbs();
+
+    gWho.row.textContent = '';
+    PRON.forEach(function(pr, i){
+      gWho.row.appendChild(chip(pr.lt, pr.ru, state.pi === i, function(){ state.pi = i; paint(); }));
+    });
+
+    var ph = buildPhrase(state.o, state.v, state.pi, state.adj);
+    out.textContent = '';
+    out.appendChild(el('p', 'sp-ru', ph.ru));
+    var lt = el('p', 'sp-lt');
+    lt.textContent = ph.lt;
+    out.appendChild(lt);
+    var bd = el('ul', 'bd');
+    ph.parts.forEach(function(x){
+      var li = el('li');
+      li.appendChild(el('b', null, x.w));
+      li.appendChild(el('span', null, x.e));
+      bd.appendChild(li);
+    });
+    out.appendChild(bd);
+  }
+
+  var card = el('section', 'trainer');
+  var head = el('div', 'tr-head');
+  var left = el('div');
+  left.appendChild(el('h3', 'tr-t', 'Посмотрите вокруг себя'));
+  left.appendChild(el('p', 'tr-sub', 'Возьмите любой предмет, который видите прямо сейчас. Назовите его, опишите, направьте на него действие — и посмотрите, что получилось и почему.'));
+  head.appendChild(left);
+  card.appendChild(head);
+  [gObj, gAdj, gVerb, gWho].forEach(function(g){ card.appendChild(g.node); });
+  card.appendChild(out);
+  host.appendChild(card);
+  paint();
 }
 
 /* ============================================================
@@ -1275,22 +1622,50 @@ if ((h = document.getElementById('vk-prefixes'))) {
 
 if ((h = document.getElementById('vk-detail'))) {
   detailHost = el('div');
-  var picker = el('div', 'vb-pick');
-  detailPick = document.createElement('select');
-  detailPick.className = 'vb-select';
-  detailPick.setAttribute('aria-label', 'Выберите глагол для разбора');
-  VERBS.slice().sort(function(a, b){ return a.inf.localeCompare(b.inf, 'lt'); }).forEach(function(v){
-    var o = document.createElement('option');
-    o.value = v.inf;
-    o.textContent = v.inf + ' — ' + v.ru;
-    detailPick.appendChild(o);
-  });
-  detailPick.addEventListener('change', function(){ openDetail(detailPick.value); });
-  picker.appendChild(el('span', 'vb-plbl', 'Глагол:'));
-  picker.appendChild(detailPick);
-  h.appendChild(picker);
+
+  var pick = el('div', 'vpick');
+  var find = document.createElement('input');
+  find.className = 'vb-search';
+  find.type = 'search';
+  find.setAttribute('placeholder', 'Найдите глагол: skait, читать, -inti…');
+  find.setAttribute('aria-label', 'Поиск глагола для разбора');
+  var grid = el('div', 'vpick-grid');
+  var more = el('button', 'tr-again', 'Показать все 146');
+  more.type = 'button';
+  var limited = true;
+
+  function paintPick(){
+    var q = flat(find.value);
+    var list = VERBS.filter(function(v){
+      if (!q) return true;
+      var f = famOf(v);
+      return flat([v.inf, v.pres, v.past, v.ru, f.n].join(' ')).indexOf(q) !== -1;
+    });
+    var shown = (limited && !q) ? list.slice(0, 24) : list;
+    grid.textContent = '';
+    shown.forEach(function(v){
+      var b = el('button', 'sp-chip' + (detailPick === v.inf ? ' on' : ''));
+      b.type = 'button';
+      b.appendChild(el('b', null, v.inf));
+      b.appendChild(el('span', null, v.ru));
+      b.addEventListener('click', function(){ openDetail(v.inf); paintPick(); });
+      grid.appendChild(b);
+    });
+    if (!shown.length) grid.appendChild(el('p', 'wb-count', 'Ничего не найдено — попробуйте другое слово.'));
+    more.hidden = !!q || !limited;
+  }
+  more.addEventListener('click', function(){ limited = false; paintPick(); });
+  find.addEventListener('input', paintPick);
+
+  pick.appendChild(find);
+  pick.appendChild(grid);
+  pick.appendChild(more);
+  h.appendChild(pick);
   h.appendChild(detailHost);
-  openDetail('skaityti');
+  openDetail('valgyti');
+  paintPick();
 }
+
+if ((h = document.getElementById('vk-space'))) renderSpace(h);
 
 })();
