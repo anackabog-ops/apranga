@@ -1,23 +1,99 @@
-© 2026 Божена Анацкая (anacka.lt). Все права защищены.
+© 2026 Божена Анацкая (Božena Anacka), anacka.lt. Все права защищены.
 
-Содержание этого репозитория — авторский учебный материал.
+Полные условия использования, написанные человеческим языком:
+https://apranga.netlify.app/teises.html — файл teises.html в этом
+репозитории. Ниже — краткая редакция.
 
-Разрешается:
-  • пользоваться материалом для личного изучения и в собственных занятиях
-    с учениками, со ссылкой на автора;
-  • цитировать фрагменты с указанием автора и адреса сайта.
+--------------------------------------------------------------------
+ЧТО ОХРАНЯЕТСЯ
 
-Запрещается без письменного согласия автора:
+Всё содержимое репозитория — авторский учебный материал:
+
+  • тексты разборов, объяснения и формулировки;
+  • отбор, группировка и расположение примеров;
+  • таблицы, схемы, словари;
+  • задания тренажёров вместе с вариантами ответов и объяснениями
+    (app.js, linksniai.js);
+  • программный код и оформление (*.html, *.css, *.js);
+  • фотографии и иллюстрации (*.webp).
+
+Авторское право охраняет выражение, а не идею. Метод преподавания
+как таковой не охраняется — охраняется его конкретное изложение
+в этих файлах. Литовские слова, их формы и грамматические правила
+не принадлежат никому; принадлежит то, как они здесь отобраны,
+объяснены и организованы.
+
+--------------------------------------------------------------------
+РАЗРЕШАЕТСЯ БЕЗ ОТДЕЛЬНОГО СОГЛАСИЯ
+
+  • пользоваться материалом для личного изучения;
+  • опираться на него в собственных занятиях с учениками,
+    называя источник;
+  • цитировать фрагменты с указанием автора и адреса сайта;
+  • ссылаться на любую страницу — разрешения на ссылку
+    не требуется никогда;
+  • объяснять те же правила своими словами и на своих примерах.
+
+--------------------------------------------------------------------
+ЗАПРЕЩАЕТСЯ БЕЗ ПИСЬМЕННОГО СОГЛАСИЯ АВТОРА
+
   • публиковать материал целиком или его существенные части
     на других ресурсах;
-  • продавать материал или включать его в платные продукты;
-  • удалять указание авторства.
+  • продавать материал или включать его в платные продукты,
+    в том числе в переработанном виде;
+  • удалять или изменять указание авторства, включая знаки ©
+    в файлах кода и оформления;
+  • публиковать материал под другим именем или без имени;
+  • переводить, переверстывать, пересобирать в другой формат
+    и распространять результат;
+  • использовать содержимое как обучающие данные для платных
+    ИИ-сервисов.
 
-По вопросам использования: anacka.lt
+Молчание автора согласием не считается.
 
----
+--------------------------------------------------------------------
+КАК ЗАПРОСИТЬ РАЗРЕШЕНИЕ
+
+Instagram: https://www.instagram.com/anacka.lt/
+Telegram:  https://t.me/laikaspagalvoti
+
+Укажите, что именно берёте, где опубликуете и зачем.
+На учебные и некоммерческие просьбы автор обычно отвечает согласием.
+
+--------------------------------------------------------------------
+ОБРАЗЕЦ ССЫЛКИ НА АВТОРА
+
+  Источник: Божена Анацкая, anacka.lt
+  https://apranga.netlify.app/
+
+В интернете ссылка должна быть кликабельной и вести на страницу,
+откуда взят фрагмент.
+
+====================================================================
 
 © 2026 Božena Anacka (anacka.lt). All rights reserved.
-This repository contains original educational material. Personal and
-classroom use with attribution is permitted; redistribution, resale, or
-removal of attribution requires the author's written permission.
+
+This repository contains original educational material: explanatory
+texts, the selection and arrangement of examples, tables, glossaries,
+trainer exercises with their answer options and explanations, source
+code, styling and photographs.
+
+Permitted without prior consent: personal study; use in one's own
+teaching with attribution; quotation with attribution and a link to
+the source page; linking to any page; explaining the same rules in
+one's own words and with one's own examples.
+
+Requires the author's written consent: republishing the material in
+whole or in substantial part; selling it or bundling it into paid
+products, including in adapted form; removing or altering attribution,
+including the copyright notices inside the code and stylesheets;
+publishing it under another name or anonymously; translating,
+reformatting or repackaging it for distribution; using it as training
+data for commercial AI services.
+
+Copyright protects expression, not ideas: the teaching method itself
+is not covered, its concrete presentation in these files is.
+
+Requests: https://www.instagram.com/anacka.lt/
+
+Редакция от 9 сентября 2026 года.
