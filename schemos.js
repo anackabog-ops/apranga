@@ -79,6 +79,25 @@ function imperStem(inf){
 
 var PERSONS = ['aš', 'tu', 'jis / ji', 'mes', 'jūs', 'jie / jos'];
 
+/* Три города настоящего времени и два дома прошедшего.
+   Официальная грамматика называет их asmenuotės (-(i)a, -i, -o)
+   и две основы прошедшего (-o, -ė). Названия «город» и «дом» — наши,
+   чтобы систему было видно раньше, чем терминологию. */
+var CITY = {
+  'I':   {n:'город A',  lt:'I asmenuotė · -(i)a', ends:'-u · -i · -a · -ame · -ate · -a'},
+  'II':  {n:'город I',  lt:'II asmenuotė · -i',   ends:'-iu · -i · -i · -ime · -ite · -i'},
+  'III': {n:'город O',  lt:'III asmenuotė · -o',  ends:'-au · -ai · -o · -ome · -ote · -o'}
+};
+var HOUSE = {
+  'O': {n:'дом O', lt:'būtojo kartinio kamienas -o', ends:'-au · -ai · -o · -ome · -ote · -o'},
+  'Ė': {n:'дом Ė', lt:'būtojo kartinio kamienas -ė', ends:'-iau · -ei · -ė · -ėme · -ėte · -ė'}
+};
+var REL = {
+  'full': ['Маршрут известен целиком', 'rel-full'],
+  'past': ['Стабильно только прошлое', 'rel-past'],
+  'none': ['Маршрута нет — учим три формы', 'rel-none']
+};
+
 /* Настоящее время. Спряжение определяется окончанием 3-го лица:
    -a → I (dirba), -i → II (turi), -o → III (skaito).            */
 function present(pres3){
@@ -170,6 +189,28 @@ function participles(inf, pres3, past3, transitive){
   };
 }
 
+/* Город настоящего времени определяется по третьему лицу:
+   -a → город A (I asmenuotė), -i → город I (II), -o → город O (III). */
+function cityOf(pres3){
+  if (/o$/.test(pres3)) return {k:'III', n:'город O', ends:'-au · -ai · -o · -ome · -ote · -o'};
+  if (/i$/.test(pres3)) return {k:'II',  n:'город I', ends:'-iu · -i · -i · -ime · -ite · -i'};
+  return                       {k:'I',   n:'город A', ends:'-u · -i · -a · -ame · -ate · -a'};
+}
+/* Дом прошедшего — по третьему лицу прошедшего: -o или -ė. */
+function houseOf(past3){
+  if (/ė$/.test(past3)) return {k:'Ė', n:'дом Ė', ends:'-iau · -ei · -ė · -ėme · -ėte · -ė'};
+  return                       {k:'O', n:'дом O', ends:'-au · -ai · -o · -ome · -ote · -o'};
+}
+function ci_stem(pres3){ return pres3.slice(0, -1); }
+function famOf(v){
+  var f = FAMILIES.filter(function(x){ return x.k === v.g; })[0];
+  return f || FAMILIES[FAMILIES.length - 1];
+}
+/* Маршрут конкретного глагола: инфинитив → город → дом. */
+function routeOf(v){
+  return v.inf + '  →  ' + cityOf(v.pres).n + '  →  ' + houseOf(v.past).n;
+}
+
 /* Полная парадигма одного глагола.
    irrPres — ручная замена настоящего времени: она нужна ровно
    одному глаголу, būti, у которого настоящее не выводится ниоткуда. */
@@ -195,78 +236,95 @@ function conjugate(v){
    форм ждать. Внутри группы схема одна и та же, поэтому выучив
    один глагол, вы получаете все остальные из списка даром.
    ============================================================ */
-var GROUPS = [
-  { k:'inti', n:'Устойчивые -inti',
-    cut:'−&nbsp;-ti',
-    formula:'gerinti − -ti → gerin-',
-    d:'Самая спокойная группа: основа не меняется нигде. Убираем только -ti, и полученный кусок работает и в настоящем, и в прошедшем, и в будущем.',
-    pres:'-u · -i · -a · -ame · -ate · -a',
-    past:'-au · -ai · -o · -ome · -ote · -o',
-    ex:'gerinti · gerina · gerino',
-    note:'Почти все глаголы этой группы — переходные: они выросли из прилагательных и означают «делать каким-то». Значит, зовут galininkas: <i>gerinu ką? — rezultatą</i> (улучшаю что? — результат).' },
+var FAMILIES = [
+  /* ---- маршрут известен целиком ---- */
+  {k:'yti', n:'Семья -yti', rel:'full',
+   cut:'убрать -yti', stem:'valgyti − -yti → valg-',
+   city:'III', house:'Ė',
+   route:'-yti  →  город O  →  дом Ė',
+   d:'Самая большая стабильная семья языка. Убираем -yti целиком — и полученная основа работает и в настоящем, и в прошедшем. В настоящем она живёт в городе O, в прошлом переезжает в дом Ė.',
+   ex:'valgyti → valgo → valgė',
+   exru:'есть → ест → ел',
+   note:'Мы больше не учим <i>daryti — daro</i> как отдельный факт. Мы знаем: daryti из семьи -yti, а эта семья живёт в городе O и уезжает в дом Ė. Одно правило — десятки глаголов.'},
 
-  { k:'yti', n:'Устойчивые -yti',
-    cut:'−&nbsp;-yti',
-    formula:'skaityti − -yti → skait-',
-    d:'Убираем сразу -yti целиком. Полученная основа даёт настоящее и прошедшее. Буква y возвращается в будущем, в многократном, в условном и в повелительном — там основа берётся от инфинитива.',
-    pres:'-au · -ai · -o · -ome · -ote · -o',
-    past:'-iau · -ei · -ė · -ėme · -ėte · -ė',
-    ex:'skaityti · skaito · skaitė',
-    note:'Перед -iau в 1-м лице прошедшего <b>t переходит в č</b>, а <b>d — в dž</b>: skait- + -iau → <i>skaičiau</i> (я читал), rod- + -iau → <i>rodžiau</i> (я показывал). В страдательном причастии прошедшего y сохраняется: <i>skaitytas</i> (прочитанный).' },
+  {k:'inti', n:'Семья -inti', rel:'full',
+   cut:'убрать -ti', stem:'gerinti − -ti → gerin-',
+   city:'I', house:'O',
+   route:'-inti  →  город A  →  дом O',
+   d:'Основа не меняется вообще: убрали -ti — и всё. Живёт в городе A, в прошлом переезжает в дом O, где окончания те же, что в городе O настоящего времени.',
+   ex:'gerinti → gerina → gerino',
+   exru:'улучшать → улучшает → улучшал',
+   note:'Эта семья вырастает из прилагательных и означает «делать что-то каким-то», поэтому почти вся она переходная и зовёт <b>ką?</b> — <i>gerinti sveikatą</i> (улучшать здоровье). Подробно — в разделе про пару -inti / -ėti.'},
 
-  { k:'eti-i', n:'-ėti с настоящим на -i',
-    cut:'−&nbsp;-ėti',
-    formula:'turėti − -ėti → tur- · прошедшее turėj-',
-    d:'В настоящем времени работает короткая основа и II спряжение. В прошедшем возвращается -ėj-, и дальше всё идёт по спокойному -o-типу.',
-    pres:'-iu · -i · -i · -ime · -ite · -i',
-    past:'-au · -ai · -o · -ome · -ote · -o',
-    ex:'turėti · turi · turėjo',
-    note:'Сюда попадают самые частые глаголы языка: <i>turėti</i> (иметь), <i>norėti</i> (хотеть), <i>galėti</i> (мочь), <i>mylėti</i> (любить). Их стоит выучить первыми.' },
+  {k:'eti-eja', n:'Семья -ėti со значением «становиться»', rel:'full',
+   cut:'убрать -ti', stem:'gerėti − -ti → gerė- → основа gerėj-',
+   city:'I', house:'O',
+   route:'-ėti «становиться»  →  город A  →  дом O',
+   d:'Зеркальная пара к -inti. Если -inti — «сделать каким-то», то это — «стать каким-то самому». В настоящем появляется j и работает город A, в прошлом — дом O.',
+   ex:'gerėti → gerėja → gerėjo',
+   exru:'улучшаться → улучшается → улучшался',
+   note:'Внимание на два похожих слова: <b>gerėjate</b> — это настоящее время («вы становитесь лучше»), а <b>gerėjote</b> — прошедшее («вы становились лучше»). Различает их одна буква.'},
 
-  { k:'eti-a', n:'-ėti с настоящим на -a',
-    cut:'−&nbsp;-ėti',
-    formula:'kalbėti − -ėti → kalb- · прошедшее kalbėj-',
-    d:'То же самое, но настоящее идёт по I спряжению. Разницу видно только по третьему лицу, поэтому его и заучивают вместе со словом.',
-    pres:'-u · -i · -a · -ame · -ate · -a',
-    past:'-au · -ai · -o · -ome · -ote · -o',
-    ex:'kalbėti · kalba · kalbėjo',
-    note:'Пара <i>kalbėti — kalba</i> (говорить) против <i>turėti — turi</i> (иметь) показывает, почему третье лицо входит в главные формы: по инфинитиву его не угадать.' },
+  {k:'auti', n:'Семья -auti и -uoti', rel:'full',
+   cut:'убрать -ti', stem:'keliauti − -ti → keliau- → основа keliauj-',
+   city:'I', house:'O',
+   route:'-auti / -uoti  →  город A  →  дом O',
+   d:'В настоящем появляется j и работает город A. В прошлом -au- и -uo- сменяются на -av-, и дальше идёт обычный дом O.',
+   ex:'keliauti → keliauja → keliavo',
+   exru:'путешествовать → путешествует → путешествовал',
+   note:'Сюда же уходят почти все заимствования: <i>studijuoti</i> (учиться в вузе), <i>organizuoti</i> (организовывать), <i>sportuoti</i> (заниматься спортом). Новое иностранное слово в литовском почти всегда становится глаголом этой семьи.'},
 
-  { k:'eti-eja', n:'-ėti со значением «становиться»',
-    cut:'−&nbsp;-ti',
-    formula:'gerėti − -ti → gerė- · настоящее gerėja',
-    d:'Пара к группе -inti. Если -inti означает «делать каким-то», то -ėti означает «становиться каким-то». Действие остаётся при подлежащем и наружу не выходит.',
-    pres:'-ju · -ji · -ja · -jame · -jate · -ja',
-    past:'-jau · -jai · -jo · -jome · -jote · -jo',
-    ex:'gerėti · gerėja · gerėjo',
-    note:'Эти глаголы <b>непереходные</b> — galininkas им не нужен: <i>oras gerėja</i> (погода улучшается), но <i>gerinu rezultatą</i> (улучшаю результат). Вся группа парная: gerėti/gerinti, didėti/didinti, mažėti/mažinti.' },
+  /* ---- стабильно только прошлое ---- */
+  {k:'eti', n:'Семья -ėti', rel:'past',
+   cut:'убрать -ti', stem:'turėti − -ėti → tur- · прошедшее turėj-',
+   city:null, house:'O',
+   route:'-ėti  →  город проверяем  →  дом O',
+   d:'Дорога в прошлое надёжная: -ėti почти всегда даёт -ėjo. А вот город настоящего по инфинитиву не угадывается — его нужно посмотреть в третьем лице.',
+   ex:'turėti → turi → turėjo',
+   exru:'иметь → имеет → имел',
+   note:'Вот почему город надо проверять: <i>turėti → turi</i> (город I), но <i>kalbėti → kalba</i> (город A). Оба на -ėti, а живут в разных городах. Это и есть та информация, ради которой третья форма существует.'},
 
-  { k:'uoti', n:'-uoti и -auti с прошедшим на -avo',
-    cut:'−&nbsp;-uoti / -auti',
-    formula:'dainuoti → dainuoja · dainavo',
-    d:'Единственная группа, где основа прошедшего заметно отличается от основы настоящего: -uo- и -au- сменяются на -av-.',
-    pres:'-ju · -ji · -ja · -jame · -jate · -ja',
-    past:'-au · -ai · -o · -ome · -ote · -o',
-    ex:'dainuoti · dainuoja · dainavo',
-    note:'Сюда же уходят почти все заимствования: <i>studijuoti</i> (учиться в вузе), <i>sportuoti</i> (заниматься спортом), <i>organizuoti</i> (организовывать). Новое иностранное слово в литовском почти всегда становится глаголом на -uoti.' },
+  {k:'oti', n:'Семья -oti', rel:'past',
+   cut:'убрать -ti', stem:'dėkoti − -ti → dėko- · прошедшее dėkoj-',
+   city:null, house:'O',
+   route:'-oti  →  город проверяем  →  дом O',
+   d:'Ровно та же история: в прошлом почти всегда -ojo, а город настоящего бывает разный.',
+   ex:'dėkoti → dėkoja → dėkojo',
+   exru:'благодарить → благодарит → благодарил',
+   note:'Сравните: <i>dėkoti → dėkoja</i> (город A), но <i>ieškoti → ieško</i> (город O) и <i>bijoti → bijo</i> (город O). Два последних к тому же зовут не galininkas, а kilmininkas: <i>ieškau raktų</i> (ищу ключи), <i>bijau šuns</i> (боюсь собаки).'},
 
-  { k:'oti', n:'-oti',
-    cut:'−&nbsp;-ti',
-    formula:'galvoti − -ti → galvo- · настоящее galvoja',
-    d:'Основа кончается на -o, и к ней добавляется j. Но часть глаголов этой группы идёт без j в настоящем — тем важнее знать третье лицо.',
-    pres:'-ju · -ji · -ja · -jame · -jate · -ja',
-    past:'-jau · -jai · -jo · -jome · -jote · -jo',
-    ex:'galvoti · galvoja · galvojo',
-    note:'Сравните: <i>galvoti — galvoja</i> (думать), но <i>ieškoti — ieško</i> (искать) и <i>bijoti — bijo</i> (бояться). Инфинитив одинаковый, настоящее разное. Оба последних требуют kilmininkas: <i>ieškau raktų</i> (ищу ключи), <i>bijau šuns</i> (боюсь собаки).' },
+  /* ---- бунтари ---- */
+  {k:'kinta', n:'Бунтари', rel:'none',
+   cut:'три формы', stem:'по трём главным формам',
+   city:null, house:null,
+   route:'инфинитив ничего не обещает — учим три формы',
+   d:'Здесь схемы не будет, и это честный ответ. По инфинитиву у этих глаголов нельзя узнать ни город, ни дом — поэтому именно им и нужны три главные формы. Заметьте: окончания у бунтарей самые обычные. Непредсказуема только основа.',
+   ex:'imti → ima → ėmė',
+   exru:'брать → берёт → брал',
+   note:'Утешение: бунтарей немного, но они самые частые — <i>būti</i> (быть), <i>eiti</i> (идти), <i>duoti</i> (давать), <i>imti</i> (брать). Вы услышите их сотни раз и запомните без таблицы. Особый случай — <b>būti</b>: у него в разных временах разные корни (esu, yra, buvo), грамматика называет это супплетивизмом.'}
+];
 
-  { k:'kinta', n:'Основа меняется',
-    cut:'по трём формам',
-    formula:'imti · ima · ėmė',
-    d:'Здесь схемы не будет — и это честный ответ. У этих глаголов основа меняется от времени к времени, поэтому три главные формы заучиваются вместе, как одно слово из трёх частей.',
-    pres:'по третьему лицу',
-    past:'по третьему лицу',
-    ex:'imti · ima · ėmė',
-    note:'Утешение: таких глаголов немного, но они самые частые — <i>būti</i> (быть), <i>eiti</i> (идти), <i>duoti</i> (давать), <i>imti</i> (брать). Их вы всё равно услышите сотни раз и запомните без таблицы.' }
+/* Прилагательное → два глагола: «сделать таким» и «стать таким».
+   Одна пара объясняет сразу словообразование, переходность и падеж. */
+var PAIRS = [
+  {adj:'geras',   adjru:'хороший',           inti:'gerinti',    intiru:'улучшать',      eti:'gerėti',    etiru:'улучшаться'},
+  {adj:'blogas',  adjru:'плохой',            inti:'bloginti',   intiru:'ухудшать',      eti:'blogėti',   etiru:'ухудшаться'},
+  {adj:'didelis', adjru:'большой',           inti:'didinti',    intiru:'увеличивать',   eti:'didėti',    etiru:'увеличиваться'},
+  {adj:'mažas',   adjru:'маленький',         inti:'mažinti',    intiru:'уменьшать',     eti:'mažėti',    etiru:'уменьшаться'},
+  {adj:'stiprus', adjru:'сильный',           inti:'stiprinti',  intiru:'укреплять',     eti:'stiprėti',  etiru:'крепнуть'},
+  {adj:'silpnas', adjru:'слабый',            inti:'silpninti',  intiru:'ослаблять',     eti:'silpnėti',  etiru:'слабеть'},
+  {adj:'tobulas', adjru:'совершенный',       inti:'tobulinti',  intiru:'совершенствовать', eti:'tobulėti', etiru:'совершенствоваться'},
+  {adj:'greitas', adjru:'быстрый',           inti:'greitinti',  intiru:'ускорять',      eti:'greitėti',  etiru:'ускоряться'},
+  {adj:'lėtas',   adjru:'медленный',         inti:'lėtinti',    intiru:'замедлять',     eti:'lėtėti',    etiru:'замедляться'},
+  {adj:'sunkus',  adjru:'тяжёлый, трудный',  inti:'sunkinti',   intiru:'утяжелять',     eti:'sunkėti',   etiru:'становиться тяжелее'},
+  {adj:'lengvas', adjru:'лёгкий',            inti:'lengvinti',  intiru:'облегчать',     eti:'lengvėti',  etiru:'становиться легче'},
+  {adj:'švarus',  adjru:'чистый',            inti:'švarinti',   intiru:'очищать',       eti:'švarėti',   etiru:'становиться чище'},
+  {adj:'tamsus',  adjru:'тёмный',            inti:'tamsinti',   intiru:'затемнять',     eti:'tamsėti',   etiru:'темнеть'},
+  {adj:'šviesus', adjru:'светлый',           inti:'šviesinti',  intiru:'осветлять',     eti:'šviesėti',  etiru:'светлеть'},
+  {adj:'ilgas',   adjru:'длинный',           inti:'ilginti',    intiru:'удлинять',      eti:'ilgėti',    etiru:'удлиняться'},
+  {adj:'trumpas', adjru:'короткий',          inti:'trumpinti',  intiru:'укорачивать',   eti:'trumpėti',  etiru:'укорачиваться'},
+  {adj:'gražus',  adjru:'красивый',          inti:'gražinti',   intiru:'украшать',      eti:'gražėti',   etiru:'хорошеть'},
+  {adj:'tikras',  adjru:'настоящий, верный', inti:'tikrinti',   intiru:'проверять',     eti:'—',         etiru:'—'}
 ];
 
 /* ============================================================
@@ -277,6 +335,11 @@ var GROUPS = [
    ============================================================ */
 var VERBS = [
   /* ---- устойчивые -inti ---- */
+  {inf:'tobulinti', pres:'tobulina', past:'tobulino', ru:'совершенствовать', g:'inti', t:1},
+  {inf:'silpninti', pres:'silpnina', past:'silpnino', ru:'ослаблять', g:'inti', t:1},
+  {inf:'greitinti', pres:'greitina', past:'greitino', ru:'ускорять', g:'inti', t:1},
+  {inf:'lėtinti', pres:'lėtina', past:'lėtino', ru:'замедлять', g:'inti', t:1},
+  {inf:'gražinti', pres:'gražina', past:'gražino', ru:'украшать, делать красивее', g:'inti', t:1},
   {inf:'gerinti', pres:'gerina', past:'gerino', ru:'улучшать', g:'inti', t:1},
   {inf:'bloginti', pres:'blogina', past:'blogino', ru:'ухудшать', g:'inti', t:1},
   {inf:'didinti', pres:'didina', past:'didino', ru:'увеличивать', g:'inti', t:1},
@@ -305,6 +368,9 @@ var VERBS = [
   {inf:'dalinti', pres:'dalina', past:'dalino', ru:'делить, раздавать', g:'inti', t:1},
 
   /* ---- устойчивые -yti ---- */
+  {inf:'prašyti', pres:'prašo', past:'prašė', ru:'просить', g:'yti', c:'kilmininkas · ko?'},
+  {inf:'atsiprašyti', pres:'atsiprašo', past:'atsiprašė', ru:'извиняться', g:'yti', c:'kilmininkas · ko?'},
+  {inf:'bandyti', pres:'bando', past:'bandė', ru:'пробовать, пытаться', g:'yti', t:1},
   {inf:'skaityti', pres:'skaito', past:'skaitė', ru:'читать', g:'yti', t:1},
   {inf:'rašyti', pres:'rašo', past:'rašė', ru:'писать', g:'yti', t:1},
   {inf:'daryti', pres:'daro', past:'darė', ru:'делать', g:'yti', t:1},
@@ -331,24 +397,28 @@ var VERBS = [
   {inf:'girdyti', pres:'girdo', past:'girdė', ru:'поить', g:'yti', t:1},
 
   /* ---- -ėti с настоящим на -i ---- */
-  {inf:'turėti', pres:'turi', past:'turėjo', ru:'иметь', g:'eti-i', t:1},
-  {inf:'norėti', pres:'nori', past:'norėjo', ru:'хотеть', g:'eti-i'},
-  {inf:'galėti', pres:'gali', past:'galėjo', ru:'мочь', g:'eti-i'},
-  {inf:'mylėti', pres:'myli', past:'mylėjo', ru:'любить', g:'eti-i', t:1},
-  {inf:'girdėti', pres:'girdi', past:'girdėjo', ru:'слышать', g:'eti-i', t:1},
-  {inf:'žiūrėti', pres:'žiūri', past:'žiūrėjo', ru:'смотреть', g:'eti-i'},
-  {inf:'sėdėti', pres:'sėdi', past:'sėdėjo', ru:'сидеть', g:'eti-i'},
-  {inf:'gulėti', pres:'guli', past:'gulėjo', ru:'лежать', g:'eti-i'},
-  {inf:'tylėti', pres:'tyli', past:'tylėjo', ru:'молчать', g:'eti-i'},
-  {inf:'tikėti', pres:'tiki', past:'tikėjo', ru:'верить', g:'eti-i'},
+  {inf:'turėti', pres:'turi', past:'turėjo', ru:'иметь', g:'eti', t:1},
+  {inf:'norėti', pres:'nori', past:'norėjo', ru:'хотеть', g:'eti', c:'kilmininkas · ko?'},
+  {inf:'galėti', pres:'gali', past:'galėjo', ru:'мочь', g:'eti'},
+  {inf:'mylėti', pres:'myli', past:'mylėjo', ru:'любить', g:'eti', t:1},
+  {inf:'girdėti', pres:'girdi', past:'girdėjo', ru:'слышать', g:'eti', t:1},
+  {inf:'žiūrėti', pres:'žiūri', past:'žiūrėjo', ru:'смотреть', g:'eti'},
+  {inf:'sėdėti', pres:'sėdi', past:'sėdėjo', ru:'сидеть', g:'eti'},
+  {inf:'gulėti', pres:'guli', past:'gulėjo', ru:'лежать', g:'eti'},
+  {inf:'tylėti', pres:'tyli', past:'tylėjo', ru:'молчать', g:'eti'},
+  {inf:'tikėti', pres:'tiki', past:'tikėjo', ru:'верить', g:'eti'},
 
   /* ---- -ėti с настоящим на -a ---- */
-  {inf:'kalbėti', pres:'kalba', past:'kalbėjo', ru:'говорить', g:'eti-a'},
-  {inf:'mokėti', pres:'moka', past:'mokėjo', ru:'уметь; платить', g:'eti-a', t:1},
-  {inf:'skaudėti', pres:'skauda', past:'skaudėjo', ru:'болеть (о боли)', g:'eti-a'},
-  {inf:'skambėti', pres:'skamba', past:'skambėjo', ru:'звучать', g:'eti-a'},
+  {inf:'kalbėti', pres:'kalba', past:'kalbėjo', ru:'говорить', g:'eti'},
+  {inf:'mokėti', pres:'moka', past:'mokėjo', ru:'уметь; платить', g:'eti', t:1},
+  {inf:'skaudėti', pres:'skauda', past:'skaudėjo', ru:'болеть (о боли)', g:'eti'},
+  {inf:'skambėti', pres:'skamba', past:'skambėjo', ru:'звучать', g:'eti'},
 
   /* ---- -ėti «становиться» ---- */
+  {inf:'tobulėti', pres:'tobulėja', past:'tobulėjo', ru:'совершенствоваться', g:'eti-eja'},
+  {inf:'greitėti', pres:'greitėja', past:'greitėjo', ru:'ускоряться', g:'eti-eja'},
+  {inf:'lėtėti', pres:'lėtėja', past:'lėtėjo', ru:'замедляться', g:'eti-eja'},
+  {inf:'gražėti', pres:'gražėja', past:'gražėjo', ru:'хорошеть', g:'eti-eja'},
   {inf:'gerėti', pres:'gerėja', past:'gerėjo', ru:'улучшаться', g:'eti-eja'},
   {inf:'blogėti', pres:'blogėja', past:'blogėjo', ru:'ухудшаться', g:'eti-eja'},
   {inf:'didėti', pres:'didėja', past:'didėjo', ru:'увеличиваться', g:'eti-eja'},
@@ -366,26 +436,29 @@ var VERBS = [
   {inf:'brangėti', pres:'brangėja', past:'brangėjo', ru:'дорожать', g:'eti-eja'},
   {inf:'senėti', pres:'senėja', past:'senėjo', ru:'стареть', g:'eti-eja'},
 
-  /* ---- -uoti / -auti ---- */
-  {inf:'dainuoti', pres:'dainuoja', past:'dainavo', ru:'петь', g:'uoti', t:1},
-  {inf:'keliauti', pres:'keliauja', past:'keliavo', ru:'путешествовать', g:'uoti'},
-  {inf:'važiuoti', pres:'važiuoja', past:'važiavo', ru:'ехать', g:'uoti'},
-  {inf:'studijuoti', pres:'studijuoja', past:'studijavo', ru:'учиться (в вузе)', g:'uoti', t:1},
-  {inf:'sportuoti', pres:'sportuoja', past:'sportavo', ru:'заниматься спортом', g:'uoti'},
-  {inf:'meluoti', pres:'meluoja', past:'melavo', ru:'врать', g:'uoti'},
-  {inf:'kainuoti', pres:'kainuoja', past:'kainavo', ru:'стоить', g:'uoti'},
-  {inf:'juokauti', pres:'juokauja', past:'juokavo', ru:'шутить', g:'uoti'},
-  {inf:'skaičiuoti', pres:'skaičiuoja', past:'skaičiavo', ru:'считать', g:'uoti', t:1},
-  {inf:'organizuoti', pres:'organizuoja', past:'organizavo', ru:'организовывать', g:'uoti', t:1},
+  /* ---- -auti / -uoti ---- */
+  {inf:'bendrauti', pres:'bendrauja', past:'bendravo', ru:'общаться', g:'auti'},
+  {inf:'dalyvauti', pres:'dalyvauja', past:'dalyvavo', ru:'участвовать', g:'auti'},
+  {inf:'dainuoti', pres:'dainuoja', past:'dainavo', ru:'петь', g:'auti', t:1},
+  {inf:'keliauti', pres:'keliauja', past:'keliavo', ru:'путешествовать', g:'auti'},
+  {inf:'važiuoti', pres:'važiuoja', past:'važiavo', ru:'ехать', g:'auti'},
+  {inf:'studijuoti', pres:'studijuoja', past:'studijavo', ru:'учиться (в вузе)', g:'auti', t:1},
+  {inf:'sportuoti', pres:'sportuoja', past:'sportavo', ru:'заниматься спортом', g:'auti'},
+  {inf:'meluoti', pres:'meluoja', past:'melavo', ru:'врать', g:'auti'},
+  {inf:'kainuoti', pres:'kainuoja', past:'kainavo', ru:'стоить', g:'auti'},
+  {inf:'juokauti', pres:'juokauja', past:'juokavo', ru:'шутить', g:'auti'},
+  {inf:'skaičiuoti', pres:'skaičiuoja', past:'skaičiavo', ru:'считать', g:'auti', t:1},
+  {inf:'organizuoti', pres:'organizuoja', past:'organizavo', ru:'организовывать', g:'auti', t:1},
 
   /* ---- -oti ---- */
+  {inf:'dėkoti', pres:'dėkoja', past:'dėkojo', ru:'благодарить', g:'oti', c:'naudininkas · kam?'},
   {inf:'galvoti', pres:'galvoja', past:'galvojo', ru:'думать', g:'oti'},
   {inf:'dovanoti', pres:'dovanoja', past:'dovanojo', ru:'дарить', g:'oti', t:1},
   {inf:'kartoti', pres:'kartoja', past:'kartojo', ru:'повторять', g:'oti', t:1},
   {inf:'vaikščioti', pres:'vaikščioja', past:'vaikščiojo', ru:'ходить', g:'oti'},
   {inf:'nešioti', pres:'nešioja', past:'nešiojo', ru:'носить', g:'oti', t:1},
-  {inf:'ieškoti', pres:'ieško', past:'ieškojo', ru:'искать', g:'oti'},
-  {inf:'bijoti', pres:'bijo', past:'bijojo', ru:'бояться', g:'oti'},
+  {inf:'ieškoti', pres:'ieško', past:'ieškojo', ru:'искать', g:'oti', c:'kilmininkas · ko?'},
+  {inf:'bijoti', pres:'bijo', past:'bijojo', ru:'бояться', g:'oti', c:'kilmininkas · ko?'},
   {inf:'miegoti', pres:'miega', past:'miegojo', ru:'спать', g:'oti'},
   {inf:'žinoti', pres:'žino', past:'žinojo', ru:'знать', g:'oti', t:1},
 
@@ -414,7 +487,7 @@ var VERBS = [
   {inf:'leisti', pres:'leidžia', past:'leido', ru:'пускать, разрешать', g:'kinta', t:1},
   {inf:'jausti', pres:'jaučia', past:'jautė', ru:'чувствовать', g:'kinta', t:1},
   {inf:'klausti', pres:'klausia', past:'klausė', ru:'спрашивать', g:'kinta'},
-  {inf:'laukti', pres:'laukia', past:'laukė', ru:'ждать', g:'kinta'},
+  {inf:'laukti', pres:'laukia', past:'laukė', ru:'ждать', g:'kinta', c:'kilmininkas · ko?'},
   {inf:'baigti', pres:'baigia', past:'baigė', ru:'заканчивать', g:'kinta', t:1},
   {inf:'plauti', pres:'plauna', past:'plovė', ru:'мыть', g:'kinta', t:1},
   {inf:'pjauti', pres:'pjauna', past:'pjovė', ru:'резать', g:'kinta', t:1},
@@ -536,41 +609,45 @@ function analyse(text){
    8. СХЕМЫ ГРУПП
    ============================================================ */
 function renderSchemas(host){
-  GROUPS.forEach(function(g){
-    var n = VERBS.filter(function(v){ return v.g === g.k; }).length;
-    var card = el('section', 'sch');
-    card.id = 'g-' + g.k;
+  FAMILIES.forEach(function(f){
+    var list = VERBS.filter(function(v){ return v.g === f.k; });
+    var card = el('section', 'sch ' + REL[f.rel][1]);
+    card.id = 'g-' + f.k;
 
     var head = el('div', 'sch-head');
-    var t = el('h3', 'sch-t', g.n);
-    head.appendChild(t);
-    head.appendChild(el('span', 'sch-n', n + ' в базе'));
+    head.appendChild(el('h3', 'sch-t', f.n));
+    head.appendChild(el('span', 'sch-badge', REL[f.rel][0]));
     card.appendChild(head);
 
-    var f = el('div', 'sch-f');
-    f.innerHTML = g.formula;
-    card.appendChild(f);
+    var route = el('div', 'sch-f');
+    route.textContent = f.route;
+    card.appendChild(route);
 
-    card.appendChild(el('p', 'sch-d', g.d));
+    card.appendChild(el('p', 'sch-d', f.d));
 
     var rows = el('div', 'sch-rows');
-    [['Настоящее', g.pres], ['Прошедшее однократное', g.past], ['Три главные формы', g.ex]].forEach(function(r){
-      var row = el('div', 'sch-row');
-      row.appendChild(el('b', null, r[0]));
-      row.appendChild(el('span', null, r[1]));
-      rows.appendChild(row);
-    });
+    function row(a, b){
+      var r = el('div', 'sch-row');
+      r.appendChild(el('b', null, a));
+      r.appendChild(el('span', null, b));
+      rows.appendChild(r);
+    }
+    row('Что делаем с инфинитивом', f.stem);
+    row('Город настоящего', f.city ? CITY[f.city].n + ' · окончания ' + CITY[f.city].ends
+                                   : 'по инфинитиву не угадать — смотрим третье лицо');
+    row('Дом прошедшего', f.house ? HOUSE[f.house].n + ' · окончания ' + HOUSE[f.house].ends
+                                  : 'по инфинитиву не угадать — смотрим третье лицо');
+    row('Пример', f.ex + '  —  ' + f.exru);
     card.appendChild(rows);
 
-    if (g.note) {
+    if (f.note) {
       var nb = el('p', 'sch-note');
-      nb.innerHTML = g.note;
+      nb.innerHTML = f.note;
       card.appendChild(nb);
     }
 
-    /* список глаголов группы — чипами */
     var chips = el('div', 'chips');
-    VERBS.filter(function(v){ return v.g === g.k; }).forEach(function(v){
+    list.forEach(function(v){
       var c = el('button', 'chip-v');
       c.type = 'button';
       c.appendChild(el('b', null, v.inf));
@@ -578,9 +655,36 @@ function renderSchemas(host){
       c.addEventListener('click', function(){ openDetail(v.inf); });
       chips.appendChild(c);
     });
+    var cap = el('p', 'sch-cap', 'В базе этой семьи: ' + list.length +
+                 '. Нажмите на глагол — откроется полный разбор.');
+    card.appendChild(cap);
     card.appendChild(chips);
     host.appendChild(card);
   });
+}
+
+/* Пара «сделать таким» / «стать таким» — словообразование, переходность
+   и падеж объясняются одной таблицей. */
+function renderPairs(host){
+  var wrap = el('div', 'wb-wrap');
+  var t = el('table', 'wb');
+  var thead = el('thead'), tr = el('tr');
+  ['Прилагательное', 'Перевод', '-inti · сделать таким', 'Что значит',
+   '-ėti · стать таким', 'Что значит'].forEach(function(x){ tr.appendChild(el('th', null, x)); });
+  thead.appendChild(tr); t.appendChild(thead);
+  var tb = el('tbody');
+  PAIRS.forEach(function(x){
+    var r = el('tr');
+    r.appendChild(el('td', 'w', x.adj));
+    r.appendChild(el('td', 'g', x.adjru));
+    r.appendChild(el('td', 'f', x.inti));
+    r.appendChild(el('td', 'g', x.intiru + (x.inti !== '—' ? ' · ką?' : '')));
+    r.appendChild(el('td', 'acc', x.eti));
+    r.appendChild(el('td', 'g', x.etiru + (x.eti !== '—' ? ' · kas?' : '')));
+    tb.appendChild(r);
+  });
+  t.appendChild(tb); wrap.appendChild(t);
+  host.appendChild(wrap);
 }
 
 /* ============================================================
@@ -596,16 +700,24 @@ function conjTable(v){
   hv.appendChild(el('b', null, v.inf));
   hv.appendChild(el('span', null, ' — ' + v.ru));
   h.appendChild(hv);
-  var gname = (GROUPS.filter(function(g){ return g.k === v.g; })[0] || {}).n || '';
-  h.appendChild(el('p', 'ct-g', gname + (v.t ? ' · переходный, зовёт ką?' : ' · непереходный')));
+  var f = famOf(v), ci = cityOf(v.pres), ho = houseOf(v.past);
+  h.appendChild(el('p', 'ct-g', f.n + ' · ' + (v.t ? 'переходный, зовёт ką?'
+                                                  : (v.c ? 'зовёт ' + v.c : 'непереходный'))));
+  var rt = el('p', 'ct-route');
+  rt.appendChild(el('b', null, v.inf));
+  rt.appendChild(el('span', null, ' → '));
+  rt.appendChild(el('b', null, ci.n));
+  rt.appendChild(el('span', null, ' → '));
+  rt.appendChild(el('b', null, ho.n));
+  h.appendChild(rt);
   head.appendChild(h);
   wrap.appendChild(head);
 
   /* три главные формы */
   var main = el('div', 'ct-main');
-  [['Bendratis', v.inf, 'инфинитив'],
-   ['Esamasis · jis', v.pres, '3-е лицо настоящего'],
-   ['Būtasis kartinis · jis', v.past, '3-е лицо прошедшего']].forEach(function(m){
+  [['Bendratis', v.inf, 'инфинитив · семья ' + f.n.replace('Семья ', '')],
+   ['Esamasis · jis', v.pres, '3-е лицо настоящего · ' + ci.n + ' (' + ci.lt + ')'],
+   ['Būtasis kartinis · jis', v.past, '3-е лицо прошедшего · ' + ho.n + ' (' + ho.lt + ')']].forEach(function(m){
     var d = el('div');
     d.appendChild(el('span', 'ct-lbl', m[0]));
     d.appendChild(el('b', null, m[1]));
@@ -684,7 +796,7 @@ function renderBase(host){
     wrap.textContent = '';
     var table = el('table', 'wb');
     var thead = el('thead'), tr = el('tr');
-    ['Bendratis', 'Esamasis · jis', 'Būtasis · jis', 'Группа', 'Кого зовёт', 'Перевод', ''].forEach(function(x){
+    ['Bendratis', 'Esamasis · jis', 'Būtasis · jis', 'Город', 'Дом', 'Семья', 'Кого зовёт', 'Перевод', ''].forEach(function(x){
       tr.appendChild(el('th', null, x));
     });
     thead.appendChild(tr);
@@ -692,16 +804,18 @@ function renderBase(host){
     var tbody = el('tbody'), shown = 0;
     VERBS.forEach(function(x){
       if (cur !== 'all' && x.g !== cur) return;
-      var gname = (GROUPS.filter(function(g){ return g.k === x.g; })[0] || {}).n || '';
-      var hay = flat([x.inf, x.pres, x.past, x.ru, gname, '-' + x.g].join(' '));
+      var f = famOf(x), ci = cityOf(x.pres), ho = houseOf(x.past);
+      var hay = flat([x.inf, x.pres, x.past, x.ru, f.n, '-' + x.g, ci.n, ho.n].join(' '));
       if (v && hay.indexOf(v) === -1) return;
       shown++;
       var r = el('tr');
       r.appendChild(el('td', 'w', x.inf));
       r.appendChild(el('td', 'f', x.pres));
       r.appendChild(el('td', 'f', x.past));
-      r.appendChild(el('td', 'g', gname));
-      r.appendChild(el('td', 'acc', x.t ? 'ką? · galininkas' : '—'));
+      r.appendChild(el('td', 'city c-' + ci.k, ci.n));
+      r.appendChild(el('td', 'city h-' + ho.k, ho.n));
+      r.appendChild(el('td', 'g', f.n.replace('Семья ', '')));
+      r.appendChild(el('td', 'acc', x.t ? 'ką? · galininkas' : (x.c || '—')));
       r.appendChild(el('td', 'g', x.ru));
       var td = el('td');
       var b = el('button', 'vb-open', 'Разбор');
@@ -715,10 +829,10 @@ function renderBase(host){
     wrap.appendChild(table);
     count.textContent = (v || cur !== 'all')
       ? (shown ? 'Показано глаголов: ' + shown + ' из ' + VERBS.length : 'Ничего не найдено')
-      : 'Всего в базе: ' + VERBS.length + ' глаголов · у каждого 24 личные формы плюс причастия';
+      : 'Всего в базе: ' + VERBS.length + ' глаголов · у каждого виден город настоящего и дом прошедшего';
   }
 
-  [{ k:'all', n:'Все' }].concat(GROUPS.map(function(g){ return { k:g.k, n:g.n }; })).forEach(function(f){
+  [{ k:'all', n:'Все' }].concat(FAMILIES.map(function(g){ return { k:g.k, n:g.n.replace('Семья ', '') }; })).forEach(function(f){
     var b = el('button', null, f.n);
     b.type = 'button';
     b.setAttribute('aria-pressed', String(f.k === cur));
@@ -751,21 +865,34 @@ function openDetail(inf){
   if (detailPick) detailPick.value = inf;
   detailHost.textContent = '';
   detailHost.appendChild(conjTable(v));
-  var g = GROUPS.filter(function(x){ return x.k === v.g; })[0];
+  var g = famOf(v);
   if (g) {
     var steps = el('div', 'steps-lt');
-    var c = conjugate(v);
-    [['Шаг 1 · группа', g.n + '. ' + g.d],
-     ['Шаг 2 · основа настоящего', '«' + v.pres + '» — это ' + c.presInfo.n + ' спряжение, основа ' + c.presInfo.stem + '-, окончания ' + c.presInfo.ends + '.'],
-     ['Шаг 3 · основа прошедшего', '«' + v.past + '» — тип ' + c.pastInfo.t + ', основа ' + c.pastInfo.stem + '-, окончания ' + c.pastInfo.ends + '.'],
-     ['Шаг 4 · будущее', 'От инфинитива: ' + v.inf + ' − -ti → ' + v.inf.replace(/ti$/, '') + '- плюс -s-: ' + c.fut[0] + ', ' + c.fut[2] + '.'],
-     ['Шаг 5 · многократное', 'От инфинитива плюс -dav-: ' + c.often[0] + ' — «бывало, ' + v.ru + '».'],
-     ['Шаг 6 · падеж дополнения', v.t ? 'Переходный: зовёт galininkas. ' + c.pres[0] + ' ką? — например, knygą (книгу).'
-                                     : 'Непереходный: направлять действие не на что, galininkas ему не нужен.']
-    ].forEach(function(s){
+    var c = conjugate(v), ci = cityOf(v.pres), ho = houseOf(v.past);
+    var stem = v.inf.replace(/ti$/, '');
+    [['Шаг 1 · стабильный или бунтарь',
+      g.rel === 'none'
+        ? 'Бунтарь. По инфинитиву ни город, ни дом не угадываются, поэтому три формы здесь и нужны: ' + v.inf + ' · ' + v.pres + ' · ' + v.past + '.'
+        : g.n + '. ' + (g.rel === 'full' ? 'Маршрут известен целиком: ' + g.route + '.'
+                                         : 'Дорога в прошлое известна, город настоящего проверяем по третьему лицу.')],
+     ['Шаг 2 · где живёт сейчас',
+      '«' + v.pres + '» кончается на ' + (/o$/.test(v.pres) ? '-o' : /i$/.test(v.pres) ? '-i' : '-a') +
+      ', значит ' + ci.n + ' (' + ci.lt + '). Основа ' + ci_stem(v.pres) + '-, окончания ' + ci.ends + '.'],
+     ['Шаг 3 · где живёт в прошлом',
+      '«' + v.past + '» кончается на ' + (/ė$/.test(v.past) ? '-ė' : '-o') +
+      ', значит ' + ho.n + ' (' + ho.lt + '). Основа ' + v.past.slice(0, -1) + '-, окончания ' + ho.ends + '.'],
+     ['Шаг 4 · маршрут глагола', routeOf(v) + '. Это и есть всё, что нужно помнить.'],
+     ['Шаг 5 · остальные три формы',
+      'Они берутся от инфинитива и от города с домом не зависят: ' + stem + '- плюс -s- даёт будущее ' + c.fut[0] +
+      ', плюс -dav- даёт многократное ' + c.often[0] + ', плюс -čiau даёт условное ' + c.cond[0] + '.'],
+     ['Шаг 6 · падеж дополнения',
+      v.t ? 'Переходный: действие переходит на объект, поэтому зовёт galininkas. ' + c.pres[0] + ' ką? — например, knygą (книгу).'
+          : (v.c ? 'Зовёт не galininkas, а ' + v.c + '. Русский здесь подсказывает неверно — эту помету стоит запомнить вместе со словом.'
+                 : 'Непереходный: действие остаётся при подлежащем, направлять его не на что. Вопрос kas? — кто или что делает.')]
+    ].forEach(function(x){
       var d = el('div', 'step-lt');
-      d.appendChild(el('b', null, s[0]));
-      d.appendChild(el('p', null, s[1]));
+      d.appendChild(el('b', null, x[0]));
+      d.appendChild(el('p', null, x[1]));
       steps.appendChild(d);
     });
     detailHost.appendChild(steps);
@@ -831,11 +958,31 @@ function explain(v, ti){
   return 'От инфинитива: ' + v.inf.replace(/ti$/, '') + '- плюс -čiau · -tum · -tų · -tume · -tumėte · -tų.';
 }
 
+/* Задание другого типа: не «поставь форму», а «определи адрес».
+   Именно этим начинается работа с новым глаголом. */
+function cityTask(v, seed){
+  var ci = cityOf(v.pres), ho = houseOf(v.past);
+  var opts = [
+    {t:'город A', ok: ci.k === 'I',   w:'Город A — третье лицо кончается на -a: ' + (ci.k === 'I' ? v.pres + '. Верно.' : 'а у «' + v.pres + '» окончание другое.')},
+    {t:'город I', ok: ci.k === 'II',  w:'Город I — третье лицо кончается на -i: ' + (ci.k === 'II' ? v.pres + '. Верно.' : 'а у «' + v.pres + '» окончание другое.')},
+    {t:'город O', ok: ci.k === 'III', w:'Город O — третье лицо кончается на -o: ' + (ci.k === 'III' ? v.pres + '. Верно.' : 'а у «' + v.pres + '» окончание другое.')}
+  ];
+  return {
+    q: 'В каком городе живёт <b>' + v.inf + '</b> <i>(' + v.ru + ')</i> в настоящем времени?',
+    hint: 'Третье лицо настоящего: ' + v.pres + '. Смотрим на его последнюю букву.',
+    ans: [ci.n],
+    rule: 'Город определяется по третьему лицу: -a → город A, -i → город I, -o → город O. Дальше маршрут: ' + routeOf(v) + '.',
+    opts: opts
+  };
+}
+
 function buildTasks(groupKey, n){
   var list = VERBS.filter(function(v){ return groupKey === 'all' || v.g === groupKey; });
   var out = [];
   for (var i = 0; i < n; i++) {
     var v = list[(i * 7 + 3) % list.length];
+    /* каждое третье задание — про адрес, а не про форму */
+    if (i % 3 === 0) { out.push(cityTask(v, i)); continue; }
     var ti = (i * 3 + 1) % TENSES.length;
     var pi = (i * 5 + 2) % PERSONS.length;
     out.push(makeTask(v, ti, pi, i * 31 + 7));
@@ -901,7 +1048,7 @@ function renderPractice(host){
     stage.appendChild(card);
   }
 
-  [{ k:'all', n:'Все группы' }].concat(GROUPS.map(function(g){ return { k:g.k, n:g.n }; })).forEach(function(f){
+  [{ k:'all', n:'Все семьи' }].concat(FAMILIES.map(function(g){ return { k:g.k, n:g.n.replace('Семья ', '') }; })).forEach(function(f){
     var b = el('button', null, f.n);
     b.type = 'button';
     b.setAttribute('aria-pressed', String(f.k === cur));
@@ -1103,6 +1250,8 @@ if ((h = document.getElementById('vk-schemas'))) renderSchemas(h);
 if ((h = document.getElementById('vk-base')))    renderBase(h);
 if ((h = document.getElementById('vk-practice'))) renderPractice(h);
 if ((h = document.getElementById('vk-mine')))    renderMine(h);
+
+if ((h = document.getElementById('vk-pairs'))) renderPairs(h);
 
 if ((h = document.getElementById('vk-prefixes'))) {
   var tw = el('div', 'wb-wrap');
