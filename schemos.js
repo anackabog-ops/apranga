@@ -247,13 +247,13 @@ var FAMILIES = [
    exru:'есть → ест → ел',
    note:'Мы больше не учим <i>daryti — daro</i> как отдельный факт. Мы знаем: daryti из семьи -yti, а эта семья живёт в городе O и уезжает в дом Ė. Одно правило — десятки глаголов.'},
 
-  {k:'inti', n:'Семья -inti', rel:'full',
-   cut:'убрать -ti', stem:'gerinti − -ti → gerin-',
+  {k:'inti', n:'Семья -inti и -enti', rel:'full',
+   cut:'убрать -ti', stem:'gerinti − -ti → gerin-  ·  gyventi − -ti → gyven-',
    city:'I', house:'O',
    route:'-inti  →  город A  →  дом O',
    d:'Основа не меняется вообще: убрали -ti — и всё. Живёт в городе A, в прошлом переезжает в дом O, где окончания те же, что в городе O настоящего времени.',
-   ex:'gerinti → gerina → gerino',
-   exru:'улучшать → улучшает → улучшал',
+   ex:'gerinti → gerina → gerino  ·  gyventi → gyvena → gyveno',
+   exru:'улучшать → улучшает → улучшал  ·  жить → живёт → жил',
    note:'Эта семья вырастает из прилагательных и означает «делать что-то каким-то», поэтому почти вся она переходная и зовёт <b>ką?</b> — <i>gerinti sveikatą</i> (улучшать здоровье). Подробно — в разделе про пару -inti / -ėti.'},
 
   {k:'eti-eja', n:'Семья -ėti со значением «становиться»', rel:'full',
@@ -266,13 +266,14 @@ var FAMILIES = [
    note:'Внимание на два похожих слова: <b>gerėjate</b> — это настоящее время («вы становитесь лучше»), а <b>gerėjote</b> — прошедшее («вы становились лучше»). Различает их одна буква.'},
 
   {k:'auti', n:'Семья -auti и -uoti', rel:'full',
-   cut:'убрать -ti', stem:'keliauti − -ti → keliau- → основа keliauj-',
+   cut:'настоящее: −ti + j · прошедшее: -au-/-uo- → -av-',
+   stem:'keliauti − -ti → keliau- + j → keliauj-  ·  прошедшее keliav-',
    city:'I', house:'O',
    route:'-auti / -uoti  →  город A  →  дом O',
-   d:'В настоящем появляется j и работает город A. В прошлом -au- и -uo- сменяются на -av-, и дальше идёт обычный дом O.',
+   d:'Здесь два разных шага, и их удобно держать отдельно. НАСТОЯЩЕЕ: убираем -ti и приклеиваем j — получается основа на -j-, дальше обычный город A. ПРОШЕДШЕЕ: -au- и -uo- сменяются на -av-, и дальше обычный дом O.',
    ex:'keliauti → keliauja → keliavo',
    exru:'путешествовать → путешествует → путешествовал',
-   note:'Сюда же уходят почти все заимствования: <i>studijuoti</i> (учиться в вузе), <i>organizuoti</i> (организовывать), <i>sportuoti</i> (заниматься спортом). Новое иностранное слово в литовском почти всегда становится глаголом этой семьи.'},
+   note:'<b>Настоящее:</b> keliauti → keliau<b>j</b>u, keliauji, keliauja, keliaujame, keliaujate, keliauja. То же у -uoti: dainuoti → dainuo<b>j</b>u, dainuoji, dainuoja.<br><b>Прошедшее:</b> keli<b>av</b>au, keliavai, keliavo, keliavome, keliavote, keliavo; dain<b>av</b>au, dainavai, dainavo.<br>Сюда же уходят почти все заимствования: <i>fotografuoti</i> (фотографировать), <i>organizuoti</i> (организовывать), <i>remontuoti</i> (ремонтировать). Новое иностранное слово в литовском почти всегда становится глаголом этой семьи — поэтому она растёт быстрее всех.'},
 
   /* ---- стабильно только прошлое ---- */
   {k:'eti', n:'Семья -ėti', rel:'past',
@@ -292,6 +293,15 @@ var FAMILIES = [
    ex:'dėkoti → dėkoja → dėkojo',
    exru:'благодарить → благодарит → благодарил',
    note:'Сравните: <i>dėkoti → dėkoja</i> (город A), но <i>ieškoti → ieško</i> (город O) и <i>bijoti → bijo</i> (город O). Два последних к тому же зовут не galininkas, а kilmininkas: <i>ieškau raktų</i> (ищу ключи), <i>bijau šuns</i> (боюсь собаки).'},
+
+  {k:'yti-x', n:'Бунтари внутри -yti', rel:'none',
+   cut:'три формы', stem:'-y- здесь часть корня, а не суффикс',
+   city:null, house:null,
+   route:'-yti  →  город A  →  дом O   (а не O → Ė, как у настоящей семьи -yti)',
+   d:'Ловушка для глаза. Эти слова кончаются на -yti, но к большой стабильной семье не относятся: у них -y- входит в короткий корень, а не является суффиксом. Поэтому и маршрут другой — не «город O → дом Ė», а «город A → дом O» с j в основе.',
+   ex:'gyti → gyja → gijo',
+   exru:'заживать → заживает → заживал',
+   note:'Сравните: <i>daryti → daro → darė</i> (делать) — суффикс -yti, настоящая семья. И <i>gyti → gyja → gijo</i> (заживать) — корень gy-, бунтарь. Отличить их по инфинитиву нельзя, отличает третье лицо: <b>-o</b> у семьи, <b>-ja</b> у бунтаря.<br>Сюда же <i>lyti → lyja → lijo</i> (идти о дожде) — он живёт только в третьем лице: <i>lyja</i> (идёт дождь), <i>lijo</i> (шёл дождь).'},
 
   /* ---- бунтари ---- */
   {k:'kinta', n:'Бунтари', rel:'none',
@@ -335,6 +345,40 @@ var PAIRS = [
    ============================================================ */
 var VERBS = [
   /* ---- устойчивые -inti ---- */
+  {inf:'sveikinti', pres:'sveikina', past:'sveikino', ru:'поздравлять', g:'inti', t:1},
+  {inf:'auginti', pres:'augina', past:'augino', ru:'растить', g:'inti', t:1},
+  {inf:'džiovinti', pres:'džiovina', past:'džiovino', ru:'сушить', g:'inti', t:1},
+  {inf:'žadinti', pres:'žadina', past:'žadino', ru:'будить', g:'inti', t:1},
+  {inf:'spausdinti', pres:'spausdina', past:'spausdino', ru:'печатать', g:'inti', t:1},
+  {inf:'platinti', pres:'platina', past:'platino', ru:'распространять', g:'inti', t:1},
+  {inf:'tvirtinti', pres:'tvirtina', past:'tvirtino', ru:'утверждать', g:'inti', t:1},
+  {inf:'garsinti', pres:'garsina', past:'garsino', ru:'прославлять', g:'inti', t:1},
+  {inf:'virškinti', pres:'virškina', past:'virškino', ru:'переваривать', g:'inti', t:1},
+  {inf:'smulkinti', pres:'smulkina', past:'smulkino', ru:'измельчать', g:'inti', t:1},
+  {inf:'vaidinti', pres:'vaidina', past:'vaidino', ru:'играть роль', g:'inti', t:1},
+  {inf:'piginti', pres:'pigina', past:'pigino', ru:'удешевлять', g:'inti', t:1},
+  {inf:'artinti', pres:'artina', past:'artino', ru:'приближать', g:'inti', t:1},
+  {inf:'tolinti', pres:'tolina', past:'tolino', ru:'отдалять', g:'inti', t:1},
+  {inf:'linksminti', pres:'linksmina', past:'linksmino', ru:'веселить', g:'inti', t:1},
+  {inf:'liūdinti', pres:'liūdina', past:'liūdino', ru:'печалить', g:'inti', t:1},
+  {inf:'kaitinti', pres:'kaitina', past:'kaitino', ru:'накалять', g:'inti', t:1},
+  {inf:'vėsinti', pres:'vėsina', past:'vėsino', ru:'охлаждать', g:'inti', t:1},
+  {inf:'drėkinti', pres:'drėkina', past:'drėkino', ru:'увлажнять', g:'inti', t:1},
+  {inf:'sausinti', pres:'sausina', past:'sausino', ru:'осушать', g:'inti', t:1},
+  {inf:'turtinti', pres:'turtina', past:'turtino', ru:'обогащать', g:'inti', t:1},
+  {inf:'aiškinti', pres:'aiškina', past:'aiškino', ru:'объяснять', g:'inti', t:1},
+  {inf:'ryškinti', pres:'ryškina', past:'ryškino', ru:'проявлять', g:'inti', t:1},
+  {inf:'raginti', pres:'ragina', past:'ragino', ru:'побуждать', g:'inti', t:1},
+  {inf:'kaltinti', pres:'kaltina', past:'kaltino', ru:'обвинять', g:'inti', t:1},
+  {inf:'skatinti', pres:'skatina', past:'skatino', ru:'поощрять', g:'inti', t:1},
+  {inf:'gąsdinti', pres:'gąsdina', past:'gąsdino', ru:'пугать', g:'inti', t:1},
+  {inf:'vaišinti', pres:'vaišina', past:'vaišino', ru:'угощать', g:'inti', t:1},
+  {inf:'laisvinti', pres:'laisvina', past:'laisvino', ru:'освобождать', g:'inti', t:1},
+  {inf:'valgydinti', pres:'valgydina', past:'valgydino', ru:'кормить', g:'inti', t:1},
+  {inf:'pagaminti', pres:'pagamina', past:'pagamino', ru:'приготовить', g:'inti', t:1},
+  {inf:'patikrinti', pres:'patikrina', past:'patikrino', ru:'проверить', g:'inti', t:1},
+  {inf:'gyventi', pres:'gyvena', past:'gyveno', ru:'жить', g:'inti', t:1},
+  {inf:'ridenti', pres:'ridena', past:'rideno', ru:'катить', g:'inti', t:1},
   {inf:'tobulinti', pres:'tobulina', past:'tobulino', ru:'совершенствовать', g:'inti', t:1},
   {inf:'silpninti', pres:'silpnina', past:'silpnino', ru:'ослаблять', g:'inti', t:1},
   {inf:'greitinti', pres:'greitina', past:'greitino', ru:'ускорять', g:'inti', t:1},
@@ -368,6 +412,74 @@ var VERBS = [
   {inf:'dalinti', pres:'dalina', past:'dalino', ru:'делить, раздавать', g:'inti', t:1},
 
   /* ---- устойчивые -yti ---- */
+  {inf:'siūlyti', pres:'siūlo', past:'siūlė', ru:'предлагать', g:'yti', t:1},
+  {inf:'svarstyti', pres:'svarsto', past:'svarstė', ru:'обдумывать', g:'yti', t:1},
+  {inf:'laistyti', pres:'laisto', past:'laistė', ru:'поливать', g:'yti', t:1},
+  {inf:'pjaustyti', pres:'pjausto', past:'pjaustė', ru:'нарезать', g:'yti', t:1},
+  {inf:'braižyti', pres:'braižo', past:'braižė', ru:'чертить', g:'yti', t:1},
+  {inf:'mėtyti', pres:'mėto', past:'mėtė', ru:'разбрасывать', g:'yti', t:1},
+  {inf:'svaidyti', pres:'svaido', past:'svaidė', ru:'швырять', g:'yti', t:1},
+  {inf:'gaudyti', pres:'gaudo', past:'gaudė', ru:'ловить', g:'yti', t:1},
+  {inf:'vaikyti', pres:'vaiko', past:'vaikė', ru:'гонять', g:'yti', t:1},
+  {inf:'guldyti', pres:'guldo', past:'guldė', ru:'укладывать', g:'yti', t:1},
+  {inf:'mąstyti', pres:'mąsto', past:'mąstė', ru:'размышлять', g:'yti', t:1},
+  {inf:'sūdyti', pres:'sūdo', past:'sūdė', ru:'солить', g:'yti', t:1},
+  {inf:'valdyti', pres:'valdo', past:'valdė', ru:'управлять', g:'yti', t:1},
+  {inf:'barstyti', pres:'barsto', past:'barstė', ru:'посыпать', g:'yti', t:1},
+  {inf:'lipdyti', pres:'lipdo', past:'lipdė', ru:'лепить', g:'yti', t:1},
+  {inf:'skaldyti', pres:'skaldo', past:'skaldė', ru:'колоть, раскалывать', g:'yti', t:1},
+  {inf:'maudyti', pres:'maudo', past:'maudė', ru:'купать', g:'yti', t:1},
+  {inf:'taupyti', pres:'taupo', past:'taupė', ru:'экономить', g:'yti', t:1},
+  {inf:'slaugyti', pres:'slaugo', past:'slaugė', ru:'ухаживать за больным', g:'yti', t:1},
+  {inf:'kraustyti', pres:'krausto', past:'kraustė', ru:'перебирать, переезжать', g:'yti', t:1},
+  {inf:'ardyti', pres:'ardo', past:'ardė', ru:'разбирать, пороть', g:'yti', t:1},
+  {inf:'glostyti', pres:'glosto', past:'glostė', ru:'гладить рукой', g:'yti', t:1},
+  {inf:'laužyti', pres:'laužo', past:'laužė', ru:'ломать', g:'yti', t:1},
+  {inf:'daužyti', pres:'daužo', past:'daužė', ru:'разбивать', g:'yti', t:1},
+  {inf:'rūkyti', pres:'rūko', past:'rūkė', ru:'курить', g:'yti', t:1},
+  {inf:'stumdyti', pres:'stumdo', past:'stumdė', ru:'толкать', g:'yti', t:1},
+  {inf:'šaldyti', pres:'šaldo', past:'šaldė', ru:'морозить', g:'yti', t:1},
+  {inf:'badyti', pres:'bado', past:'badė', ru:'колоть, бодать', g:'yti', t:1},
+  {inf:'atsakyti', pres:'atsako', past:'atsakė', ru:'отвечать', g:'yti', t:1},
+  {inf:'perskaityti', pres:'perskaito', past:'perskaitė', ru:'прочитать', g:'yti', t:1},
+  {inf:'paskaityti', pres:'paskaito', past:'paskaitė', ru:'почитать', g:'yti', t:1},
+  {inf:'parašyti', pres:'parašo', past:'parašė', ru:'написать', g:'yti', t:1},
+  {inf:'užrašyti', pres:'užrašo', past:'užrašė', ru:'записать', g:'yti', t:1},
+  {inf:'aprašyti', pres:'aprašo', past:'aprašė', ru:'описать', g:'yti', t:1},
+  {inf:'įrašyti', pres:'įrašo', past:'įrašė', ru:'записать на носитель', g:'yti', t:1},
+  {inf:'perrašyti', pres:'perrašo', past:'perrašė', ru:'переписать', g:'yti', t:1},
+  {inf:'surašyti', pres:'surašo', past:'surašė', ru:'составить список', g:'yti', t:1},
+  {inf:'prirašyti', pres:'prirašo', past:'prirašė', ru:'написать много', g:'yti', t:1},
+  {inf:'nurašyti', pres:'nurašo', past:'nurašė', ru:'списать', g:'yti', t:1},
+  {inf:'padaryti', pres:'padaro', past:'padarė', ru:'сделать', g:'yti', t:1},
+  {inf:'sudaryti', pres:'sudaro', past:'sudarė', ru:'составить', g:'yti', t:1},
+  {inf:'pradaryti', pres:'pradaro', past:'pradarė', ru:'приоткрыть', g:'yti', t:1},
+  {inf:'pasakyti', pres:'pasako', past:'pasakė', ru:'сказать', g:'yti', t:1},
+  {inf:'paklausyti', pres:'paklauso', past:'paklausė', ru:'послушать', g:'yti', t:1},
+  {inf:'pataisyti', pres:'pataiso', past:'pataisė', ru:'починить, исправить', g:'yti', t:1},
+  {inf:'sutaisyti', pres:'sutaiso', past:'sutaisė', ru:'починить', g:'yti', t:1},
+  {inf:'atitaisyti', pres:'atitaiso', past:'atitaisė', ru:'исправить', g:'yti', t:1},
+  {inf:'išvalyti', pres:'išvalo', past:'išvalė', ru:'вычистить', g:'yti', t:1},
+  {inf:'nuvalyti', pres:'nuvalo', past:'nuvalė', ru:'вытереть', g:'yti', t:1},
+  {inf:'išmokyti', pres:'išmoko', past:'išmokė', ru:'научить', g:'yti', t:1},
+  {inf:'pamokyti', pres:'pamoko', past:'pamokė', ru:'поучить', g:'yti', t:1},
+  {inf:'pastatyti', pres:'pastato', past:'pastatė', ru:'построить, поставить', g:'yti', t:1},
+  {inf:'nustatyti', pres:'nustato', past:'nustatė', ru:'установить', g:'yti', t:1},
+  {inf:'sustatyti', pres:'sustato', past:'sustatė', ru:'расставить', g:'yti', t:1},
+  {inf:'įstatyti', pres:'įstato', past:'įstatė', ru:'вставить', g:'yti', t:1},
+  {inf:'sumaišyti', pres:'sumaišo', past:'sumaišė', ru:'смешать', g:'yti', t:1},
+  {inf:'išmaišyti', pres:'išmaišo', past:'išmaišė', ru:'размешать', g:'yti', t:1},
+  {inf:'pamaišyti', pres:'pamaišo', past:'pamaišė', ru:'помешать', g:'yti', t:1},
+  {inf:'sulaikyti', pres:'sulaiko', past:'sulaikė', ru:'задержать', g:'yti', t:1},
+  {inf:'palaikyti', pres:'palaiko', past:'palaikė', ru:'поддержать', g:'yti', t:1},
+  {inf:'suvalgyti', pres:'suvalgo', past:'suvalgė', ru:'съесть', g:'yti', t:1},
+  {inf:'pavalgyti', pres:'pavalgo', past:'pavalgė', ru:'поесть', g:'yti', t:1},
+  {inf:'išgydyti', pres:'išgydo', past:'išgydė', ru:'вылечить', g:'yti', t:1},
+  {inf:'nudažyti', pres:'nudažo', past:'nudažė', ru:'покрасить', g:'yti', t:1},
+  {inf:'uždažyti', pres:'uždažo', past:'uždažė', ru:'закрасить', g:'yti', t:1},
+  {inf:'perdažyti', pres:'perdažo', past:'perdažė', ru:'перекрасить', g:'yti', t:1},
+  {inf:'sutvarkyti', pres:'sutvarko', past:'sutvarkė', ru:'привести в порядок', g:'yti', t:1},
+  {inf:'palaistyti', pres:'palaisto', past:'palaistė', ru:'полить', g:'yti', t:1},
   {inf:'prašyti', pres:'prašo', past:'prašė', ru:'просить', g:'yti', c:'kilmininkas · ko?'},
   {inf:'atsiprašyti', pres:'atsiprašo', past:'atsiprašė', ru:'извиняться', g:'yti', c:'kilmininkas · ko?'},
   {inf:'bandyti', pres:'bando', past:'bandė', ru:'пробовать, пытаться', g:'yti', t:1},
@@ -437,6 +549,30 @@ var VERBS = [
   {inf:'senėti', pres:'senėja', past:'senėjo', ru:'стареть', g:'eti-eja'},
 
   /* ---- -auti / -uoti ---- */
+  {inf:'fotografuoti', pres:'fotografuoja', past:'fotografavo', ru:'фотографировать', g:'auti', t:1},
+  {inf:'planuoti', pres:'planuoja', past:'planavo', ru:'планировать', g:'auti', t:1},
+  {inf:'matuoti', pres:'matuoja', past:'matavo', ru:'мерить', g:'auti', t:1},
+  {inf:'šukuoti', pres:'šukuoja', past:'šukavo', ru:'расчёсывать', g:'auti', t:1},
+  {inf:'bučiuoti', pres:'bučiuoja', past:'bučiavo', ru:'целовать', g:'auti', t:1},
+  {inf:'klijuoti', pres:'klijuoja', past:'klijavo', ru:'клеить', g:'auti', t:1},
+  {inf:'rikiuoti', pres:'rikiuoja', past:'rikiavo', ru:'выстраивать', g:'auti', t:1},
+  {inf:'rūšiuoti', pres:'rūšiuoja', past:'rūšiavo', ru:'сортировать', g:'auti', t:1},
+  {inf:'vairuoti', pres:'vairuoja', past:'vairavo', ru:'водить машину', g:'auti', t:1},
+  {inf:'montuoti', pres:'montuoja', past:'montavo', ru:'монтировать', g:'auti', t:1},
+  {inf:'remontuoti', pres:'remontuoja', past:'remontavo', ru:'ремонтировать', g:'auti', t:1},
+  {inf:'kopijuoti', pres:'kopijuoja', past:'kopijavo', ru:'копировать', g:'auti', t:1},
+  {inf:'projektuoti', pres:'projektuoja', past:'projektavo', ru:'проектировать', g:'auti', t:1},
+  {inf:'reaguoti', pres:'reaguoja', past:'reagavo', ru:'реагировать', g:'auti', t:1},
+  {inf:'diskutuoti', pres:'diskutuoja', past:'diskutavo', ru:'обсуждать', g:'auti', t:1},
+  {inf:'registruoti', pres:'registruoja', past:'registravo', ru:'регистрировать', g:'auti', t:1},
+  {inf:'komentuoti', pres:'komentuoja', past:'komentavo', ru:'комментировать', g:'auti', t:1},
+  {inf:'kontroliuoti', pres:'kontroliuoja', past:'kontroliavo', ru:'контролировать', g:'auti', t:1},
+  {inf:'informuoti', pres:'informuoja', past:'informavo', ru:'информировать', g:'auti', t:1},
+  {inf:'ignoruoti', pres:'ignoruoja', past:'ignoravo', ru:'игнорировать', g:'auti', t:1},
+  {inf:'treniruoti', pres:'treniruoja', past:'treniravo', ru:'тренировать', g:'auti', t:1},
+  {inf:'dekoruoti', pres:'dekoruoja', past:'dekoravo', ru:'декорировать', g:'auti', t:1},
+  {inf:'ragauti', pres:'ragauja', past:'ragavo', ru:'пробовать на вкус', g:'auti', t:1},
+  {inf:'draugauti', pres:'draugauja', past:'draugavo', ru:'дружить', g:'auti', t:1},
   {inf:'bendrauti', pres:'bendrauja', past:'bendravo', ru:'общаться', g:'auti'},
   {inf:'dalyvauti', pres:'dalyvauja', past:'dalyvavo', ru:'участвовать', g:'auti'},
   {inf:'dainuoti', pres:'dainuoja', past:'dainavo', ru:'петь', g:'auti', t:1},
@@ -451,6 +587,12 @@ var VERBS = [
   {inf:'organizuoti', pres:'organizuoja', past:'organizavo', ru:'организовывать', g:'auti', t:1},
 
   /* ---- -oti ---- */
+  {inf:'saugoti', pres:'saugo', past:'saugojo', ru:'беречь, охранять', g:'oti', t:1},
+  {inf:'naudoti', pres:'naudoja', past:'naudojo', ru:'использовать', g:'oti', t:1},
+  {inf:'svajoti', pres:'svajoja', past:'svajojo', ru:'мечтать', g:'oti', t:1},
+  {inf:'pasakoti', pres:'pasakoja', past:'pasakojo', ru:'рассказывать', g:'oti', t:1},
+  {inf:'medžioti', pres:'medžioja', past:'medžiojo', ru:'охотиться', g:'oti', t:1},
+  {inf:'kloti', pres:'kloja', past:'klojo', ru:'стелить', g:'oti', t:1},
   {inf:'dėkoti', pres:'dėkoja', past:'dėkojo', ru:'благодарить', g:'oti', c:'naudininkas · kam?'},
   {inf:'galvoti', pres:'galvoja', past:'galvojo', ru:'думать', g:'oti'},
   {inf:'dovanoti', pres:'dovanoja', past:'dovanojo', ru:'дарить', g:'oti', t:1},
@@ -462,6 +604,10 @@ var VERBS = [
   {inf:'miegoti', pres:'miega', past:'miegojo', ru:'спать', g:'oti'},
   {inf:'žinoti', pres:'žino', past:'žinojo', ru:'знать', g:'oti', t:1},
 
+  /* ---- бунтари внутри -yti: -y- здесь часть корня, а не суффикс ---- */
+  {inf:'gyti', pres:'gyja', past:'gijo', ru:'заживать, выздоравливать', g:'yti-x'},
+  {inf:'ryti', pres:'ryja', past:'rijo', ru:'глотать', g:'yti-x', t:1},
+  {inf:'dalyti', pres:'dalija', past:'dalijo', ru:'делить, раздавать', g:'yti-x', t:1},
   /* ---- основа меняется ---- */
   {inf:'būti', pres:'yra', past:'buvo', ru:'быть', g:'kinta',
    irrPres:['esu', 'esi', 'yra', 'esame', 'esate', 'yra'],
@@ -496,7 +642,6 @@ var VERBS = [
   {inf:'bėgti', pres:'bėga', past:'bėgo', ru:'бежать', g:'kinta'},
   {inf:'lipti', pres:'lipa', past:'lipo', ru:'лезть, подниматься', g:'kinta'},
   {inf:'kristi', pres:'krinta', past:'krito', ru:'падать', g:'kinta'},
-  {inf:'gyventi', pres:'gyvena', past:'gyveno', ru:'жить', g:'kinta'},
   {inf:'pažinti', pres:'pažįsta', past:'pažino', ru:'быть знакомым, узнавать', g:'kinta', t:1},
   {inf:'pamiršti', pres:'pamiršta', past:'pamiršo', ru:'забывать', g:'kinta', t:1}
 ];
@@ -650,18 +795,137 @@ function buildPhrase(o, verbInf, pi, adjKey){
    5. ПРИСТАВКИ
    ============================================================ */
 var PREFIXES = [
-  {p:'ap-',  m:'вокруг, охват со всех сторон', ex:'apeiti', exru:'обойти', v:'eiti', vru:'идти'},
-  {p:'at-',  m:'приближение или обратное действие', ex:'ateiti', exru:'прийти', v:'eiti', vru:'идти'},
-  {p:'į-',   m:'внутрь', ex:'įeiti', exru:'войти', v:'eiti', vru:'идти'},
-  {p:'iš-',  m:'наружу; довести до конца', ex:'išeiti', exru:'выйти', v:'eiti', vru:'идти'},
-  {p:'nu-',  m:'прочь, вниз; завершение', ex:'nueiti', exru:'уйти', v:'eiti', vru:'идти'},
-  {p:'pa-',  m:'немного; довести до конца', ex:'pavalgyti', exru:'поесть', v:'valgyti', vru:'есть'},
-  {p:'par-', m:'возвращение домой, назад', ex:'pareiti', exru:'вернуться (пешком)', v:'eiti', vru:'идти'},
-  {p:'per-', m:'через; насквозь; пере-', ex:'perskaityti', exru:'прочитать целиком', v:'skaityti', vru:'читать'},
-  {p:'pra-', m:'мимо; сквозь; начало действия', ex:'pradėti', exru:'начать', v:'dėti', vru:'класть'},
-  {p:'pri-', m:'при-, до-; набрать много', ex:'prieiti', exru:'подойти', v:'eiti', vru:'идти'},
-  {p:'su-',  m:'вместе, с-; завершение', ex:'suprasti', exru:'понять', v:'rasti', vru:'находить'},
-  {p:'už-',  m:'за-; закрыть; начать', ex:'uždaryti', exru:'закрыть', v:'daryti', vru:'делать'}
+  {p:'į-', img:'ВНУТРЬ',
+   d:'Действие уходит внутрь объекта — и часто внутрь состояния.',
+   go:'įeiti', gru:'войти', run:'įbėgti', rru:'вбежать',
+   prep:'į', pcase:'galininkas · ką?', pex:'įeiti į kambarį', pexru:'войти в комнату',
+   br:[{n:'внутрь физически', ex:'įeiti į namą', ru:'войти в дом'},
+       {n:'вложить, вписать', ex:'įdėti · įrašyti', ru:'вложить · записать на носитель'},
+       {n:'вход в состояние', ex:'įsimylėti · įmigti', ru:'влюбиться · заснуть'}]},
+
+  {p:'iš-', img:'ИЗНУТРИ НАРУЖУ → ДО КОНЦА',
+   d:'Сначала наружу, а потом — исчерпать действие до конца.',
+   go:'išeiti', gru:'выйти', run:'išbėgti', rru:'выбежать',
+   prep:'iš', pcase:'kilmininkas · ko?', pex:'išeiti iš namų', pexru:'выйти из дома',
+   br:[{n:'наружу', ex:'išeiti iš kambario', ru:'выйти из комнаты'},
+       {n:'до конца, исчерпать', ex:'išgerti · išmokti · išvalyti', ru:'выпить · выучить · вычистить'},
+       {n:'раздать по всем', ex:'išdalyti', ru:'раздать'}]},
+
+  {p:'pri-', img:'ПРИБЛИЗИТЬСЯ → НАКОПИТЬ ДО ГРАНИЦЫ',
+   d:'Был далеко — приблизился — достиг точки. А дальше: накапливал, пока не хватило.',
+   go:'prieiti', gru:'подойти', run:'pribėgti', rru:'подбежать',
+   prep:'prie', pcase:'kilmininkas · ko?', pex:'prieiti prie lango', pexru:'подойти к окну',
+   br:[{n:'приблизиться', ex:'prieiti prie žmogaus', ru:'подойти к человеку'},
+       {n:'накопить, наполнить', ex:'pripilti · prirašyti', ru:'налить доверху · написать много'},
+       {n:'насытиться', ex:'prisivalgyti', ru:'наесться'},
+       {n:'прикрепить', ex:'prisegti', ru:'приколоть, прикрепить'}]},
+
+  {p:'nu-', img:'ПРОЧЬ, ВНИЗ, ОТДЕЛЕНИЕ',
+   d:'Уйти от точки, снять с поверхности, довести до результата.',
+   go:'nueiti', gru:'уйти, дойти', run:'nubėgti', rru:'убежать, добежать',
+   prep:'nuo', pcase:'kilmininkas · ko?', pex:'nueiti nuo lango', pexru:'отойти от окна',
+   br:[{n:'прочь, вниз', ex:'nueiti nuo kelio', ru:'сойти с дороги'},
+       {n:'снять, удалить', ex:'nuimti · nuvalyti', ru:'снять · вытереть'},
+       {n:'довести до результата', ex:'nupirkti · nudažyti', ru:'купить · покрасить'}]},
+
+  {p:'per-', img:'ЧЕРЕЗ → ЦЕЛИКОМ → ЗАНОВО → СВЕРХ',
+   d:'Четыре ветви, и все растут из одной: пересечь объект насквозь.',
+   go:'pereiti', gru:'перейти', run:'perbėgti', rru:'перебежать',
+   prep:'per', pcase:'galininkas · ką?', pex:'pereiti per gatvę', pexru:'перейти через улицу',
+   br:[{n:'через, с одной стороны на другую', ex:'pereiti per tiltą', ru:'перейти через мост'},
+       {n:'целиком, до конца', ex:'perskaityti', ru:'прочитать от начала до конца'},
+       {n:'заново', ex:'perrašyti · perdaryti', ru:'переписать · переделать'},
+       {n:'сверх нормы', ex:'persivalgyti', ru:'переесть'}]},
+
+  {p:'pra-', img:'МИМО, СКВОЗЬ → ПРОЙТИ ОТРЕЗОК → НАЧАТЬ',
+   d:'Пройти мимо объекта — или сквозь целый отрезок времени.',
+   go:'praeiti', gru:'пройти мимо', run:'prabėgti', rru:'пробежать мимо',
+   prep:'pro', pcase:'galininkas · ką?', pex:'praeiti pro namą', pexru:'пройти мимо дома',
+   br:[{n:'мимо', ex:'praeiti pro langą', ru:'пройти мимо окна'},
+       {n:'пройти сквозь период', ex:'pragyventi dešimt metų', ru:'прожить десять лет'},
+       {n:'начать', ex:'prakalbėti · pražysti', ru:'заговорить · расцвести'},
+       {n:'упустить, потерять', ex:'prarasti · pramiegoti', ru:'потерять · проспать'}]},
+
+  {p:'ap-', img:'ВОКРУГ → ОХВАТ',
+   d:'Действие идёт вокруг объекта или по всей его поверхности.',
+   go:'apeiti', gru:'обойти', run:'apibėgti', rru:'обежать',
+   prep:'aplink', pcase:'galininkas · ką?', pex:'apeiti aplink namą', pexru:'обойти вокруг дома',
+   br:[{n:'вокруг', ex:'apeiti namą', ru:'обойти дом'},
+       {n:'охватить целиком', ex:'apkabinti · apsirengti', ru:'обнять · одеться'},
+       {n:'по поверхности', ex:'apdažyti', ru:'покрасить снаружи'},
+       {n:'слегка, частично', ex:'apšilti', ru:'немного согреться'}]},
+
+  {p:'at-', img:'К ТОЧКЕ, СЮДА → ОБРАТНОЕ ДЕЙСТВИЕ',
+   d:'Движение к нам — и отдельная ветвь: действие наоборот.',
+   go:'ateiti', gru:'прийти', run:'atbėgti', rru:'прибежать',
+   prep:'—', pcase:'своего предлога нет', pex:'ateiti į svečius', pexru:'прийти в гости',
+   br:[{n:'сюда, к точке отсчёта', ex:'ateiti · atnešti', ru:'прийти · принести'},
+       {n:'обратное действие', ex:'atidaryti · atsegti · atimti', ru:'открыть · отстегнуть · отнять'},
+       {n:'ответное действие', ex:'atsakyti', ru:'ответить'}]},
+
+  {p:'par-', img:'ОБРАТНО К СВОЕЙ ТОЧКЕ',
+   d:'Не просто «сюда», а домой, туда, откуда вышли. Отдельная от at- идея.',
+   go:'pareiti', gru:'вернуться пешком', run:'parbėgti', rru:'прибежать обратно',
+   prep:'—', pcase:'своего предлога нет', pex:'pareiti namo', pexru:'вернуться домой',
+   br:[{n:'вернуться', ex:'pareiti · parvažiuoti · parskristi', ru:'вернуться пешком · на транспорте · прилететь'},
+       {n:'принести обратно', ex:'parnešti · parvežti', ru:'принести · привезти домой'},
+       {n:'отдать другому', ex:'parduoti', ru:'продать'}]},
+
+  {p:'su-', img:'ВМЕСТЕ → В ОДНО ЦЕЛОЕ',
+   d:'Разные части сходятся в одну точку и становятся целым. Отсюда — результат.',
+   go:'sueiti', gru:'сойтись, собраться', run:'subėgti', rru:'сбежаться',
+   prep:'su', pcase:'įnagininkas · kuo?', pex:'susitikti su draugu', pexru:'встретиться с другом',
+   br:[{n:'вместе, в одну точку', ex:'sueiti · susitikti', ru:'сойтись · встретиться'},
+       {n:'соединить, сложить', ex:'sujungti · sudėti · surinkti', ru:'соединить · сложить · собрать'},
+       {n:'результат', ex:'suprasti · suvalgyti · sutaisyti', ru:'понять · съесть · починить'}]},
+
+  {p:'už-', img:'ЗА ГРАНИЦУ → ЗАКРЫТЬ → НОВАЯ ФАЗА',
+   d:'Пересечь границу и оказаться в новом состоянии.',
+   go:'užeiti', gru:'зайти', run:'užbėgti', rru:'забежать',
+   prep:'už', pcase:'kilmininkas · ko?', pex:'užeiti už namo', pexru:'зайти за дом',
+   br:[{n:'за, зайти', ex:'užeiti pas draugą', ru:'зайти к другу'},
+       {n:'закрыть, застегнуть', ex:'uždaryti · užsegti', ru:'закрыть · застегнуть'},
+       {n:'начало состояния', ex:'užmigti · uždainuoti', ru:'уснуть · запеть'},
+       {n:'зафиксировать', ex:'užrašyti', ru:'записать'}]},
+
+  {p:'pa-', img:'ОГРАНИЧИТЬ ДЕЙСТВИЕ',
+   d:'Самая многоликая. Ставит действию рамку — по времени, по количеству или по результату.',
+   go:'paeiti', gru:'немного пройти', run:'pabėgti', rru:'убежать',
+   prep:'pas', pcase:'galininkas · ką?', pex:'nueiti pas gydytoją', pexru:'сходить к врачу',
+   br:[{n:'немного, недолго', ex:'paskaityti · pamiegoti', ru:'почитать · поспать'},
+       {n:'результат', ex:'padaryti · pamatyti · parašyti', ru:'сделать · увидеть · написать'},
+       {n:'под', ex:'padėti · pakišti', ru:'положить · подсунуть'}]}
+];
+
+/* Один глагол движения и все двенадцать стрелок. */
+var MOTION = [
+  {p:'į-',   v:'įeiti',   ru:'войти'},        {p:'iš-',  v:'išeiti',  ru:'выйти'},
+  {p:'at-',  v:'ateiti',  ru:'прийти'},       {p:'nu-',  v:'nueiti',  ru:'уйти, дойти'},
+  {p:'par-', v:'pareiti', ru:'вернуться'},    {p:'pri-', v:'prieiti', ru:'подойти'},
+  {p:'per-', v:'pereiti', ru:'перейти'},      {p:'pra-', v:'praeiti', ru:'пройти мимо'},
+  {p:'ap-',  v:'apeiti',  ru:'обойти'},       {p:'su-',  v:'sueiti',  ru:'сойтись'},
+  {p:'už-',  v:'užeiti',  ru:'зайти'},        {p:'pa-',  v:'paeiti',  ru:'немного пройти'}
+];
+
+/* Приставочные глаголы, у которых значение уже не выводится из формулы. */
+var LEXICAL = [
+  {v:'atsakyti',  ru:'ответить',        from:'sakyti — говорить',   why:'от «сказать к точке отсчёта» осталось только «ответить». Пространственная стрелка уже не помогает.'},
+  {v:'parduoti',  ru:'продать',         from:'duoti — давать',      why:'par- «обратно» плюс «дать» дало отдельное слово: отдать за деньги.'},
+  {v:'suprasti',  ru:'понять',          from:'rasti — находить',    why:'«собрать вместе и найти» стало «понять». Формулой не вывести.'},
+  {v:'atidaryti', ru:'открыть',         from:'daryti — делать',     why:'обратное действие к «закрыть», но связь с «делать» уже не чувствуется.'},
+  {v:'pasakoti',  ru:'рассказывать',    from:'sakyti — говорить',   why:'отдельная лексема со своим спряжением: pasakoja, pasakojo.'},
+  {v:'prarasti',  ru:'потерять',        from:'rasti — находить',    why:'приставка перевернула значение основы в противоположное.'},
+  {v:'užmigti',   ru:'уснуть',          from:'migti — засыпать',    why:'už- маркирует не «за», а вход в новую фазу — сон.'},
+  {v:'įsimylėti', ru:'влюбиться',       from:'mylėti — любить',     why:'į- «внутрь» плюс -si-: войти внутрь состояния любви.'}
+];
+
+/* Элементы другого происхождения: они не словообразовательные приставки. */
+var PARTICLES = [
+  {p:'ne-',   n:'отрицание',                    ex:'neturiu',      ru:'у меня нет'},
+  {p:'nebe-', n:'было и прекратилось',          ex:'nebeturiu',    ru:'у меня больше нет'},
+  {p:'be-',   n:'действие ещё продолжается',    ex:'tebeturiu',    ru:'у меня всё ещё есть'},
+  {p:'te-',   n:'только, лишь',                 ex:'teturiu vieną', ru:'у меня только один'},
+  {p:'tebe-', n:'всё ещё, до сих пор',          ex:'tebedirba',    ru:'всё ещё работает'}
 ];
 
 /* ============================================================
@@ -1121,18 +1385,67 @@ function cityTask(v, seed){
   };
 }
 
+/* Задание на приставку: дан образ — какая стрелка? */
+function taskPrefix(seed){
+  var r = rnd(seed);
+  var i = r(PREFIXES.length);
+  var pf = PREFIXES[i];
+  var opts = [{t: pf.go, ok: 1, w: pf.p + ' — образ «' + pf.img + '». Отсюда ' + pf.go + ' — ' + pf.gru + '.'}];
+  var used = { }; used[i] = 1;
+  while (opts.length < 4) {
+    var j = r(PREFIXES.length);
+    if (used[j]) continue;
+    used[j] = 1;
+    opts.push({t: PREFIXES[j].go, ok: 0,
+      w: PREFIXES[j].p + ' — это «' + PREFIXES[j].img + '», отсюда ' + PREFIXES[j].go + ' (' + PREFIXES[j].gru + '). Не то направление.'});
+  }
+  var k = r(4);
+  var tmp = opts[0]; opts[0] = opts[k]; opts[k] = tmp;
+  return {
+    q: 'Какая приставка даёт значение <b>«' + pf.gru + '»</b> глаголу <b>eiti</b> <i>(идти)</i>?',
+    hint: 'Ищите стрелку: ' + pf.img.toLowerCase() + '.',
+    ans: [pf.go],
+    rule: pf.p + ' → ' + pf.img + '. ' + pf.d,
+    opts: opts
+  };
+}
+
+/* Задание на связку «приставка + предлог + падеж». */
+function taskPrepCase(seed){
+  var r = rnd(seed + 5);
+  var withPrep = PREFIXES.filter(function(x){ return x.prep !== '—'; });
+  var pf = withPrep[r(withPrep.length)];
+  var opts = [{t: pf.prep, ok: 1, w: 'Верно: ' + pf.p + ' в глаголе и ' + pf.prep + ' перед объектом — одна пара. ' + pf.pex + ' — ' + pf.pexru + '.'}];
+  var seen = {}; seen[pf.prep] = 1;
+  withPrep.forEach(function(x){
+    if (opts.length >= 4 || seen[x.prep]) return;
+    seen[x.prep] = 1;
+    opts.push({t: x.prep, ok: 0, w: x.prep + ' идёт с приставкой ' + x.p + ': ' + x.pex + ' — ' + x.pexru + '.'});
+  });
+  return {
+    q: 'Дополните: <b>' + pf.go + '</b> <i>(' + pf.gru + ')</i> … <b>' + pf.pex.split(' ').slice(-1)[0] + '</b>',
+    hint: 'Приставка уже показала стрелку. Предлог показывает, относительно какого объекта эта стрелка направлена.',
+    ans: [pf.prep],
+    rule: 'Приставка даёт направление, предлог с падежом — точку отсчёта: ' + pf.prep + ' + ' + pf.pcase + '.',
+    opts: opts
+  };
+}
+
 function buildTasks(groupKey, n){
   var list = VERBS.filter(function(v){ return groupKey === 'all' || v.g === groupKey; });
   var out = [];
   var seed = Date.now() % 9973;
   for (var i = 0; i < n; i++) {
     var v = list[(i * 7 + 3) % list.length];
-    var kind = i % 5;
-    /* пять типов по кругу: адрес, форма, направь действие, перевод, образ */
+    var kind = i % 7;
+    /* семь типов по кругу: адрес, форма, направь действие, перевод,
+       образ, приставка-стрелка, приставка с предлогом */
     if (kind === 0) { out.push(cityTask(v, i)); continue; }
     if (kind === 2) { out.push(taskDirect(seed + i * 137)); continue; }
     if (kind === 3) { out.push(taskTranslate(seed + i * 211)); continue; }
     if (kind === 4) { out.push(taskImage(seed + i * 307)); continue; }
+    if (kind === 5) { out.push(taskPrefix(seed + i * 419)); continue; }
+    if (kind === 6) { out.push(taskPrepCase(seed + i * 523)); continue; }
     /* шаг подобран так, чтобы времена не повторялись из подхода в подход */
     var ti = (i + Math.floor(i / 5) * 2) % TENSES.length;
     var pi = (i * 5 + 2) % PERSONS.length;
@@ -1600,24 +1913,108 @@ if ((h = document.getElementById('vk-mine')))    renderMine(h);
 
 if ((h = document.getElementById('vk-pairs'))) renderPairs(h);
 
-if ((h = document.getElementById('vk-prefixes'))) {
-  var tw = el('div', 'wb-wrap');
-  var t = el('table', 'wb');
-  var thead = el('thead'), tr = el('tr');
-  ['Приставка', 'Что добавляет', 'Пример', 'Перевод примера', 'Из какого глагола'].forEach(function(x){ tr.appendChild(el('th', null, x)); });
-  thead.appendChild(tr); t.appendChild(thead);
-  var tb = el('tbody');
-  PREFIXES.forEach(function(p){
+if ((h = document.getElementById('vk-motion'))) {
+  var mw = el('div', 'wb-wrap');
+  var mt = el('table', 'wb');
+  var mh = el('thead'), mr = el('tr');
+  ['Приставка', 'Образ', 'eiti — идти', 'Перевод', 'bėgti — бежать', 'Перевод'].forEach(function(x){ mr.appendChild(el('th', null, x)); });
+  mh.appendChild(mr); mt.appendChild(mh);
+  var mb = el('tbody');
+  MOTION.forEach(function(m){
+    var pf = PREFIXES.filter(function(x){ return x.p === m.p; })[0] || {};
     var r = el('tr');
-    r.appendChild(el('td', 'w', p.p));
-    r.appendChild(el('td', 'g', p.m));
-    r.appendChild(el('td', 'f', p.ex));
-    r.appendChild(el('td', 'g', p.exru));
-    r.appendChild(el('td', 'acc', p.v + ' — ' + p.vru));
-    tb.appendChild(r);
+    r.appendChild(el('td', 'w', m.p));
+    r.appendChild(el('td', 'g', (pf.img || '').split(' →')[0]));
+    r.appendChild(el('td', 'f', m.v));
+    r.appendChild(el('td', 'g', m.ru));
+    r.appendChild(el('td', 'acc', pf.run || '—'));
+    r.appendChild(el('td', 'g', pf.rru || '—'));
+    mb.appendChild(r);
   });
-  t.appendChild(tb); tw.appendChild(t);
-  h.appendChild(tw);
+  mt.appendChild(mb); mw.appendChild(mt);
+  h.appendChild(mw);
+}
+
+if ((h = document.getElementById('vk-prefixes'))) {
+  PREFIXES.forEach(function(pf){
+    var card = el('section', 'pref');
+    var head = el('div', 'pref-head');
+    head.appendChild(el('span', 'pref-p', pf.p));
+    var hb = el('div');
+    hb.appendChild(el('p', 'pref-img', pf.img));
+    hb.appendChild(el('p', 'pref-d', pf.d));
+    head.appendChild(hb);
+    card.appendChild(head);
+
+    var mv = el('div', 'pref-move');
+    [[pf.go, pf.gru, 'eiti — идти'], [pf.run, pf.rru, 'bėgti — бежать']].forEach(function(x){
+      var d = el('div');
+      d.appendChild(el('b', null, x[0]));
+      d.appendChild(el('span', null, x[1]));
+      d.appendChild(el('span', 'pref-from', '← ' + x[2]));
+      mv.appendChild(d);
+    });
+    card.appendChild(mv);
+
+    var pr = el('div', 'pref-prep');
+    if (pf.prep === '—') {
+      pr.appendChild(el('b', null, 'Своего предлога нет'));
+      pr.appendChild(el('span', null, 'у at- и par- нет современного предлога-пары, в отличие от į-, iš-, per-, pro-, prie-.'));
+    } else {
+      pr.appendChild(el('b', null, pf.prep + ' + ' + pf.pcase));
+      pr.appendChild(el('span', null, pf.pex + ' — ' + pf.pexru));
+    }
+    card.appendChild(pr);
+
+    var ul = el('ul', 'pref-br');
+    pf.br.forEach(function(b){
+      var li = el('li');
+      li.appendChild(el('b', null, b.n));
+      li.appendChild(el('span', 'pb-ex', b.ex));
+      li.appendChild(el('span', 'pb-ru', b.ru));
+      ul.appendChild(li);
+    });
+    card.appendChild(ul);
+    h.appendChild(card);
+  });
+}
+
+if ((h = document.getElementById('vk-lexical'))) {
+  var lw = el('div', 'wb-wrap');
+  var lt = el('table', 'wb');
+  var lh = el('thead'), lr = el('tr');
+  ['Глагол', 'Перевод', 'Из чего вырос', 'Почему формула не работает'].forEach(function(x){ lr.appendChild(el('th', null, x)); });
+  lh.appendChild(lr); lt.appendChild(lh);
+  var lb = el('tbody');
+  LEXICAL.forEach(function(x){
+    var r = el('tr');
+    r.appendChild(el('td', 'w', x.v));
+    r.appendChild(el('td', 'f', x.ru));
+    r.appendChild(el('td', 'g', x.from));
+    r.appendChild(el('td', 'g', x.why));
+    lb.appendChild(r);
+  });
+  lt.appendChild(lb); lw.appendChild(lt);
+  h.appendChild(lw);
+}
+
+if ((h = document.getElementById('vk-particles'))) {
+  var qw = el('div', 'wb-wrap');
+  var qt = el('table', 'wb');
+  var qh = el('thead'), qr = el('tr');
+  ['Элемент', 'Что означает', 'Пример', 'Перевод'].forEach(function(x){ qr.appendChild(el('th', null, x)); });
+  qh.appendChild(qr); qt.appendChild(qh);
+  var qb = el('tbody');
+  PARTICLES.forEach(function(x){
+    var r = el('tr');
+    r.appendChild(el('td', 'w', x.p));
+    r.appendChild(el('td', 'g', x.n));
+    r.appendChild(el('td', 'f', x.ex));
+    r.appendChild(el('td', 'g', x.ru));
+    qb.appendChild(r);
+  });
+  qt.appendChild(qb); qw.appendChild(qt);
+  h.appendChild(qw);
 }
 
 if ((h = document.getElementById('vk-detail'))) {

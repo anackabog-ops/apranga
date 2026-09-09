@@ -594,3 +594,43 @@ td.h-Ė{color:var(--bad)}
 }
 .vpick{margin-bottom:20px}
 .vpick-grid{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+
+/* ---- глава приставок ---- */
+.pref{
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:20px;margin:0 0 16px;box-shadow:var(--shadow);
+}
+.pref-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px}
+.pref-p{
+  font-family:var(--serif);font-weight:800;font-size:30px;letter-spacing:-.03em;
+  color:var(--surface);background:var(--accent);border-radius:12px;
+  padding:8px 15px;flex:none;line-height:1.1;
+}
+.pref-img{
+  font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.09em;
+  color:var(--accent-ink);margin:2px 0 5px;line-height:1.4;
+}
+.pref-d{margin:0;font-size:15px;color:var(--muted);max-width:60ch}
+.pref-move{display:grid;grid-template-columns:1fr;gap:9px;margin-bottom:12px}
+@media(min-width:620px){.pref-move{grid-template-columns:1fr 1fr}}
+.pref-move > div{background:var(--surface-2);border-radius:12px;padding:11px 14px}
+.pref-move b{font-family:var(--serif);font-weight:800;font-size:18px;color:var(--ink);display:block}
+.pref-move span{font-size:14px;color:var(--muted);display:block}
+.pref-from{font-family:var(--sans);font-size:11.5px;opacity:.75;margin-top:2px}
+.pref-prep{
+  background:var(--gold-soft);border-radius:11px;padding:10px 14px;margin-bottom:12px;font-size:14.5px;
+}
+.pref-prep b{font-family:var(--serif);font-weight:800;color:var(--gold);display:block;font-size:16px}
+.pref-prep span{color:var(--ink);opacity:.82}
+.pref-br{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.pref-br li{
+  display:grid;grid-template-columns:1fr;gap:2px;padding:9px 0;
+  border-top:1px solid var(--line-soft);
+}
+@media(min-width:660px){
+  .pref-br li{grid-template-columns:minmax(150px,auto) minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:baseline}
+}
+.pref-br li:first-child{border-top:none}
+.pref-br b{font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--muted)}
+.pb-ex{font-family:var(--serif);font-weight:800;color:var(--accent-ink);font-size:15px}
+.pb-ru{font-size:14px;color:var(--muted)}
