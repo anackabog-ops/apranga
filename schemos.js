@@ -115,6 +115,9 @@ function present(pres3){
   return ends.map(function(e, i){
     /* у мягкой основы (geri-) 2-е лицо не удваивает i: geri, а не gerii */
     if (i === 1 && /i$/.test(stem) && e === 'i') return stem;
+    /* перед -iu основа смягчается так же, как перед -iau в прошедшем:
+       sėdi → sėdžiu, girdi → girdžiu */
+    if (e === 'iu') return soften(stem) + e;
     return stem + e;
   });
 }
@@ -228,6 +231,103 @@ function conjugate(v){
     pastInfo: pastInfo(v.past)
   };
 }
+
+/* ============================================================
+   2b. УДАРЕНИЕ
+
+   Здесь работает настоящая стабильность. Ударение 1-го и 2-го лица
+   единственного числа выводится из ТРЕТЬЕГО лица — то есть из формы,
+   которая у нас и так записана как главная:
+
+     • третье лицо с тврьтапраде (акут, á) — ударение неподвижно,
+       во всех лицах остаётся на том же слоге основы:  sė́di → sė́džiu;
+     • третье лицо с тврьтагале (тильда, ã) или с кратким ударным
+       гласным (гравис, à) — ударение подвижное и в 1-м и 2-м лице
+       единственного уходит на окончание:  vel̃ka → velkù, velkì.
+
+   Множественное число ударяется как третье лицо.
+
+   Поэтому в базе достаточно хранить ДВЕ помеченные формы на глагол —
+   третье лицо настоящего и третье лицо прошедшего, — а остальные
+   выводятся правилом. Пока эти формы не проставлены, страница честно
+   показывает формы без знаков и не выдумывает ударение.
+   ============================================================ */
+
+var ACUTE = '\u0301', GRAVE = '\u0300', TILDE = '\u0303';
+
+/* Помеченные третьи лица. Заполняется выгрузкой из кирчюоклиса:
+   'skaityti': {p:'ska\u0129to', b:'ska\u0129tė'}                       */
+var KIRTIS = {};
+
+/* Какой знак несёт форма: акут, тильда или гравис. */
+function toneOf(w){
+  if (!w) return null;
+  var d;
+  try { d = w.normalize('NFD'); } catch (e) { d = w; }
+  if (d.indexOf(ACUTE) >= 0) return 'acute';
+  if (d.indexOf(TILDE) >= 0) return 'tilde';
+  if (d.indexOf(GRAVE) >= 0) return 'grave';
+  return null;
+}
+/* Подвижное ударение — у тильды и грависа, неподвижное — у акута. */
+function isMobile(mark3){
+  var t = toneOf(mark3);
+  return t === 'tilde' || t === 'grave';
+}
+/* Снимает знаки, чтобы сверить помеченную форму с нашей. */
+function bare(w){
+  try { return w.normalize('NFD').replace(/[\u0300\u0301\u0303]/g, '').normalize('NFC'); }
+  catch (e) { return w; }
+}
+/* Помеченная основа = помеченная форма минус её окончание. */
+function markedStem(mark3, plain3){
+  var cut = plain3.length - (plain3.length - (plain3.length - 1));
+  return mark3.slice(0, mark3.length - 1);
+}
+/* Ударное окончание: краткие гласные берут гравис, дифтонги — тильду. */
+function stressEnding(form, endLen){
+  var head = form.slice(0, form.length - endLen);
+  var end = form.slice(form.length - endLen);
+  var marked = end.length > 1
+    ? end.charAt(0) + TILDE + end.slice(1)   /* -au, -ai, -iu → aũ, aĩ, iù */
+    : end + GRAVE;                            /* -u, -i → ù, ì */
+  try { return (head + marked).normalize('NFC'); } catch (e) { return head + marked; }
+}
+
+/* Расставляет ударение в шести формах одного времени.
+   forms — наши формы без знаков, mark3 — третье лицо из кирчюоклиса. */
+function stressSix(forms, mark3){
+  if (!mark3 || bare(mark3) !== forms[2]) return null;
+  var out = forms.slice();
+  out[2] = mark3;
+  out[5] = mark3;
+  if (isMobile(mark3)) {
+    out[0] = stressEnding(forms[0], forms[0].length - (forms[2].length - 1));
+    out[1] = stressEnding(forms[1], forms[1].length - (forms[2].length - 1));
+    var stem = forms[2].slice(0, -1);
+    out[3] = mark3.slice(0, mark3.length - 1) + forms[3].slice(stem.length);
+    out[4] = mark3.slice(0, mark3.length - 1) + forms[4].slice(stem.length);
+  } else {
+    var ms = mark3.slice(0, mark3.length - 1);
+    var pl = forms[2].slice(0, -1).length;
+    [0, 1, 3, 4].forEach(function(i){ out[i] = ms + forms[i].slice(pl); });
+  }
+  return out;
+}
+
+/* Ударная парадигма глагола или null, если формы ещё не проставлены. */
+function stressed(v){
+  var k = KIRTIS[v.inf];
+  if (!k) return null;
+  var c = conjugate(v);
+  return {
+    pres: k.p ? stressSix(c.pres, k.p) : null,
+    past: k.b ? stressSix(c.past, k.b) : null,
+    cls:  k.p ? (isMobile(k.p) ? 'подвижное' : 'неподвижное') : null
+  };
+}
+/* Сколько глаголов уже размечено. */
+function kirtisCount(){ return Object.keys(KIRTIS).length; }
 
 /* ============================================================
    3. ГРУППЫ ГЛАГОЛОВ
@@ -1134,7 +1234,17 @@ function conjTable(v){
     main.appendChild(d);
   });
   wrap.appendChild(main);
-  wrap.appendChild(el('p', 'ct-hint', 'Всё, что ниже, выведено из этих трёх форм. Больше про этот глагол помнить не нужно.'));
+  var st0 = stressed(v);
+  var hint = el('p', 'ct-hint');
+  hint.textContent = 'Всё, что ниже, выведено из этих трёх форм. Больше про этот глагол помнить не нужно.';
+  wrap.appendChild(hint);
+  var kb = el('p', st0 ? 'ct-kirtis ok' : 'ct-kirtis');
+  if (st0 && st0.cls) {
+    kb.innerHTML = 'Ударение: <b>' + st0.cls + '</b>. Выведено из третьего лица по правилу — см. раздел про ударение.';
+  } else {
+    kb.textContent = 'Ударение у этого глагола ещё не размечено: формы показаны без знаков. Выдуманных знаков здесь нет и не будет.';
+  }
+  wrap.appendChild(kb);
 
   /* времена по лицам */
   var tw = el('div', 'ct-wrap');
@@ -1150,11 +1260,15 @@ function conjTable(v){
   thead.appendChild(tr);
   table.appendChild(thead);
   var tbody = el('tbody');
+  var st = stressed(v);
   PERSONS.forEach(function(p, i){
     var r = el('tr');
     r.appendChild(el('td', 'ct-p', p));
     TENSES.forEach(function(t){
-      r.appendChild(el('td', 'ct-f', c[t.k][i]));
+      var val = c[t.k][i];
+      if (st && t.k === 'pres' && st.pres) val = st.pres[i];
+      if (st && t.k === 'past' && st.past) val = st.past[i];
+      r.appendChild(el('td', 'ct-f', val));
     });
     tbody.appendChild(r);
   });
@@ -2101,5 +2215,21 @@ if ((h = document.getElementById('vk-detail'))) {
 }
 
 if ((h = document.getElementById('vk-space'))) renderSpace(h);
+
+if ((h = document.getElementById('vk-kirtis'))) {
+  var done = kirtisCount(), all = VERBS.length;
+  var bar = el('div', 'rep-bar');
+  var t = el('p', 'rb-t');
+  if (!done) {
+    t.innerHTML = 'Размечено глаголов: <b>0 из ' + all + '</b>. Пока формы показаны без знаков ударения — ' +
+      'выдуманных знаков в таблицах нет. Файл <b>kirciavimui-veiksmazodziai.txt</b> ждёт прогона через кирчюоклис: ' +
+      'в нём всего ' + (all * 2) + ' слова, разбитые на 14 частей.';
+  } else {
+    t.innerHTML = 'Размечено глаголов: <b>' + done + ' из ' + all + '</b>. ' +
+      'У размеченных ударение стоит во всём настоящем и прошедшем времени — выведено из третьего лица по правилу.';
+  }
+  bar.appendChild(t);
+  h.appendChild(bar);
+}
 
 })();

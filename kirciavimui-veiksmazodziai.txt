@@ -1,0 +1,77 @@
+# УДАРЕНИЯ ДЛЯ ГЛАГОЛОВ — короткий список
+# Разборы литовского · anacka.lt
+# © 2026 Божена Анацкая (Božena Anacka). Все права защищены.
+#
+# ПОЧЕМУ ЗДЕСЬ ТОЛЬКО ДВЕ ФОРМЫ НА ГЛАГОЛ
+#
+# Ударение 1-го и 2-го лица единственного числа выводится из ТРЕТЬЕГО лица:
+#
+#   • третье лицо с акутом (á, tvirtapradė) — ударение неподвижно,
+#     во всех лицах остаётся на том же слоге:   sė́di → sė́džiu, sė́di
+#   • третье лицо с тильдой (ã, tvirtagalė) или с кратким ударным
+#     гласным (à) — ударение подвижное, в 1-м и 2-м лице единственного
+#     уходит на окончание:                      vel̃ka → velkù, velkì
+#
+#   Множественное число ударяется так же, как третье лицо.
+#
+# Поэтому размечать нужно не 9240 форм, а 560: по два третьих лица
+# на каждый из 280 глаголов. Остальное страница выведет сама.
+#
+# ЧТО ДЕЛАТЬ
+#   1. Откройте Kirčiuoklis: https://kalbu.vdu.lt/mokymosi-priemones/kirciuoklis/
+#   2. Вставляйте по одной части (они помечены «--- часть N ---»).
+#   3. Верните размеченный текст — порядок слов можно не сохранять,
+#      каждая форма опознаётся по написанию без знаков.
+#
+# Строки с решёткой и строки «--- часть N ---» в кирчюоклис не вставляйте.
+#
+
+# НАСТОЯЩЕЕ ВРЕМЯ — третье лицо (280 форм)
+# Из этих форм выводится ударение всего настоящего времени.
+
+--- часть 1 из 7 ---
+sveikina augina džiovina žadina spausdina platina tvirtina garsina virškina smulkina vaidina pigina artina tolina linksmina liūdina kaitina vėsina drėkina sausina turtina aiškina ryškina ragina kaltina skatina gąsdina vaišina laisvina valgydina pagamina patikrina gyvena ridena tobulina silpnina greitina lėtina gražina gerina
+
+--- часть 2 из 7 ---
+blogina didina mažina ilgina trumpina stiprina lengvina sunkina tamsina šviesina ramina švarina gamina grąžina vadina tikrina lygina kalbina pratina minkština tikslina brangina kabina sodina dalina siūlo svarsto laisto pjausto braižo mėto svaido gaudo vaiko guldo mąsto sūdo valdo barsto lipdo
+
+--- часть 3 из 7 ---
+skaldo maudo taupo slaugo krausto ardo glosto laužo daužo rūko stumdo šaldo bado atsako perskaito paskaito parašo užrašo aprašo įrašo perrašo surašo prirašo nurašo padaro sudaro pradaro pasako paklauso pataiso sutaiso atitaiso išvalo nuvalo išmoko pamoko pastato nustato sustato įstato
+
+--- часть 4 из 7 ---
+sumaišo išmaišo pamaišo sulaiko palaiko suvalgo pavalgo išgydo nudažo uždažo perdažo sutvarko palaisto prašo atsiprašo bando skaito rašo daro mato sako moko valo rodo taiso stato laiko dažo šildo valgo klauso gydo atidaro uždaro lanko maišo karpo tvarko varto girdo
+
+--- часть 5 из 7 ---
+turi nori gali myli girdi žiūri sėdi guli tyli tiki kalba moka skauda skamba tobulėja greitėja lėtėja gražėja gerėja blogėja didėja mažėja ilgėja trumpėja stiprėja silpnėja šiltėja tamsėja šviesėja sunkėja lengvėja švarėja brangėja senėja fotografuoja planuoja matuoja šukuoja bučiuoja klijuoja
+
+--- часть 6 из 7 ---
+rikiuoja rūšiuoja vairuoja montuoja remontuoja kopijuoja projektuoja reaguoja diskutuoja registruoja komentuoja kontroliuoja informuoja ignoruoja treniruoja dekoruoja ragauja draugauja bendrauja dalyvauja dainuoja keliauja važiuoja studijuoja sportuoja meluoja kainuoja juokauja skaičiuoja organizuoja saugo naudoja svajoja pasakoja medžioja kloja dėkoja galvoja dovanoja kartoja
+
+--- часть 7 из 7 ---
+vaikščioja nešioja ieško bijo miega žino gyja ryja dalija yra eina duoda ima dirba geria perka neša veža veda meta kelia deda randa supranta keičia kviečia leidžia jaučia klausia laukia baigia plauna pjauna gauna auga bėga lipa krinta pažįsta pamiršta
+
+
+# ПРОШЕДШЕЕ ВРЕМЯ — третье лицо (280 форм)
+# Из этих форм выводится ударение всего прошедшего времени.
+
+--- часть 1 из 7 ---
+sveikino augino džiovino žadino spausdino platino tvirtino garsino virškino smulkino vaidino pigino artino tolino linksmino liūdino kaitino vėsino drėkino sausino turtino aiškino ryškino ragino kaltino skatino gąsdino vaišino laisvino valgydino pagamino patikrino gyveno rideno tobulino silpnino greitino lėtino gražino gerino
+
+--- часть 2 из 7 ---
+blogino didino mažino ilgino trumpino stiprino lengvino sunkino tamsino šviesino ramino švarino gamino grąžino vadino tikrino lygino kalbino pratino minkštino tikslino brangino kabino sodino dalino siūlė svarstė laistė pjaustė braižė mėtė svaidė gaudė vaikė guldė mąstė sūdė valdė barstė lipdė
+
+--- часть 3 из 7 ---
+skaldė maudė taupė slaugė kraustė ardė glostė laužė daužė rūkė stumdė šaldė badė atsakė perskaitė paskaitė parašė užrašė aprašė įrašė perrašė surašė prirašė nurašė padarė sudarė pradarė pasakė paklausė pataisė sutaisė atitaisė išvalė nuvalė išmokė pamokė pastatė nustatė sustatė įstatė
+
+--- часть 4 из 7 ---
+sumaišė išmaišė pamaišė sulaikė palaikė suvalgė pavalgė išgydė nudažė uždažė perdažė sutvarkė palaistė prašė atsiprašė bandė skaitė rašė darė matė sakė mokė valė rodė taisė statė laikė dažė šildė valgė klausė gydė atidarė uždarė lankė maišė karpė tvarkė vartė girdė
+
+--- часть 5 из 7 ---
+turėjo norėjo galėjo mylėjo girdėjo žiūrėjo sėdėjo gulėjo tylėjo tikėjo kalbėjo mokėjo skaudėjo skambėjo tobulėjo greitėjo lėtėjo gražėjo gerėjo blogėjo didėjo mažėjo ilgėjo trumpėjo stiprėjo silpnėjo šiltėjo tamsėjo šviesėjo sunkėjo lengvėjo švarėjo brangėjo senėjo fotografavo planavo matavo šukavo bučiavo klijavo
+
+--- часть 6 из 7 ---
+rikiavo rūšiavo vairavo montavo remontavo kopijavo projektavo reagavo diskutavo registravo komentavo kontroliavo informavo ignoravo treniravo dekoravo ragavo draugavo bendravo dalyvavo dainavo keliavo važiavo studijavo sportavo melavo kainavo juokavo skaičiavo organizavo saugojo naudojo svajojo pasakojo medžiojo klojo dėkojo galvojo dovanojo kartojo
+
+--- часть 7 из 7 ---
+vaikščiojo nešiojo ieškojo bijojo miegojo žinojo gijo rijo dalijo buvo ėjo davė ėmė dirbo gėrė pirko nešė vežė vedė metė kėlė dėjo rado suprato keitė kvietė leido jautė klausė laukė baigė plovė pjovė gavo augo bėgo lipo krito pažino pamiršo
+

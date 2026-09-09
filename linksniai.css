@@ -650,3 +650,11 @@ td.h-Ė{color:var(--bad)}
 @media (prefers-reduced-motion: reduce){
   #vk-detail.flash .ct{animation:none;box-shadow:0 0 0 2px var(--accent), var(--shadow)}
 }
+
+/* ---- пометка об ударении в карточке глагола ---- */
+.ct-kirtis{
+  font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--muted);
+  background:var(--surface-2);border-radius:9px;padding:8px 12px;margin:0 0 14px;
+}
+.ct-kirtis.ok{background:var(--good-soft);color:var(--good)}
+.ct-kirtis b{color:inherit}
