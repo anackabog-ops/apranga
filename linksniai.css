@@ -390,3 +390,118 @@ table.wb .acc{font-family:var(--serif);font-weight:800;color:var(--gold);white-s
 @media print{
   .trainer,.modes,.wb-tabs,.wb-search,.rep-bar{display:none}
 }
+
+/* ============================================================
+   Схемы глаголов (/schemos.html) — те же переменные, свои блоки
+   ============================================================ */
+.sch{
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:20px 20px 18px;margin:0 0 18px;box-shadow:var(--shadow);
+}
+.sch-head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.sch-t{font-family:var(--serif);font-weight:800;font-size:19px;margin:0;letter-spacing:-.02em;
+  text-transform:none;color:var(--ink)}
+.sch-n{font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);flex:none}
+.sch-f{
+  font-family:var(--serif);font-weight:800;font-size:19px;color:var(--accent-ink);
+  background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin:13px 0 12px;
+  overflow-x:auto;white-space:nowrap;
+}
+.sch-d{font-size:15px;color:var(--muted);margin:0 0 12px;max-width:64ch}
+.sch-rows{display:grid;gap:0;margin-bottom:12px}
+.sch-row{display:grid;grid-template-columns:minmax(140px,auto) 1fr;gap:14px;
+  padding:9px 0;border-top:1px solid var(--line-soft);font-size:14.5px}
+.sch-row:first-child{border-top:none}
+.sch-row b{font-family:var(--sans);font-weight:700;color:var(--ink)}
+.sch-row span{font-family:var(--serif);font-weight:700;color:var(--gold)}
+.sch-note{font-size:14.5px;line-height:1.6;color:var(--ink);opacity:.85;
+  border-left:3px solid var(--gold);padding-left:13px;margin:0 0 14px;max-width:64ch}
+.sch-note i{font-family:var(--serif);font-weight:700;font-style:normal;color:var(--accent-ink)}
+.sch-note b{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip-v{
+  display:flex;flex-direction:column;align-items:flex-start;gap:1px;cursor:pointer;
+  background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:7px 12px;
+}
+.chip-v:hover{border-color:var(--accent);background:var(--surface)}
+.chip-v b{font-family:var(--serif);font-weight:800;font-size:14.5px;color:var(--ink)}
+.chip-v span{font-size:12px;color:var(--muted)}
+
+/* полная таблица глагола */
+.ct{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+.ct-head{margin-bottom:14px}
+.ct-v{margin:0;font-size:15px}
+.ct-v b{font-family:var(--serif);font-weight:800;font-size:26px;letter-spacing:-.02em;color:var(--ink)}
+.ct-v span{color:var(--muted)}
+.ct-g{font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--accent-ink);margin:4px 0 0}
+.ct-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:10px}
+.ct-main > div{background:var(--accent-soft);border-radius:12px;padding:11px 14px}
+.ct-lbl{display:block;font-family:var(--sans);font-size:10.5px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.ct-main b{font-family:var(--serif);font-weight:800;font-size:19px;color:var(--accent-ink);display:block}
+.ct-sub{font-size:12px;color:var(--muted)}
+.ct-hint{font-size:13.5px;color:var(--muted);margin:0 0 14px;font-style:italic}
+.ct-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface-2)}
+table.ct-tab{border-collapse:collapse;width:100%;min-width:820px;font-size:14.5px}
+table.ct-tab th{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);
+  background:var(--surface);vertical-align:top}
+table.ct-tab th b{display:block;font-family:var(--sans);font-size:11px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+table.ct-tab th span{display:block;font-family:var(--serif);font-size:11.5px;color:var(--muted);font-weight:400}
+table.ct-tab td{padding:8px 13px;border-bottom:1px solid var(--line-soft)}
+table.ct-tab tr:last-child td{border-bottom:none}
+td.ct-p{font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+td.ct-f{font-family:var(--serif);font-weight:700;color:var(--ink);white-space:nowrap}
+.ct-more{margin-top:14px;border-top:1px solid var(--line);padding-top:12px;display:grid;gap:0}
+.ct-mrow{display:grid;grid-template-columns:minmax(190px,auto) 1fr;gap:14px;
+  padding:8px 0;border-top:1px solid var(--line-soft);font-size:14.5px;align-items:baseline}
+.ct-mrow:first-child{border-top:none}
+.ct-mrow b{font-family:var(--sans);font-weight:700;font-size:13px;color:var(--muted)}
+.ct-mval{font-family:var(--serif);font-weight:800;color:var(--accent-ink)}
+.ct-mnote{display:block;font-size:12.5px;color:var(--muted);font-family:var(--body)}
+
+/* пошаговый разбор */
+.steps-lt{display:grid;gap:0;margin-top:6px}
+.step-lt{padding:13px 0;border-top:1px solid var(--line-soft)}
+.step-lt:first-child{border-top:none}
+.step-lt b{display:block;font-family:var(--sans);font-size:11px;font-weight:800;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:4px}
+.step-lt p{margin:0;font-size:15px;color:var(--ink);opacity:.88;max-width:70ch}
+
+/* база глаголов */
+.vb-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.vb-tabs button{font-family:var(--sans);font-size:12.5px;font-weight:700;border:1px solid var(--line);
+  background:var(--surface);color:var(--muted);border-radius:999px;padding:7px 14px;cursor:pointer}
+.vb-tabs button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+.vb-search{font-family:var(--body);font-size:15px;width:100%;padding:11px 14px;border-radius:11px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);margin-bottom:12px}
+.vb-open{font-family:var(--sans);font-size:12px;font-weight:800;background:var(--accent-soft);
+  border:1px solid var(--accent);color:var(--accent-ink);border-radius:8px;padding:5px 11px;cursor:pointer}
+.vb-open:hover{filter:brightness(1.05)}
+.vb-pick{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.vb-plbl{font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted)}
+.vb-select{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;
+  min-width:min(320px,100%)}
+
+/* мои предложения */
+.themes{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){.themes{grid-template-columns:1fr 1fr}}
+.theme{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:17px 18px;
+  display:flex;flex-direction:column;gap:8px}
+.th-n{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--muted)}
+.th-t{margin:0;font-family:var(--serif);font-weight:800;font-size:17px;color:var(--ink);
+  text-transform:none;letter-spacing:-.01em}
+.th-d{margin:0;font-size:14.5px;color:var(--muted)}
+.th-h{margin:0;font-size:13.5px;color:var(--muted)}
+.th-h b{font-family:var(--sans);font-weight:700;color:var(--ink)}
+.th-row{display:flex;align-items:center;gap:10px}
+.th-saved{font-family:var(--sans);font-size:12px;color:var(--good)}
+.th-out{display:none;border-top:1px dashed var(--line);padding-top:10px}
+.th-out.show{display:block}
+.th-out > b{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.th-empty,.th-note{font-size:13.5px;color:var(--muted);margin:6px 0 0}
