@@ -1,0 +1,218 @@
+# СЛОВА И ФОРМЫ ДЛЯ ПРОВЕРКИ УДАРЕНИЙ
+# Разборы литовского · anacka.lt
+# © 2026 Божена Анацкая (Božena Anacka). Все права защищены.
+#
+# ЧТО ЭТО
+# Полный список литовских слов и форм, которые используются на страницах
+# linksniai.html (падежи) и schemos.html (схемы глаголов). Формы верны
+# по буквам и проверены; знаки ударения в них НЕ расставлены.
+#
+# КАК ПОЛЬЗОВАТЬСЯ
+#   1. Откройте Kirčiuoklis: https://kalbu.vdu.lt/mokymosi-priemones/kirciuoklis/
+#   2. Вставляйте по одному блоку (блоки разделены пустой строкой).
+#   3. Верните размеченный текст — он загрузится в базы страниц.
+#
+# Строки с решёткой в начале — комментарии, в кирчюоклис их вставлять не нужно.
+# Первый блок самый важный: в нём пары, которые пишутся одинаково,
+# а различаются, возможно, только ударением.
+#
+# 1. ПАРЫ-БЛИЗНЕЦЫ: kilmininkas ед. ч. и vardininkas мн. ч.
+# Пишутся одинаково. Проверить, различаются ли ударением.
+# Вставлять предложениями: форму кирчюоклис определяет по контексту.
+
+Nėra mamos. Mamos yra čia.   # mama — мама
+Nėra knygos. Knygos yra čia.   # knyga — книга
+Nėra arbatos. Arbatos yra čia.   # arbata — чай
+Nėra kavos. Kavos yra čia.   # kava — кофе
+Nėra mašinos. Mašinos yra čia.   # mašina — машина
+Nėra dainos. Dainos yra čia.   # daina — песня
+Nėra galvos. Galvos yra čia.   # galva — голова
+Nėra rankos. Rankos yra čia.   # ranka — рука
+Nėra dukros. Dukros yra čia.   # dukra — дочь
+Nėra sriubos. Sriubos yra čia.   # sriuba — суп
+Nėra valandos. Valandos yra čia.   # valanda — час
+Nėra sesės. Sesės yra čia.   # sesė — сестра, сестрёнка
+Nėra katės. Katės yra čia.   # katė — кошка
+Nėra gatvės. Gatvės yra čia.   # gatvė — улица
+Nėra kėdės. Kėdės yra čia.   # kėdė — стул
+Nėra upės. Upės yra čia.   # upė — река
+Nėra saulės. Saulės yra čia.   # saulė — солнце
+Nėra gėlės. Gėlės yra čia.   # gėlė — цветок
+Nėra mergaitės. Mergaitės yra čia.   # mergaitė — девочка
+Nėra dukterys. Dukterys yra čia.   # duktė — дочь
+
+# 2. СУЩЕСТВИТЕЛЬНЫЕ: vardininkas ед. · мн. · galininkas ед. · мн.
+
+langas langai langą langus
+namas namai namą namus
+stalas stalai stalą stalus
+vaikas vaikai vaiką vaikus
+draugas draugai draugą draugus
+vyras vyrai vyrą vyrus
+miestas miestai miestą miestus
+laiškas laiškai laišką laiškus
+batas batai batą batus
+darbas darbai darbą darbus
+filmas filmai filmą filmus
+daiktas daiktai daiktą daiktus
+telefonas telefonai telefoną telefonus
+mokytojas mokytojai mokytoją mokytojus
+pienas pieną
+brolis broliai brolį brolius
+medis medžiai medį medžius
+peilis peiliai peilį peilius
+sūris sūriai sūrį sūrius
+kompiuteris kompiuteriai kompiuterį kompiuterius
+obuolys obuoliai obuolį obuolius
+arklys arkliai arklį arklius
+kelias keliai kelią kelius
+svečias svečiai svečią svečius
+sūnus sūnūs sūnų sūnus
+turgus turgūs turgų turgus
+dangus dangų
+vanduo vandenys vandenį vandenis
+dantis dantys dantį dantis
+mama mamos mamą mamas
+knyga knygos knygą knygas
+duona duoną
+arbata arbatos arbatą arbatas
+kava kavos kavą kavas
+mašina mašinos mašiną mašinas
+daina dainos dainą dainas
+galva galvos galvą galvas
+ranka rankos ranką rankas
+dukra dukros dukrą dukras
+sriuba sriubos sriubą sriubas
+valanda valandos valandą valandas
+sesė sesės sesę seses
+katė katės katę kates
+gatvė gatvės gatvę gatves
+kėdė kėdės kėdę kėdes
+upė upės upę upes
+saulė saulės saulę saules
+gėlė gėlės gėlę gėles
+mergaitė mergaitės mergaitę mergaites
+duktė dukterys dukterį dukteris
+moteris moterys moterį moteris
+akis akys akį akis
+širdis širdys širdį širdis
+naktis naktys naktį naktis
+žuvis žuvys žuvį žuvis
+pilis pilys pilį pilis
+sesuo seserys seserį seseris
+durys durys duris
+žirklės žirklės žirkles
+akiniai akiniai akinius
+marškiniai marškiniai marškinius
+pietūs pietūs pietus
+
+# 3. ПРИЛАГАТЕЛЬНЫЕ: vardininkas jis·ji·jie·jos, затем galininkas тех же четырёх
+
+naujas nauja nauji naujos naują naują naujus naujas
+senas sena seni senos seną seną senus senas
+geras gera geri geros gerą gerą gerus geras
+blogas bloga blogi blogos blogą blogą blogus blogas
+baltas balta balti baltos baltą baltą baltus baltas
+juodas juoda juodi juodos juodą juodą juodus juodas
+šaltas šalta šalti šaltos šaltą šaltą šaltus šaltas
+šiltas šilta šilti šiltos šiltą šiltą šiltus šiltas
+karštas karšta karšti karštos karštą karštą karštus karštas
+mažas maža maži mažos mažą mažą mažus mažas
+ilgas ilga ilgi ilgos ilgą ilgą ilgus ilgas
+trumpas trumpa trumpi trumpos trumpą trumpą trumpus trumpas
+aukštas aukšta aukšti aukštos aukštą aukštą aukštus aukštas
+žemas žema žemi žemos žemą žemą žemus žemas
+siauras siaura siauri siauros siaurą siaurą siaurus siauras
+pilnas pilna pilni pilnos pilną pilną pilnus pilnas
+sausas sausa sausi sausos sausą sausą sausus sausas
+drėgnas drėgna drėgni drėgnos drėgną drėgną drėgnus drėgnas
+jaunas jauna jauni jaunos jauną jauną jaunus jaunas
+sveikas sveika sveiki sveikos sveiką sveiką sveikus sveikas
+linksmas linksma linksmi linksmos linksmą linksmą linksmus linksmas
+liūdnas liūdna liūdni liūdnos liūdną liūdną liūdnus liūdnas
+storas stora stori storos storą storą storus storas
+plonas plona ploni plonos ploną ploną plonus plonas
+lengvas lengva lengvi lengvos lengvą lengvą lengvus lengvas
+greitas greita greiti greitos greitą greitą greitus greitas
+lėtas lėta lėti lėtos lėtą lėtą lėtus lėtas
+turtingas turtinga turtingi turtingos turtingą turtingą turtingus turtingas
+naudingas naudinga naudingi naudingos naudingą naudingą naudingus naudingas
+mielas miela mieli mielos mielą mielą mielus mielas
+laisvas laisva laisvi laisvos laisvą laisvą laisvus laisvas
+kietas kieta kieti kietos kietą kietą kietus kietas
+minkštas minkšta minkšti minkštos minkštą minkštą minkštus minkštas
+tuščias tuščia tušti tuščios tuščią tuščią tuščius tuščias
+gražus graži gražūs gražios gražų gražią gražius gražias
+ramus rami ramūs ramios ramų ramią ramius ramias
+malonus maloni malonūs malonios malonų malonią malonius malonias
+skanus skani skanūs skanios skanų skanią skanius skanias
+gardus gardi gardūs gardžios gardų gardžią gardžius gardžias
+sunkus sunki sunkūs sunkios sunkų sunkią sunkius sunkias
+saldus saldi saldūs saldžios saldų saldžią saldžius saldžias
+kartus karti kartūs karčios kartų karčią karčius karčias
+platus plati platūs plačios platų plačią plačius plačias
+gilus gili gilūs gilios gilų gilią gilius gilias
+švarus švari švarūs švarios švarų švarią švarius švarias
+brangus brangi brangūs brangios brangų brangią brangius brangias
+pigus pigi pigūs pigios pigų pigią pigius pigias
+įdomus įdomi įdomūs įdomios įdomų įdomią įdomius įdomias
+drąsus drąsi drąsūs drąsios drąsų drąsią drąsius drąsias
+stiprus stipri stiprūs stiprios stiprų stiprią stiprius stiprias
+baisus baisi baisūs baisios baisų baisią baisius baisias
+saugus saugi saugūs saugios saugų saugią saugius saugias
+tamsus tamsi tamsūs tamsios tamsų tamsią tamsius tamsias
+šviesus šviesi šviesūs šviesios šviesų šviesią šviesius šviesias
+garsus garsi garsūs garsios garsų garsią garsius garsias
+tylus tyli tylūs tylios tylų tylią tylius tylias
+sotus soti sotūs sočios sotų sočią sočius sočias
+gausus gausi gausūs gausios gausų gausią gausius gausias
+medinis medinė mediniai medinės medinį medinę medinius medines
+stiklinis stiklinė stikliniai stiklinės stiklinį stiklinę stiklinius stiklines
+metalinis metalinė metaliniai metalinės metalinį metalinę metalinius metalines
+popierinis popierinė popieriniai popierinės popierinį popierinę popierinius popierines
+odinis odinė odiniai odinės odinį odinę odinius odines
+vilnonis vilnonė vilnoniai vilnonės vilnonį vilnonę vilnonius vilnones
+medvilninis medvilninė medvilniniai medvilninės medvilninį medvilninę medvilninius medvilnines
+auksinis auksinė auksiniai auksinės auksinį auksinę auksinius auksines
+sidabrinis sidabrinė sidabriniai sidabrinės sidabrinį sidabrinę sidabrinius sidabrines
+molinis molinė moliniai molinės molinį molinę molinius molines
+plastikinis plastikinė plastikiniai plastikinės plastikinį plastikinę plastikinius plastikines
+rytinis rytinė rytiniai rytinės rytinį rytinę rytinius rytines
+vakarinis vakarinė vakariniai vakarinės vakarinį vakarinę vakarinius vakarines
+naktinis naktinė naktiniai naktinės naktinį naktinę naktinius naktines
+žieminis žieminė žieminiai žieminės žieminį žieminę žieminius žiemines
+vasarinis vasarinė vasariniai vasarinės vasarinį vasarinę vasarinius vasarines
+kasdienis kasdienė kasdieniai kasdienės kasdienį kasdienę kasdienius kasdienes
+paskutinis paskutinė paskutiniai paskutinės paskutinį paskutinę paskutinius paskutines
+viršutinis viršutinė viršutiniai viršutinės viršutinį viršutinę viršutinius viršutines
+apatinis apatinė apatiniai apatinės apatinį apatinę apatinius apatines
+vidinis vidinė vidiniai vidinės vidinį vidinę vidinius vidines
+išorinis išorinė išoriniai išorinės išorinį išorinę išorinius išorines
+didelis didelė dideli didelės didelį didelę didelius dideles
+
+# 4. СЛОВООБРАЗОВАНИЕ: прилагательное · -umas · -ėti · -inti
+
+gražus gražumas gražėti gražinti
+geras gerumas gerėti gerinti
+blogas blogumas blogėti bloginti
+ramus ramumas ramėti raminti
+malonus malonumas
+sunkus sunkumas sunkėti sunkinti
+lengvas lengvumas lengvėti lengvinti
+ilgas ilgumas ilgėti ilginti
+trumpas trumpumas trumpėti trumpinti
+šiltas šiltumas šiltėti šildyti
+didelis didumas didėti didinti
+mažas mažumas mažėti mažinti
+švarus švarumas švarėti švarinti
+stiprus stiprumas stiprėti stiprinti
+brangus brangumas brangti branginti
+tamsus tamsumas tamsėti tamsinti
+šviesus šviesumas šviesėti šviesinti
+aukštas aukštumas aukštėti aukštinti
+
+# ────────────────────────────────────────────────────────────
+# Глаголы вынесены в отдельный файл: kirciavimui-veiksmazodziai.txt
+# Там нужно всего 560 слов вместо тысяч форм — ударение остальных
+# выводится из третьего лица по правилу.
+# ────────────────────────────────────────────────────────────

@@ -1,3 +1,14 @@
+/*!
+ * Разборы литовского · anacka.lt
+ * © 2026 Божена Анацкая (Božena Anacka). Все права защищены.
+ * All rights reserved.
+ *
+ * Авторский учебный материал. Личное и учебное использование
+ * со ссылкой на автора разрешено; публикация целиком, продажа
+ * и удаление указания авторства — только с письменного согласия.
+ * Условия: https://apranga.netlify.app/teises.html
+ */
+
 (function(){
   // ---------- scroll spy ----------
   var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
