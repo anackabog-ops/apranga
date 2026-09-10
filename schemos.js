@@ -997,6 +997,90 @@ var PREFIXES = [
        {n:'под', ex:'padėti · pakišti', ru:'положить · подсунуть'}]}
 ];
 
+/* ============================================================
+   Глаголы каждой приставки, разложенные по ветвям значений.
+   b — базовый глагол: спрягается приставочный ровно так же,
+   поэтому выучивать заново нечего.
+   lex — лексикализованные: значение из формулы уже не выводится.
+   ============================================================ */
+var PREF_VERBS = {
+ 'į-': {br:[
+   ['внутрь физически', [['įeiti','войти','eiti'],['įbėgti','вбежать','bėgti'],['įvažiuoti','въехать','važiuoti'],['įnešti','внести','nešti'],['įdėti','вложить','dėti'],['įlipti','влезть','lipti'],['įmesti','бросить внутрь','mesti']]],
+   ['вписать, зафиксировать', [['įrašyti','записать на носитель','rašyti'],['įstatyti','вставить','statyti']]],
+   ['вход в состояние', [['įsimylėti','влюбиться','mylėti'],['įmigti','заснуть','migti'],['įprasti','привыкнуть','prasti']]]],
+  lex:[['įstoti','поступить (в вуз)'],['įvykti','произойти'],['įsivaizduoti','представить себе']]},
+
+ 'iš-': {br:[
+   ['наружу', [['išeiti','выйти','eiti'],['išbėgti','выбежать','bėgti'],['išvažiuoti','уехать','važiuoti'],['išnešti','вынести','nešti'],['išimti','вынуть','imti'],['išlipti','вылезти','lipti'],['išmesti','выбросить','mesti']]],
+   ['до конца, исчерпать', [['išgerti','выпить','gerti'],['išvalyti','вычистить','valyti'],['išplauti','вымыть','plauti'],['išmokti','выучить','mokti'],['išmokyti','научить','mokyti'],['išgydyti','вылечить','gydyti'],['išdžiovinti','высушить','džiovinti']]],
+   ['распределить по всем', [['išdalyti','раздать','dalyti'],['išsiuntinėti','разослать','siuntinėti']]]],
+  lex:[['išgirsti','услышать'],['išspręsti','решить (задачу)'],['išsiskirti','расстаться']]},
+
+ 'pri-': {br:[
+   ['приблизиться', [['prieiti','подойти','eiti'],['pribėgti','подбежать','bėgti'],['privažiuoti','подъехать','važiuoti'],['prinešti','поднести','nešti']]],
+   ['прикрепить', [['prisegti','приколоть','segti'],['priklijuoti','приклеить','klijuoti']]],
+   ['накопить до границы', [['pripilti','налить доверху','pilti'],['prirašyti','написать много','rašyti'],['priaugti','нарасти','augti']]],
+   ['насытиться', [['prisivalgyti','наесться','valgyti'],['prisigerti','напиться','gerti']]]],
+  lex:[['priklausyti','принадлежать'],['priimti','принять'],['pripažinti','признать'],['prisiminti','вспомнить']]},
+
+ 'nu-': {br:[
+   ['прочь, вниз', [['nueiti','уйти, дойти','eiti'],['nubėgti','убежать','bėgti'],['nuvažiuoti','уехать','važiuoti'],['nulipti','спуститься','lipti'],['nukristi','упасть','kristi']]],
+   ['снять, удалить', [['nuimti','снять','imti'],['nuvalyti','вытереть','valyti'],['nuplauti','смыть','plauti'],['nurašyti','списать','rašyti']]],
+   ['довести до результата', [['nupirkti','купить','pirkti'],['nudažyti','покрасить','dažyti'],['nutraukti','прервать','traukti']]]],
+  lex:[['nutarti','решить'],['nustebti','удивиться'],['nusibosti','надоесть'],['nusišypsoti','улыбнуться']]},
+
+ 'per-': {br:[
+   ['через, на другую сторону', [['pereiti','перейти','eiti'],['perbėgti','перебежать','bėgti'],['pervažiuoti','переехать','važiuoti'],['pernešti','перенести','nešti'],['peršokti','перепрыгнуть','šokti']]],
+   ['целиком, до конца', [['perskaityti','прочитать','skaityti'],['peržiūrėti','просмотреть','žiūrėti']]],
+   ['заново', [['perrašyti','переписать','rašyti'],['perdaryti','переделать','daryti'],['perdažyti','перекрасить','dažyti'],['pertvarkyti','переустроить','tvarkyti']]],
+   ['сверх нормы', [['persivalgyti','переесть','valgyti'],['peršalti','простудиться','šalti']]]],
+  lex:[['pergyventi','пережить'],['perspėti','предупредить']]},
+
+ 'pra-': {br:[
+   ['мимо, сквозь', [['praeiti','пройти мимо','eiti'],['prabėgti','пробежать мимо','bėgti'],['pravažiuoti','проехать мимо','važiuoti']]],
+   ['пройти сквозь период', [['pragyventi','прожить','gyventi'],['praleisti','провести, пропустить','leisti'],['pramiegoti','проспать','miegoti']]],
+   ['начать', [['pradėti','начать','dėti'],['prakalbėti','заговорить','kalbėti'],['pražysti','расцвести','žysti'],['praverti','приоткрыть','verti']]],
+   ['упустить, потерять', [['prarasti','потерять','rasti'],['pralaimėti','проиграть','laimėti']]]],
+  lex:[['pranešti','сообщить'],['prasidėti','начаться']]},
+
+ 'ap-': {br:[
+   ['вокруг', [['apeiti','обойти','eiti'],['apibėgti','обежать','bėgti'],['apvažiuoti','объехать','važiuoti'],['apsukti','обернуть','sukti']]],
+   ['охватить целиком', [['apkabinti','обнять','kabinti'],['apsirengti','одеться','rengtis'],['apsiauti','обуться','autis']]],
+   ['по поверхности', [['apdažyti','покрасить снаружи','dažyti'],['apiplauti','обмыть','plauti']]],
+   ['слегка, частично', [['apšilti','немного согреться','šilti'],['apžiūrėti','осмотреть','žiūrėti'],['apsvarstyti','обдумать','svarstyti']]]],
+  lex:[['apsaugoti','защитить'],['apgauti','обмануть'],['aprašyti','описать'],['apsispręsti','решиться']]},
+
+ 'at-': {br:[
+   ['сюда, к точке отсчёта', [['ateiti','прийти','eiti'],['atbėgti','прибежать','bėgti'],['atvažiuoti','приехать','važiuoti'],['atnešti','принести','nešti'],['atvežti','привезти','vežti'],['atskristi','прилететь','skristi']]],
+   ['обратное действие', [['atidaryti','открыть','daryti'],['atsegti','отстегнуть','segti'],['atimti','отнять','imti'],['atrišti','развязать','rišti'],['atšaukti','отменить','šaukti']]],
+   ['ответное действие', [['atsakyti','ответить','sakyti'],['atsiliepti','отозваться','liepti']]]],
+  lex:[['atrodyti','выглядеть'],['atsiminti','помнить'],['atsirasti','появиться']]},
+
+ 'par-': {br:[
+   ['вернуться', [['pareiti','вернуться пешком','eiti'],['parbėgti','прибежать обратно','bėgti'],['parvažiuoti','вернуться на транспорте','važiuoti'],['parskristi','прилететь обратно','skristi'],['parplaukti','приплыть обратно','plaukti']]],
+   ['принести обратно', [['parnešti','принести домой','nešti'],['parvežti','привезти домой','vežti'],['parvesti','привести домой','vesti']]]],
+  lex:[['parduoti','продать']]},
+
+ 'su-': {br:[
+   ['вместе, в одну точку', [['sueiti','сойтись','eiti'],['susitikti','встретиться','tikti'],['susirinkti','собраться','rinkti'],['subėgti','сбежаться','bėgti']]],
+   ['соединить в целое', [['sujungti','соединить','jungti'],['sudėti','сложить','dėti'],['surinkti','собрать','rinkti'],['suklijuoti','склеить','klijuoti']]],
+   ['результат', [['suprasti','понять','rasti'],['suvalgyti','съесть','valgyti'],['sutaisyti','починить','taisyti'],['sugalvoti','придумать','galvoti'],['sutvarkyti','привести в порядок','tvarkyti'],['sumokėti','заплатить','mokėti']]]],
+  lex:[['sutikti','согласиться; встретить'],['susirgti','заболеть'],['sugesti','сломаться'],['sužinoti','узнать']]},
+
+ 'už-': {br:[
+   ['за, зайти', [['užeiti','зайти','eiti'],['užbėgti','забежать','bėgti'],['užvažiuoti','заехать','važiuoti'],['užlipti','подняться','lipti']]],
+   ['закрыть, застегнуть', [['uždaryti','закрыть','daryti'],['užsegti','застегнуть','segti'],['užrišti','завязать','rišti'],['užrakinti','запереть','rakinti']]],
+   ['начало состояния', [['užmigti','уснуть','migti'],['uždainuoti','запеть','dainuoti'],['užsidegti','загореться','degti']]],
+   ['зафиксировать', [['užrašyti','записать','rašyti'],['užpildyti','заполнить','pildyti'],['užsakyti','заказать','sakyti']]]],
+  lex:[['užtekti','хватать'],['užsiimti','заниматься'],['užjausti','сочувствовать']]},
+
+ 'pa-': {br:[
+   ['немного, недолго', [['paskaityti','почитать','skaityti'],['pamiegoti','поспать','miegoti'],['pavaikščioti','погулять','vaikščioti'],['pakalbėti','поговорить','kalbėti'],['pasėdėti','посидеть','sėdėti']]],
+   ['результат', [['padaryti','сделать','daryti'],['pamatyti','увидеть','matyti'],['parašyti','написать','rašyti'],['pasakyti','сказать','sakyti'],['pavalgyti','поесть','valgyti'],['paklausti','спросить','klausti']]],
+   ['под', [['padėti','положить','dėti'],['pakišti','подсунуть','kišti'],['pakabinti','повесить','kabinti']]]],
+  lex:[['padėti','помочь — тот же глагол, но зовёт naudininkas: padedu mamai'],['pasakoti','рассказывать'],['pažinti','быть знакомым'],['pasilikti','остаться']]}
+};
+
 /* Один глагол движения и все двенадцать стрелок. */
 var MOTION = [
   {p:'į-',   v:'įeiti',   ru:'войти'},        {p:'iš-',  v:'išeiti',  ru:'выйти'},
@@ -1581,21 +1665,57 @@ function taskPrepCase(seed){
   };
 }
 
+/* Плоский список приставочных глаголов — для заданий. */
+var PREF_FLAT = (function(){
+  var out = [];
+  Object.keys(PREF_VERBS).forEach(function(k){
+    PREF_VERBS[k].br.forEach(function(g){
+      g[1].forEach(function(v){ if (v[2]) out.push({p:k, v:v[0], ru:v[1], b:v[2], br:g[0]}); });
+    });
+  });
+  return out;
+})();
+
+/* Задание: из какого глагола вырос приставочный — и значит,
+   как он спрягается. */
+function taskBase(seed){
+  var r = rnd(seed + 13);
+  var x = PREF_FLAT[r(PREF_FLAT.length)];
+  var opts = [{t: x.b, ok: 1,
+    w: x.v + ' = ' + x.p + ' + ' + x.b + '. Значит и спрягается как ' + x.b + ' — новых форм учить не надо. Приставка ' + x.p + ' добавила смысл «' + x.br + '».'}];
+  var seen = {}; seen[x.b] = 1;
+  while (opts.length < 4) {
+    var y = PREF_FLAT[r(PREF_FLAT.length)];
+    if (seen[y.b]) continue;
+    seen[y.b] = 1;
+    opts.push({t: y.b, ok: 0, w: 'От ' + y.b + ' растёт ' + y.v + ' (' + y.ru + '), а не ' + x.v + '.'});
+  }
+  var k = r(4), tmp = opts[0]; opts[0] = opts[k]; opts[k] = tmp;
+  return {
+    q: 'Из какого глагола вырос <b>' + x.v + '</b> <i>(' + x.ru + ')</i>?',
+    hint: 'Отбросьте приставку ' + x.p + ' — останется базовый глагол. Его спряжение и будет спряжением всего приставочного.',
+    ans: [x.b],
+    rule: 'Приставка меняет смысл и вид, но не трогает спряжение: базовый глагол остаётся тем же двигателем.',
+    opts: opts
+  };
+}
+
 function buildTasks(groupKey, n){
   var list = VERBS.filter(function(v){ return groupKey === 'all' || v.g === groupKey; });
   var out = [];
   var seed = Date.now() % 9973;
   for (var i = 0; i < n; i++) {
     var v = list[(i * 7 + 3) % list.length];
-    var kind = i % 7;
-    /* семь типов по кругу: адрес, форма, направь действие, перевод,
-       образ, приставка-стрелка, приставка с предлогом */
+    var kind = i % 8;
+    /* восемь типов по кругу: адрес, форма, направь действие, перевод,
+       образ, приставка-стрелка, приставка с предлогом, базовый глагол */
     if (kind === 0) { out.push(cityTask(v, i)); continue; }
     if (kind === 2) { out.push(taskDirect(seed + i * 137)); continue; }
     if (kind === 3) { out.push(taskTranslate(seed + i * 211)); continue; }
     if (kind === 4) { out.push(taskImage(seed + i * 307)); continue; }
     if (kind === 5) { out.push(taskPrefix(seed + i * 419)); continue; }
     if (kind === 6) { out.push(taskPrepCase(seed + i * 523)); continue; }
+    if (kind === 7) { out.push(taskBase(seed + i * 631)); continue; }
     /* шаг подобран так, чтобы времена не повторялись из подхода в подход */
     var ti = (i + Math.floor(i / 5) * 2) % TENSES.length;
     var pi = (i * 5 + 2) % PERSONS.length;
@@ -2116,15 +2236,39 @@ if ((h = document.getElementById('vk-prefixes'))) {
     }
     card.appendChild(pr);
 
-    var ul = el('ul', 'pref-br');
-    pf.br.forEach(function(b){
-      var li = el('li');
-      li.appendChild(el('b', null, b.n));
-      li.appendChild(el('span', 'pb-ex', b.ex));
-      li.appendChild(el('span', 'pb-ru', b.ru));
-      ul.appendChild(li);
-    });
-    card.appendChild(ul);
+    var pv = PREF_VERBS[pf.p];
+    if (pv) {
+      var n = pv.br.reduce(function(a, x){ return a + x[1].length; }, 0) + pv.lex.length;
+      card.appendChild(el('p', 'sch-cap', 'Глаголов этой приставки в списке: ' + n +
+        '. Спрягаются они как их базовые глаголы — заново учить нечего.'));
+      pv.br.forEach(function(g){
+        var box = el('div', 'pv-branch');
+        box.appendChild(el('p', 'pv-h', g[0]));
+        var row = el('div', 'pv-row');
+        g[1].forEach(function(v){
+          var c = el('div', 'pv-v');
+          c.appendChild(el('b', null, v[0]));
+          c.appendChild(el('span', null, v[1]));
+          if (v[2]) c.appendChild(el('span', 'pv-base', '← ' + v[2]));
+          row.appendChild(c);
+        });
+        box.appendChild(row);
+        card.appendChild(box);
+      });
+      if (pv.lex.length) {
+        var lx = el('div', 'pv-branch lex');
+        lx.appendChild(el('p', 'pv-h', 'Бунтари — значение из формулы не выводится'));
+        var lrow = el('div', 'pv-row');
+        pv.lex.forEach(function(v){
+          var c = el('div', 'pv-v');
+          c.appendChild(el('b', null, v[0]));
+          c.appendChild(el('span', null, v[1]));
+          lrow.appendChild(c);
+        });
+        lx.appendChild(lrow);
+        card.appendChild(lx);
+      }
+    }
     h.appendChild(card);
   });
 }
