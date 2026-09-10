@@ -676,3 +676,27 @@ td.h-Ė{color:var(--bad)}
 .pv-v b{font-family:var(--serif);font-weight:800;font-size:14.5px;color:var(--ink)}
 .pv-v span{font-size:12px;color:var(--muted)}
 .pv-base{font-family:var(--sans);font-size:11px;opacity:.7}
+
+/* ---- семь друзей ---- */
+.seven{display:grid;grid-template-columns:1fr;gap:12px;margin:24px 0}
+@media(min-width:640px){.seven{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.seven{grid-template-columns:repeat(3,1fr)}}
+.fr7{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:16px 17px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow);
+}
+.fr7.deep{background:var(--accent-soft);border-color:var(--accent)}
+.f7-n{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--muted)}
+.f7-h{margin:0;font-family:var(--serif);font-weight:800;font-size:20px;
+  letter-spacing:-.02em;color:var(--ink)}
+.f7-q{margin:0}
+.f7-q b{font-family:var(--serif);font-weight:800;font-size:17px;color:var(--accent-ink)}
+.f7-q span{font-size:13.5px;color:var(--muted)}
+.f7-j{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5;flex:1}
+.f7-ex{margin:0;border-top:1px solid var(--line);padding-top:9px}
+.f7-ex b{display:block;font-family:var(--serif);font-weight:800;font-size:15px;color:var(--ink)}
+.f7-ex span{font-size:13px;color:var(--muted)}
+.f7-tag{
+  font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent-ink);
+}

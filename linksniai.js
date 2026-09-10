@@ -365,6 +365,79 @@ var DERIV = [
 ];
 
 /* ============================================================
+   4b. СЕМЬ ДРУЗЕЙ
+
+   Полный состав. Двое разобраны на этой странице подробно,
+   остальные пятеро пока представлены: имя, вопрос, работа
+   в предложении, окончания и кто их зовёт.
+
+   Таблица склонения дана на шести образцовых словах — по одному
+   на каждый тип основы. Их формы проверены; всю базу из 62 слов
+   по семи падежам здесь не разворачиваем, чтобы не выдумывать
+   родительный множественного, который у части типов нерегулярен.
+   ============================================================ */
+var FRIENDS = [
+  {n:'Vardininkas', q:'kas?', ru:'кто? что?', job:'Называет предмет. С него всё начинается.',
+   ex:'Langas švarus.', exru:'Окно чистое.', deep:1},
+  {n:'Kilmininkas', q:'ko?', ru:'кого? чего?', job:'Показывает принадлежность, отсутствие и меру. Приходит при отрицании.',
+   ex:'Mamos knyga. Nematau lango.', exru:'Мамина книга. Не вижу окна.'},
+  {n:'Naudininkas', q:'kam?', ru:'кому? чему?', job:'Адресат: тот, ради кого или в чью пользу действие.',
+   ex:'Padedu mamai.', exru:'Помогаю маме.'},
+  {n:'Galininkas', q:'ką?', ru:'кого? что?', job:'Принимает действие. Самый населённый: переходных глаголов больше всего.',
+   ex:'Matau langą.', exru:'Вижу окно.', deep:1},
+  {n:'Įnagininkas', q:'kuo?', ru:'кем? чем?', job:'Орудие и средство: чем делаем, с кем идём, кем работаем.',
+   ex:'Rašau pieštuku.', exru:'Пишу карандашом.'},
+  {n:'Vietininkas', q:'kur?', ru:'где?', job:'Место. Работает без предлога — окончание само говорит «внутри».',
+   ex:'Gyvenu mieste.', exru:'Живу в городе.'},
+  {n:'Šauksmininkas', q:'—', ru:'обращение', job:'Зовёт человека по имени. Не отвечает ни на какой вопрос — он сам оклик.',
+   ex:'Mama! Broli!', exru:'Мама! Брат!'}
+];
+
+/* Шесть образцовых слов — по одному на каждый тип основы.
+   Порядок форм: vard · kilm · naud · gal · įnag · viet · šauksm */
+var MODELS = [
+  {w:'vyras', ru:'мужчина', t:'-as · jis',
+   sg:['vyras','vyro','vyrui','vyrą','vyru','vyre','vyre'],
+   pl:['vyrai','vyrų','vyrams','vyrus','vyrais','vyruose','vyrai']},
+  {w:'brolis', ru:'брат', t:'-is · jis',
+   sg:['brolis','brolio','broliui','brolį','broliu','brolyje','broli'],
+   pl:['broliai','brolių','broliams','brolius','broliais','broliuose','broliai']},
+  {w:'sūnus', ru:'сын', t:'-us · jis',
+   sg:['sūnus','sūnaus','sūnui','sūnų','sūnumi','sūnuje','sūnau'],
+   pl:['sūnūs','sūnų','sūnums','sūnus','sūnumis','sūnuose','sūnūs']},
+  {w:'mama', ru:'мама', t:'-a · ji',
+   sg:['mama','mamos','mamai','mamą','mama','mamoje','mama'],
+   pl:['mamos','mamų','mamoms','mamas','mamomis','mamose','mamos']},
+  {w:'katė', ru:'кошка', t:'-ė · ji',
+   sg:['katė','katės','katei','katę','kate','katėje','kate'],
+   pl:['katės','kačių','katėms','kates','katėmis','katėse','katės']},
+  {w:'moteris', ru:'женщина', t:'-is · ji',
+   sg:['moteris','moters','moteriai','moterį','moterimi','moteryje','moterie'],
+   pl:['moterys','moterų','moterims','moteris','moterimis','moteryse','moterys']}
+];
+var CASE_NAMES = ['Vardininkas · kas?', 'Kilmininkas · ko?', 'Naudininkas · kam?',
+                  'Galininkas · ką?', 'Įnagininkas · kuo?', 'Vietininkas · kur?', 'Šauksmininkas'];
+
+/* Кто зовёт каждого друга: предлоги и глаголы. */
+var CALLERS = [
+  {c:'Kilmininkas · ko?', preps:'iš · nuo · prie · iki · be · dėl · už · ant · virš · po (после) · tarp',
+   verbs:'norėti · ieškoti · laukti · bijoti · klausytis · prašyti · mokytis · reikėti',
+   note:'И отрицание любого переходного глагола: matau langą, но nematau lango.'},
+  {c:'Naudininkas · kam?', preps:'—',
+   verbs:'padėti · skambinti · atsakyti · dėkoti · patikti · rašyti (кому) · duoti (кому)',
+   note:'Предлогов почти нет: наудининкас работает сам.'},
+  {c:'Galininkas · ką?', preps:'į · per · pro · pas · apie · prieš',
+   verbs:'matyti · pirkti · valgyti · skaityti · atidaryti · mylėti · и все переходные',
+   note:'Самая большая компания глаголов в языке.'},
+  {c:'Įnagininkas · kuo?', preps:'su · po (под)',
+   verbs:'naudotis · domėtis · tapti · būti (кем работать) · važiuoti (на чём)',
+   note:'Орудие и средство: rašau pieštuku — пишу карандашом.'},
+  {c:'Vietininkas · kur?', preps:'—',
+   verbs:'gyventi · būti · dirbti · mokytis (где)',
+   note:'Без предлога: mieste — в городе, namuose — дома.'}
+];
+
+/* ============================================================
    5. ЗАДАНИЯ
    Каждое задание: q — вопрос, hint — подсказка, ans — принимаемые
    при вводе ответы, opts — варианты с объяснением к КАЖДОМУ
@@ -1457,9 +1530,98 @@ function renderRepeat(host){
   refresh();
 }
 
+/* ---------------- семь друзей: карточки и таблицы ---------------- */
+function renderFriends(host){
+  var grid = el('div', 'seven');
+  FRIENDS.forEach(function(f, i){
+    var c = el('div', 'fr7' + (f.deep ? ' deep' : ''));
+    c.appendChild(el('span', 'f7-n', String(i + 1).padStart(2, '0')));
+    c.appendChild(el('p', 'f7-h', f.n));
+    var q = el('p', 'f7-q');
+    q.appendChild(el('b', null, f.q));
+    q.appendChild(el('span', null, ' ' + f.ru));
+    c.appendChild(q);
+    c.appendChild(el('p', 'f7-j', f.job));
+    var ex = el('p', 'f7-ex');
+    ex.appendChild(el('b', null, f.ex));
+    ex.appendChild(el('span', null, f.exru));
+    c.appendChild(ex);
+    if (f.deep) c.appendChild(el('span', 'f7-tag', 'разобран на этой странице'));
+    grid.appendChild(c);
+  });
+  host.appendChild(grid);
+}
+
+function renderModels(host){
+  var tabs = el('div', 'wb-tabs');
+  var wrap = el('div', 'wb-wrap');
+  var num = 'sg';
+  function paint(){
+    wrap.textContent = '';
+    var t = el('table', 'wb');
+    var thead = el('thead'), tr = el('tr');
+    tr.appendChild(el('th', null, 'Падеж'));
+    MODELS.forEach(function(m){
+      var th = el('th');
+      th.appendChild(el('b', null, m.w));
+      th.appendChild(el('span', null, m.ru + ' · ' + m.t));
+      tr.appendChild(th);
+    });
+    thead.appendChild(tr); t.appendChild(thead);
+    var tb = el('tbody');
+    CASE_NAMES.forEach(function(cn, i){
+      var r = el('tr');
+      r.appendChild(el('td', 'g', cn));
+      MODELS.forEach(function(m){
+        r.appendChild(el('td', i === 3 ? 'acc' : 'f', m[num][i]));
+      });
+      tb.appendChild(r);
+    });
+    t.appendChild(tb); wrap.appendChild(t);
+  }
+  [['sg', 'Единственное число'], ['pl', 'Множественное число']].forEach(function(x){
+    var b = el('button', null, x[1]);
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(x[0] === num));
+    b.addEventListener('click', function(){
+      num = x[0];
+      Array.prototype.forEach.call(tabs.children, function(c){ c.setAttribute('aria-pressed', String(c === b)); });
+      paint();
+    });
+    tabs.appendChild(b);
+  });
+  host.appendChild(tabs);
+  host.appendChild(wrap);
+  paint();
+}
+
+function renderCallers(host){
+  var wrap = el('div', 'wb-wrap');
+  var t = el('table', 'wb');
+  var thead = el('thead'), tr = el('tr');
+  ['Друг', 'Предлоги', 'Глаголы', 'Заметка'].forEach(function(x){ tr.appendChild(el('th', null, x)); });
+  thead.appendChild(tr); t.appendChild(thead);
+  var tb = el('tbody');
+  CALLERS.forEach(function(x){
+    var r = el('tr');
+    r.appendChild(el('td', 'w', x.c));
+    r.appendChild(el('td', 'acc', x.preps));
+    r.appendChild(el('td', 'f', x.verbs));
+    r.appendChild(el('td', 'g', x.note));
+    tb.appendChild(r);
+  });
+  t.appendChild(tb); wrap.appendChild(t);
+  host.appendChild(wrap);
+}
+
 /* ============================================================
    11. СТАРТ
    ============================================================ */
+var h7;
+if ((h7 = document.getElementById('lk-friends'))) renderFriends(h7);
+if ((h7 = document.getElementById('lk-models'))) renderModels(h7);
+if ((h7 = document.getElementById('lk-callers'))) renderCallers(h7);
+
 var trainers = document.getElementById('lk-trainers');
 if (trainers) DRILLS.forEach(function(b){ renderBlock(b, trainers); });
 
