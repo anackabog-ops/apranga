@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Два друга: Vardininkas и Galininkas — тренажёр</title>
+<meta name="description" content="Тренажёр двух падежей по методике Божены Анацкой: предмет, описание, род и число, действие, самостоятельное предложение. Письменные задания с проверкой, объяснения и повторы.">
+<meta name="author" content="Божена Анацкая">
+<meta name="copyright" content="© 2026 Божена Анацкая. Все права защищены.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F4E6E'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23F1F1ED' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://apranga.netlify.app/dudraugai.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://apranga.netlify.app/dudraugai.html">
+<meta property="og:site_name" content="Разборы литовского · anacka.lt">
+<meta property="og:title" content="Два друга: Vardininkas и Galininkas — тренажёр">
+<meta property="og:description" content="Назвать. Представить. Взаимодействовать. Тренажёр двух падежей с самостоятельным письмом, проверкой, объяснениями и повторами.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Piazzolla:ital,opsz,wght@0,8..30,400;0,8..30,500;0,8..30,700;1,8..30,400;1,8..30,500&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dudraugai.css">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<script src="app.js" defer></script>
+<script src="dudraugai-data.js" defer></script>
+<script src="dudraugai.js" defer></script>
+</head>
+<body>
+<nav class="topnav" aria-label="Разделы сайта"><div class="topnav-in"><a class="tn-brand" href="index.html">anacka<span>.lt</span></a><div class="tn-links"><a href="index.html">Главная</a><a href="kursas.html">Курс</a><span class="tn-sep"></span><a href="veiksmazodziai.html">Глаголы</a><a href="zodynas.html">Словарь</a><a href="praktika.html">Практика</a><a href="niuansai.html">Нюансы</a><a href="treniruokle.html">Тренажёр</a><span class="tn-sep"></span><a href="jos.html">Местоимение jos</a><a href="dudraugai.html" aria-current="page">Два друга</a><a href="apie.html">Об авторе</a></div><button class="theme-btn" id="theme" type="button" aria-label="Переключить светлую и тёмную тему" title="Светлая / тёмная тема"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button></div></nav>
+<div class="dd">
+<div class="dd-in">
+
+<header class="dd-head">
+  <div class="dd-brand"><span>anacka.lt</span><a href="https://www.instagram.com/anacka.lt/">Instagram · @anacka.lt</a><span class="dd-status" id="dd-status" aria-live="polite">Загружаем прогресс…</span></div>
+  <span class="dd-eyebrow">Lietuvių kalba · Два друга</span>
+  <h1>Назвать. Представить. <em>Взаимодействовать.</em></h1>
+  <p class="dd-standfirst">Тренажёр двух падежей — Vardininkas и Galininkas. Сначала называем предмет, потом создаём его образ, затем направляем на него действие и пишем предложение сами.</p>
+  <div class="dd-btns"><button type="button" class="dd-btn" data-goto="builder">Начать с одного окна</button><button type="button" class="dd-btn ghost" id="dd-continue" hidden>Продолжить последнее задание</button></div>
+</header>
+
+<div class="dd-tabs" id="dd-tabs">
+  <div class="dd-tablist" role="tablist" aria-label="Разделы тренажёра">
+    <button class="dd-tab" role="tab" type="button" data-tab="intro" aria-selected="true" aria-controls="dd-intro">Знакомство</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="builder" aria-selected="false" aria-controls="dd-builder">Предмет и действия</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="practice" aria-selected="false" aria-controls="dd-practice">Практика</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="lessons" aria-selected="false" aria-controls="dd-lessons">Схемы</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="dict" aria-selected="false" aria-controls="dd-dict">База слов</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="formation" aria-selected="false" aria-controls="dd-formation">Новые слова</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="review" aria-selected="false" aria-controls="dd-review">Повторы</button>
+    <button class="dd-tab" role="tab" type="button" data-tab="space" aria-selected="false" aria-controls="dd-space">Моё пространство</button>
+  </div>
+</div>
+
+<!-- ===================== Знакомство ===================== -->
+<section class="dd-panel" id="dd-intro" role="tabpanel">
+  <div class="dd-friends">
+    <div class="dd-friend kas"><span class="dd-eyebrow">Первый друг</span><b>Vardininkas</b><span>kas? — кто? что?</span><span>Имя предмета. Так он существует вокруг нас.</span></div>
+    <div class="dd-friend ka"><span class="dd-eyebrow">Второй друг</span><b>Galininkas</b><span>ką? — кого? что?</span><span>Предмет, на который направлено действие.</span></div>
+  </div>
+  <div class="dd-quote">
+    <p>В моей методике падежи — друзья. Я предлагаю знакомиться с ними не через длинную таблицу окончаний, а через имя, вопрос и функцию.</p>
+    <p>Сначала мы называем то, что существует вокруг нас. Затем создаём образ: описываем предмет, определяем его род и число. После этого выбираем действие и направляем его на предмет.</p>
+    <p>Я хочу, чтобы вы не только узнавали правильные ответы, но и сами создавали литовскую речь.</p>
+  </div>
+  <h2>Цепочка одного предмета</h2>
+  <div class="dd-chain"><span>предмет</span><i>→</i><span>литовское имя</span><i>→</i><span>род и число</span><i>→</i><span>описание</span><i>→</i><span>действие</span><i>→</i><span>вопрос</span><i>→</i><span>изменение формы</span><i>→</i><span>своё предложение</span></div>
+  <ul class="dd-ex">
+    <li><b>langas</b><span>окно</span></li>
+    <li><b>jis</b><span>мужской род, единственное число</span></li>
+    <li><b>švarus langas</b><span>чистое окно</span></li>
+    <li><b>švarūs langai</b><span>чистые окна</span></li>
+    <li><b>valyti</b><span>чистить</span></li>
+    <li><b>Valau ką?</b><span>чищу кого? что?</span></li>
+    <li><b>Valau švarų langą.</b><span>я чищу чистое окно</span></li>
+    <li><b>Valome švarius langus.</b><span>мы чистим чистые окна</span></li>
+  </ul>
+  <h2>Правило вопросов</h2>
+  <div class="dd-quote"><p>Я предлагаю произносить русские вопросы вместе. Kas? — кто? что? Ką? — кого? что? Так мы не переносим различие русского «кто» и «что» на выбор литовской формы.</p></div>
+  <p class="dd-muted">Ką? нельзя переводить как «как?»: «как?» — kaip?</p>
+  <h2>Содержание</h2>
+  <ol>
+    <li><button type="button" class="dd-link" data-goto="builder">Предмет и действия</button> — интерактивная сборка фразы вокруг предмета.</li>
+    <li><button type="button" class="dd-link" data-goto="practice">Практика</button> — самостоятельный ввод форм и предложений с проверкой.</li>
+    <li><button type="button" class="dd-link" data-goto="lessons">Схемы</button> — подробные объяснения с раскрывающимися блоками.</li>
+    <li><button type="button" class="dd-link" data-goto="dict">База слов</button> — существительные, прилагательные, глаголы.</li>
+    <li><button type="button" class="dd-link" data-goto="formation">Новые слова</button> — словообразование.</li>
+    <li><button type="button" class="dd-link" data-goto="review">Повторы</button> — интервальная практика по вашим результатам.</li>
+    <li><button type="button" class="dd-link" data-goto="space">Моё пространство</button> — собственные предложения в свободном поле.</li>
+  </ol>
+  <h2>База в цифрах</h2>
+  <p class="dd-muted dd-small">Числа вычисляются из данных. Большое число упражнений получается из сочетаний предметов, описаний, действий, числа и падежа. «Подтверждённые ответы» — результат встроенной проверки, а не оценка владения языком.</p>
+  <div class="dd-counters" id="dd-counters"></div>
+  <p class="dd-muted dd-small">Ответы сохраняются в этом браузере автоматически. Вход в аккаунт и облачное сохранение на этом сайте не подключены: на другом устройстве прогресс не появится.</p>
+</section>
+
+<!-- ===================== Предмет и действия ===================== -->
+<section class="dd-panel" id="dd-builder" role="tabpanel" hidden>
+  <h2>Предмет и действия</h2>
+  <p class="dd-muted">Выберите предмет, число, описание, действие и того, кто действует. Фраза обновляется сразу. Число предмета и действующий — два разных переключателя.</p>
+  <div class="dd-grid">
+    <div>
+      <div class="dd-box">
+        <label class="dd-label" for="dd-object">Шаг 1 · Предмет</label>
+        <select class="dd-select" id="dd-object"></select>
+        <span class="dd-label" style="margin-top:14px">Шаг 2 · Число</span>
+        <div class="dd-seg-row" id="dd-number"></div>
+        <p class="dd-muted dd-small" id="dd-number-note"></p>
+      </div>
+      <div class="dd-box accent" id="dd-name" style="margin-top:14px"></div>
+      <div class="dd-box" style="margin-top:14px">
+        <span class="dd-label">Шаг 6 · Кто действует</span>
+        <div class="dd-seg-row" id="dd-prons"></div>
+        <p class="dd-muted dd-small">jis и ji, jie и jos дают одну и ту же форму глагола. Род действующего не влияет на описание предмета.</p>
+      </div>
+    </div>
+    <div>
+      <div class="dd-box">
+        <span class="dd-label">Шаг 4 · Создаю образ · описания</span>
+        <div class="dd-chips" id="dd-adjs"></div>
+      </div>
+      <div class="dd-box" style="margin-top:14px">
+        <span class="dd-label">Шаг 5 · Выбираю действие</span>
+        <div class="dd-chips" id="dd-acts"></div>
+      </div>
+      <div class="dd-box" style="margin-top:14px" id="dd-result"></div>
+      <div class="dd-box" style="margin-top:14px"><span class="dd-eyebrow">Что изменилось</span><div id="dd-change"></div></div>
+      <div class="dd-actions"><button type="button" class="dd-btn ghost" id="dd-conj-btn">Спряжение</button><button type="button" class="dd-btn" id="dd-write-btn">Написать самостоятельно</button></div>
+      <details class="dd-details" id="dd-forms"><summary>Четыре формы</summary><div class="dd-forms-body"></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Практика ===================== -->
+<section class="dd-panel" id="dd-practice" role="tabpanel" hidden>
+  <h2>Практика</h2>
+  <p class="dd-muted">Ответ вводится самостоятельно. До попытки эталон не показывается; после попытки — эталон и разбор. Регистр и пунктуация не важны, литовские буквы важны: švarų и svaru — разные формы.</p>
+  <div class="dd-filters">
+    <label class="dd-field"><span>Навык</span><select class="dd-select" id="dd-f-mode"><option value="all">Все навыки</option></select></label>
+    <label class="dd-field"><span>Группа прилагательных</span><select class="dd-select" id="dd-f-group"><option value="all">Все группы</option><option value="as">-as / -ias</option><option value="us">-us</option><option value="is">-is / -inis</option></select></label>
+    <label class="dd-field"><span>Предмет</span><select class="dd-select" id="dd-f-object"><option value="all">Все предметы</option></select></label>
+  </div>
+  <div class="dd-empty" id="dd-empty" hidden><p>По такому сочетанию фильтров заданий нет. Например, у «Четырёх форм» нет предмета, а у «Полного перевода» — группы прилагательных.</p><button type="button" class="dd-btn ghost" id="dd-reset-filters">Вернуться к общей практике</button></div>
+  <div class="dd-list" id="dd-list"></div>
+  <div class="dd-pager" id="dd-pager"><button type="button" class="dd-btn ghost" id="dd-prev">← Назад</button><button type="button" class="dd-btn ghost" id="dd-next">Дальше →</button><span id="dd-page"></span></div>
+</section>
+
+<!-- ===================== Схемы ===================== -->
+<section class="dd-panel" id="dd-lessons" role="tabpanel" hidden>
+  <h2>Схемы</h2>
+  <p class="dd-muted">Тринадцать разборов. Ограничение схемы — не «ошибка ученика», а новая деталь системы.</p>
+
+  <details class="dd-lesson"><summary>1 · Два друга: имя и взаимодействие</summary><div class="dd-body">
+    <p>Я предлагаю познакомиться с падежами как с друзьями. У каждого — имя, вопрос и работа.</p>
+    <p><span class="lt">Vardininkas</span> отвечает на kas? — кто? что? Это имя: так предмет существует вокруг нас. <span class="lt">Galininkas</span> отвечает на ką? — кого? что? Это предмет, на который направлено действие.</p>
+    <ul class="dd-ex"><li><b>Langas yra švarus.</b><span>Окно чистое. — kas? langas</span></li><li><b>Valau langą.</b><span>Чищу окно. — ką? langą</span></li></ul>
+    <p>Одно и то же окно, но разные роли в предложении — и разные окончания. Русские вопросы произносим парой, чтобы не переносить различие «кто / что» на выбор формы.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>2 · Мужское или женское имя</summary><div class="dd-body">
+    <p>Род определяем по литовскому слову, а не по русскому переводу. <span class="lt">kėdė</span> — ji, хотя «стул» мужского рода; <span class="lt">kava</span> — ji, хотя «кофе» — он.</p>
+    <ul class="dd-ex"><li><b>-as, -is, -ys, -us</b><span>обычно jis: langas, brolis, kambarys, sūnus</span></li><li><b>-a, -ė</b><span>обычно ji: knyga, kėdė</span></li></ul>
+    <p>Окончание -is не гарантирует мужской род: <span class="lt">jis brolis</span>, но <span class="lt">ji moteris</span>, <span class="lt">ji širdis</span>, <span class="lt">ji akis</span>. Есть и мужские слова третьего склонения: <span class="lt">dantis</span>, <span class="lt">vagis</span>. Такие слова я помечаю в базе отдельно — их нужно запомнить как имена, а не выводить по правилу.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>3 · Один, несколько и только множественное</summary><div class="dd-body">
+    <p>Число предмета — отдельный шаг. Меняется существительное — меняется и описание.</p>
+    <ul class="dd-ex"><li><b>švarus langas → švarūs langai</b><span>jis → jie</span></li><li><b>nauja knyga → naujos knygos</b><span>ji → jos</span></li></ul>
+    <p>Некоторые слова в изучаемом значении живут только во множественном числе: <span class="lt">durys</span>, <span class="lt">žirklės</span>, <span class="lt">kelnės</span> — jos; <span class="lt">akiniai</span>, <span class="lt">baldai</span>, <span class="lt">marškiniai</span> — jie. Одну дверь тоже называем durys, и описание берёт форму множественного: <span class="lt">naujos durys</span>. Придумывать единственное число таким словам нельзя.</p>
+    <p>Другие слова тренируем только в единственном: <span class="lt">vanduo</span>, <span class="lt">sniegas</span>, <span class="lt">cukrus</span>. Множественное у них возможно в других значениях, но это уже другая тема.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>4 · Пять описаний: создание образа</summary><div class="dd-body">
+    <p>Основная единица практики в моей методике — не отдельное существительное, а существительное вместе с описанием. Я предлагаю для каждого предмета подобрать хотя бы пять описаний.</p>
+    <ul class="dd-ex"><li><b>švarus langas</b><span>чистое окно</span></li><li><b>naujas langas</b><span>новое окно</span></li><li><b>didelis langas</b><span>большое окно</span></li><li><b>stiklinis langas</b><span>стеклянное окно</span></li><li><b>šviesus langas</b><span>светлое окно</span></li></ul>
+    <p>Чем больше связей у предмета, тем прочнее он держится в памяти, а окончания перестают быть абстракцией: они живут внутри знакомых словосочетаний.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>5 · Три группы прилагательных и четыре позиции</summary><div class="dd-body">
+    <p>Я раскладываю каждое описание в четыре позиции: jis, ji, jie, jos. Этот порядок один на всём сайте.</p>
+    <div class="tw"><table><thead><tr><th>Группа</th><th>jis</th><th>ji</th><th>jie</th><th>jos</th></tr></thead><tbody>
+      <tr><td class="w">-as</td><td>naujas</td><td>nauja</td><td>nauji</td><td>naujos</td></tr>
+      <tr><td class="w">-ias</td><td>tuščias</td><td>tuščia</td><td>tušti</td><td>tuščios</td></tr>
+      <tr><td class="w">-us</td><td>gražus</td><td>graži</td><td>gražūs</td><td>gražios</td></tr>
+      <tr><td class="w">-is</td><td>didelis</td><td>didelė</td><td>dideli</td><td>didelės</td></tr>
+      <tr><td class="w">-inis</td><td>stiklinis</td><td>stiklinė</td><td>stikliniai</td><td>stiklinės</td></tr>
+    </tbody></table></div>
+    <p>Обратите внимание: <span class="lt">tuščias → tušti</span>, <span class="lt">didelis → dideli</span>, но <span class="lt">stiklinis → stikliniai</span>. Четыре позиции не означают, что у прилагательного всего четыре формы — это четыре позиции для двух наших друзей.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>6 · Galininkas в единственном</summary><div class="dd-body">
+    <p>Когда действие направлено на предмет, оба слова — описание и имя — отвечают на ką?</p>
+    <div class="tw"><table><thead><tr><th>kas?</th><th>ką?</th><th>Что происходит</th></tr></thead><tbody>
+      <tr><td>naujas langas</td><td class="w">naują langą</td><td>-as → -ą</td></tr>
+      <tr><td>nauja knyga</td><td class="w">naują knygą</td><td>-a → -ą</td></tr>
+      <tr><td>nauja kėdė</td><td class="w">naują kėdę</td><td>-ė → -ę</td></tr>
+      <tr><td>gražus langas</td><td class="w">gražų langą</td><td>-us → -ų</td></tr>
+      <tr><td>graži knyga</td><td class="w">gražią knygą</td><td>-i → -ią</td></tr>
+      <tr><td>didelis brolis</td><td class="w">didelį brolį</td><td>-is → -į</td></tr>
+      <tr><td>naujas kambarys</td><td class="w">naują kambarį</td><td>-ys → -į</td></tr>
+      <tr><td>geras sūnus</td><td class="w">gerą sūnų</td><td>-us → -ų</td></tr>
+    </tbody></table></div>
+    <p>Носовые буквы ą, ę, į, ų — знак Galininkas в единственном числе. Они могут стоять и под ударением: учить запрет «на носовые ударение никогда не падает» нельзя.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>7 · «Скрытая a»</summary><div class="dd-body">
+    <p>Я предлагаю мнемонический образ для женских форм на -i: <span class="lt">graži → gražią</span>, <span class="lt">rami → ramią</span>. Перед носовым окончанием будто «проявляется» скрытая a.</p>
+    <p>У части слов при этом меняется согласный: <span class="lt">saldi → saldžią</span>, <span class="lt">plati → plačią</span>, <span class="lt">karti → karčią</span>. Это же изменение видно и в позиции jos: <span class="lt">saldžios</span>, <span class="lt">plačios</span>.</p>
+    <p>«Скрытая a» — образ для памяти, а не утверждение об историческом сокращении слова.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>8 · Galininkas во множественном</summary><div class="dd-body">
+    <div class="tw"><table><thead><tr><th>kas?</th><th>ką?</th><th>Что происходит</th></tr></thead><tbody>
+      <tr><td>nauji langai</td><td class="w">naujus langus</td><td>-i / -ai → -us</td></tr>
+      <tr><td>naujos knygos</td><td class="w">naujas knygas</td><td>-os → -as</td></tr>
+      <tr><td>naujos kėdės</td><td class="w">naujas kėdes</td><td>-ės → -es</td></tr>
+      <tr><td>gražūs langai</td><td class="w">gražius langus</td><td>-ūs → -ius</td></tr>
+      <tr><td>gražios sesės</td><td class="w">gražias seses</td><td>seses, не sesės и не sesjas</td></tr>
+      <tr><td>geri broliai</td><td class="w">gerus brolius</td><td>-iai → -ius</td></tr>
+      <tr><td>balti dantys</td><td class="w">baltus dantis</td><td>третье склонение: -ys → -is</td></tr>
+      <tr><td>geri žmonės</td><td class="w">gerus žmones</td><td>-ės → -es у žmogus</td></tr>
+      <tr><td>dideli šunys</td><td class="w">didelius šunis</td><td>основа šun-</td></tr>
+    </tbody></table></div>
+    <p>Мужские формы <span class="lt">dantis</span>, <span class="lt">šunis</span>, <span class="lt">žmones</span> выглядят «по-женски», но согласуются по jie: <span class="lt">baltus dantis</span>. Смотрим на род слова, а не на форму окончания.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>9 · Действия-помощники</summary><div class="dd-body">
+    <p>Для старта я беру переходные глаголы, у которых объект отвечает на ką?: <span class="lt">valyti</span>, <span class="lt">plauti</span>, <span class="lt">atidaryti</span>, <span class="lt">pirkti</span>, <span class="lt">matyti</span>, <span class="lt">turėti</span>.</p>
+    <ul class="dd-ex"><li><b>Aš turiu naują knygą.</b><span>У меня есть новая книга. — turėti + ką?</span></li><li><b>Mes matome didelį namą.</b><span>Мы видим большой дом.</span></li></ul>
+    <p>Не любой глагол требует Galininkas: управление бывает другим (<span class="lt">laukti draugo</span>, <span class="lt">padėti draugui</span>). При отрицании прямого объекта часто появляется родительный: <span class="lt">neturiu knygos</span>. Это граница нашего стартового упражнения, а не исключение из него.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>10 · Сборка своего предложения</summary><div class="dd-body">
+    <p>Соединяем действующего, форму глагола и предмет с описанием в Galininkas.</p>
+    <ul class="dd-ex"><li><b>Aš atidarau švarų langą.</b><span>aš → -au</span></li><li><b>Tu atidarai švarų langą.</b><span>tu → -ai</span></li><li><b>Jis / ji atidaro švarų langą.</b><span>одна форма для jis и ji</span></li><li><b>Mes atidarome švarų langą.</b><span>mes → -ome</span></li><li><b>Jūs atidarote švarų langą.</b><span>jūs → -ote</span></li><li><b>Jie / jos atidaro švarų langą.</b><span>одна форма для jie и jos</span></li></ul>
+    <p>При смене действующего предмет не становится множественным сам по себе. Изменение действующего и изменение числа предмета — два разных решения, и в конструкторе это два разных переключателя.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>11 · Признак → имя качества</summary><div class="dd-body">
+    <p>Из описания можно сделать имя качества: блок -umas.</p>
+    <ul class="dd-ex"><li><b>gražus → gražumas</b><span>красота</span></li><li><b>ramus → ramumas</b><span>спокойствие</span></li><li><b>malonus → malonumas</b><span>удовольствие</span></li><li><b>geras → gerumas</b><span>доброта</span></li></ul>
+    <p>Для сборки удобно давать блок -umas целиком, а затем уточнять: суффикс -um-, окончание -as, значит новое слово — jis. Обещать, что любое русское слово на «-ость» переводится этой схемой, нельзя.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>12 · Gerėti / gerinti</summary><div class="dd-body">
+    <p>Одна основа — два разных глагола.</p>
+    <ul class="dd-ex"><li><b>Oras gerėja.</b><span>Погода становится лучше. — меняется само</span></li><li><b>Aš gerinu tekstą.</b><span>Я улучшаю текст. — изменяем что-то: ką? tekstą</span></li></ul>
+    <p>Это не одна и та же связь с объектом: во второй фразе действие направлено на предмет. Для этой группы настоящее строится по модели gerėja, но переносить её на все глаголы с -ėti нельзя: <span class="lt">mylėti → myli</span>, <span class="lt">turėti → turi</span>.</p>
+  </div></details>
+
+  <details class="dd-lesson"><summary>13 · Материал → описание</summary><div class="dd-body">
+    <ul class="dd-ex"><li><b>stiklas → stiklinis</b><span>стеклянный</span></li><li><b>metalas → metalinis</b><span>металлический</span></li><li><b>akmuo → akmeninis</b><span>основа меняется: akmen-</span></li><li><b>medis → medinis</b><span>деревянный</span></li></ul>
+    <p>Описания на -inis раскладываются в четыре позиции так: <span class="lt">stiklinis, stiklinė, stikliniai, stiklinės</span>; в Galininkas — <span class="lt">stiklinį, stiklinę, stiklinius, stiklines</span>. Если простого отрезания окончания недостаточно, я показываю изменение основы отдельно.</p>
+  </div></details>
+</section>
+
+<!-- ===================== База слов ===================== -->
+<section class="dd-panel" id="dd-dict" role="tabpanel" hidden>
+  <h2>База слов</h2>
+  <div class="dd-sec">
+    <h3>Существительные</h3>
+    <p class="dd-muted dd-small">Тире означает, что формы нет в изучаемом значении.</p>
+    <div class="tw"><table><thead><tr><th>Имя</th><th>Перевод</th><th>Местоимения</th><th>Kas? ед.</th><th>Kas? мн.</th><th>Ką? ед.</th><th>Ką? мн.</th><th>Примечание</th></tr></thead><tbody id="dd-nouns-body"></tbody></table></div>
+  </div>
+  <div class="dd-sec">
+    <h3>Прилагательные</h3>
+    <div class="dd-search"><label class="dd-field"><span>Поиск (LT / RU)</span><input class="dd-input" id="dd-adj-q" type="search" placeholder="gražus, чистый…"></label><label class="dd-field"><span>Группа</span><select class="dd-select" id="dd-adj-g"><option value="all">Все группы</option><option value="as">-as / -ias</option><option value="us">-us</option><option value="is">-is / -inis</option></select></label></div>
+    <p class="dd-muted dd-small" id="dd-adj-hits"></p>
+    <div id="dd-adj-list"></div>
+  </div>
+  <div class="dd-sec">
+    <h3>Глаголы</h3>
+    <p class="dd-muted dd-small">Нажмите на глагол — откроется таблица спряжения: настоящее, прошедшее однократное, будущее, повелительное.</p>
+    <div class="dd-chips" id="dd-verb-list"></div>
+  </div>
+</section>
+
+<!-- ===================== Новые слова ===================== -->
+<section class="dd-panel" id="dd-formation" role="tabpanel" hidden>
+  <h2>Новые слова</h2>
+  <div class="dd-sec">
+    <h3>Качество с -umas</h3>
+    <p>Блок -umas превращает признак в имя качества. Внутри блока: суффикс -um-, окончание -as → новое слово мужского рода.</p>
+    <ul id="dd-umas"></ul>
+  </div>
+  <div class="dd-sec">
+    <h3>Меняется само / изменяем что-то</h3>
+    <p>Слева — глагол изменения состояния без объекта, справа — глагол воздействия с объектом в Galininkas.</p>
+    <ul id="dd-pairs"></ul>
+  </div>
+  <div class="dd-sec">
+    <h3>Материал → описание</h3>
+    <ul id="dd-materials"></ul>
+  </div>
+  <p><button type="button" class="dd-btn" data-goto="practice">Задания на словообразование — в практике</button></p>
+</section>
+
+<!-- ===================== Повторы ===================== -->
+<section class="dd-panel" id="dd-review" role="tabpanel" hidden>
+  <h2>Повторы и память</h2>
+  <div class="dd-steps">
+    <div class="dd-step"><b>Кривая забывания</b>Без возвращения к материалу большая его часть уходит уже в первые дни.</div>
+    <div class="dd-step"><b>Воспроизведение</b>Вспомнить самому полезнее, чем перечитать: усилие и есть обучение.</div>
+    <div class="dd-step"><b>Разнесение во времени</b>Несколько коротких встреч с материалом работают лучше одной длинной.</div>
+    <div class="dd-step"><b>Образ и связи</b>Предмет с пятью описаниями и действиями держится прочнее одинокого слова.</div>
+    <div class="dd-step"><b>Повтор как новая попытка</b>Поле открывается пустым; эталон появляется только после ответа.</div>
+  </div>
+  <div class="dd-quote"><p>Я предлагаю возвращаться к слову не для того, чтобы снова посмотреть на него, а чтобы заново построить связь. Сначала вспомните, затем сравните и исправьте.</p></div>
+  <p class="dd-muted dd-small">Интервалы тренажёра: 1, 3, 7, 14 и 30 дней после предыдущей успешной попытки. Ошибка возвращает карточку в ближайший повтор. Успешная проверка раньше срока интервал не увеличивает. Это настройка тренажёра, а не единственно верное расписание для всех.</p>
+  <p class="dd-muted dd-small">В заданиях с целым предложением неподтверждённый вариант технически считается неуспешным и попадает в повтор, даже если он грамматически допустим.</p>
+  <p id="dd-review-stat"></p>
+  <div class="dd-actions"><button type="button" class="dd-btn" id="dd-review-start">Начать повтор</button><button type="button" class="dd-btn ghost" id="dd-review-refresh">Обновить повторы</button><button type="button" class="dd-btn ghost" id="dd-review-exit">Обычная практика</button></div>
+  <div class="dd-list" id="dd-review-list" style="margin-top:18px"></div>
+</section>
+
+<!-- ===================== Моё пространство ===================== -->
+<section class="dd-panel" id="dd-space" role="tabpanel" hidden>
+  <h2>Моё пространство</h2>
+  <p>Задание:</p>
+  <ol>
+    <li>Выберите реальный предмет вокруг вас.</li>
+    <li>Назовите его по-литовски.</li>
+    <li>Укажите местоимение: jis, ji, jie или jos.</li>
+    <li>Дайте минимум пять описаний.</li>
+    <li>Распишите одно прилагательное в четырёх формах.</li>
+    <li>Напишите три предложения с разными действиями.</li>
+    <li>Измените число, если это возможно.</li>
+  </ol>
+  <label class="dd-field" for="dd-text"><span>Мой текст</span></label>
+  <textarea class="dd-textarea" id="dd-text" maxlength="5000" spellcheck="false" placeholder="Langas. Jis. Švarus langas, naujas langas, didelis langas, stiklinis langas, šviesus langas…"></textarea>
+  <p class="dd-muted dd-small" id="dd-text-status" aria-live="polite"></p>
+  <div class="dd-actions"><button type="button" class="dd-btn" id="dd-text-save">Сохранить текст</button><button type="button" class="dd-btn ghost" id="dd-text-copy">Скопировать для разбора</button></div>
+  <p class="dd-muted dd-small" style="margin-top:12px">Это поле не получает автоматическую оценку. «Скопировать для разбора» помещает в буфер ваш текст и инструкцию для ChatGPT; ничего не отправляется автоматически — вставьте текст сами.</p>
+</section>
+
+<footer class="dd-foot">
+  <p>© 2026 <b>Божена Анацкая</b> · anacka.lt. Авторские учебные материалы. Все права защищены.</p>
+  <p>Источники: <a href="https://www.vle.lt/straipsnis/vardininkas/">VLE · Vardininkas</a>, <a href="https://www.vle.lt/straipsnis/galininkas/">VLE · Galininkas</a>, <a href="https://www.vle.lt/straipsnis/budvardis/">VLE · Būdvardis</a>, <a href="https://lietuviu5-6.mkp.emokykla.lt/lt/mo/zinynas/lietuviu_kalbos_rasyba_vardazodziu__galunes/">Emokykla · окончания</a>. О памяти: <a href="https://pubmed.ncbi.nlm.nih.gov/26148023/">Murre &amp; Dros, 2015</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/16507066/">Roediger &amp; Karpicke, 2006</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/19076480/">Cepeda et al., 2008</a>.</p>
+</footer>
+
+</div>
+</div>
+
+<dialog class="dd-dialog" id="dd-dialog" aria-labelledby="dd-dialog-title">
+  <div class="dd dd-dialog-in"><button type="button" class="dd-btn ghost dd-dialog-close" id="dd-dialog-close">Закрыть</button><div id="dd-dialog-body"></div></div>
+</dialog>
+</body>
+</html>
