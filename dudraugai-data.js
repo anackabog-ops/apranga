@@ -163,7 +163,7 @@
   n('sietelis', 'ситечко', 'm', 'is', 'tool');
   n('padėklas', 'поднос', 'm', 'as', 'tray');
   n('vonia', 'ванна', 'f', 'a', 'bath', 'Vonia — сама ванна. Название комнаты — vonios kambarys.');
-  n('praustuvė', 'умывальник', 'f', 'ė', 'sink');
+  n('praustuvas', 'умывальник', 'm', 'as', 'sink');
   n('kriauklė', 'раковина', 'f', 'ė', 'sink');
   n('čiaupas', 'кран', 'm', 'as', 'tap');
   n('šaldytuvas', 'холодильник', 'm', 'as', 'appliance');
@@ -178,6 +178,62 @@
   n('balkonas', 'балкон', 'm', 'as', 'room');
   n('virtuvė', 'кухня', 'f', 'ė', 'room');
   n('sodas', 'сад', 'm', 'as', 'yard');
+
+
+  /* --- предметы сцен опубликованной версии (приложение 37 ТЗ) --- */
+  n('lentelė', 'дощечка', 'f', 'ė', 'tool');
+  n('kočėlas', 'скалка', 'm', 'as', 'tool');
+  n('mentelė', 'лопатка', 'f', 'ė', 'tool');
+  n('indelis', 'ёмкость; баночка', 'm', 'is', 'jar');
+  n('cukrinė', 'сахарница', 'f', 'ė', 'jar');
+  n('druskinė', 'солонка', 'f', 'ė', 'jar');
+  n('šaldiklis', 'морозильник', 'm', 'is', 'appliance');
+  n('mikrobangė', 'микроволновка', 'f', 'ė', 'appliance');
+  n('skrudintuvas', 'тостер', 'm', 'as', 'appliance');
+  n('plakiklis', 'миксер', 'm', 'is', 'appliance');
+  n('trintuvas', 'измельчитель; блендер', 'm', 'as', 'appliance');
+  n('skalbyklė', 'стиральная машина', 'f', 'ė', 'appliance');
+  n('džiovyklė', 'сушильная машина', 'f', 'ė', 'appliance');
+  n('lygintuvas', 'утюг', 'm', 'as', 'appliance');
+  n('ventiliatorius', 'вентилятор', 'm', 'ius', 'appliance');
+  n('šildytuvas', 'обогреватель', 'm', 'as', 'appliance');
+  n('žibintuvėlis', 'фонарик', 'm', 'is', 'device');
+  n('radijas', 'радиоприёмник', 'm', 'as', 'device');
+  n('spausdintuvas', 'принтер', 'm', 'as', 'device');
+  n('monitorius', 'монитор', 'm', 'ius', 'device');
+  n('klaviatūra', 'клавиатура', 'f', 'a', 'tool');
+  n('pelė', 'компьютерная мышь', 'f', 'ė', 'tool');
+  n('pultelis', 'пульт', 'm', 'is', 'tool');
+  n('įkroviklis', 'зарядное устройство', 'm', 'is', 'tool');
+  n('laidas', 'провод', 'm', 'as', 'tool');
+  n('baterija', 'батарейка', 'f', 'a', 'tool');
+  n('lemputė', 'лампочка', 'f', 'ė', 'tool');
+  n('laikrodis', 'часы', 'm', 'is', 'decor');
+  n('vaza', 'ваза', 'f', 'a', 'decor');
+  n('žvakė', 'свеча', 'f', 'ė', 'decor');
+  n('žvakidė', 'подсвечник', 'f', 'ė', 'decor');
+  n('vazonas', 'цветочный горшок', 'm', 'as', 'jar');
+  n('rėmelis', 'рамка', 'm', 'is', 'decor');
+  n('figūrėlė', 'статуэтка', 'f', 'ė', 'decor');
+  n('dėklas', 'футляр; чехол', 'm', 'as', 'tool');
+  n('pakaba', 'вешалка', 'f', 'a', 'tool');
+  n('kempinė', 'губка', 'f', 'ė', 'tool');
+  n('muilinė', 'мыльница', 'f', 'ė', 'jar');
+  n('lentynėlė', 'полочка', 'f', 'ė', 'furniture');
+  n('stalčius', 'выдвижной ящик', 'm', 'ius', 'box');
+  n('rankenėlė', 'ручка; рукоятка', 'f', 'ė', 'tool');
+  n('jungiklis', 'выключатель', 'm', 'is', 'tool');
+  n('lizdas', 'розетка; гнездо', 'm', 'as', 'tap');
+  n('plaktukas', 'молоток', 'm', 'as', 'tool');
+  n('atsuktuvas', 'отвёртка', 'm', 'as', 'tool');
+  n('varžtas', 'болт; винт', 'm', 'as', 'tool');
+  n('vinis', 'гвоздь', 'f', 'is3', 'tool', 'Женский род третьего склонения: ji vinis, ką? vinį; jos vinys, ką? vinis.');
+  n('liniuotė', 'линейка', 'f', 'ė', 'tool');
+  n('trintukas', 'ластик', 'm', 'as', 'tool');
+  n('segtuvas', 'папка-регистратор', 'm', 'as', 'notebook');
+  n('vokas', 'конверт', 'm', 'as', 'letter');
+  n('kalendorius', 'календарь', 'm', 'ius', 'notebook');
+  n('žurnalas', 'журнал', 'm', 'as', 'book');
 
   /* --- еда и напитки --- */
   n('duona', 'хлеб', 'f', 'a', 'food-cut');
@@ -365,6 +421,9 @@
   a('naminis', 'домашний'); a('kasdienis', 'повседневный'); a('elektrinis', 'электрический'); a('žieminis', 'зимний');
   a('vasarinis', 'летний'); a('rytinis', 'утренний'); a('vakarinis', 'вечерний'); a('senovinis', 'старинный');
   a('virtuvinis', 'кухонный'); a('oranžinis', 'оранжевый'); a('violetinis', 'фиолетовый');
+  a('mokyklinis', 'школьный'); a('skaitmeninis', 'цифровой');
+  // из сцен опубликованной версии
+  a('naudingas', 'полезный'); a('reikalingas', 'нужный'); a('tvirtas', 'прочный'); a('aiškus', 'ясный; понятный');
 
   /* ---------- глаголы ---------- */
   var VERBS = [];
@@ -549,6 +608,27 @@
   v('avėti', 'носить (обувь)', 'avi', 'avėjo');
   v('mūvėti', 'носить (перчатки, брюки)', 'mūvi', 'mūvėjo');
   v('dengti', 'покрывать', 'dengia', 'dengė');
+  // из сцен опубликованной версии (приложение 37)
+  v('atverti', 'открыть; распахнуть', 'atveria', 'atvėrė');
+  v('užverti', 'закрыть; притворить', 'užveria', 'užvėrė');
+  v('įstatyti', 'вставить', 'įstato', 'įstatė');
+  v('išimti', 'вынуть', 'išima', 'išėmė');
+  v('dekoruoti', 'украшать', 'dekoruoja', 'dekoravo');
+  v('apžiūrėti', 'осмотреть', 'apžiūri', 'apžiūrėjo');
+  v('užsakyti', 'заказать', 'užsako', 'užsakė');
+  v('pasirinkti', 'выбрать', 'pasirenka', 'pasirinko', { note: 'Возвратный глагол: -si- стоит после приставки, окончания обычные.' });
+  v('supakuoti', 'упаковать', 'supakuoja', 'supakavo');
+  v('išpakuoti', 'распаковать', 'išpakuoja', 'išpakavo');
+  v('nulupti', 'очистить (от кожуры)', 'nulupa', 'nulupo');
+  v('pasverti', 'взвесить', 'pasveria', 'pasvėrė');
+  v('rūšiuoti', 'сортировать', 'rūšiuoja', 'rūšiavo');
+  v('naudoti', 'использовать', 'naudoja', 'naudojo');
+  v('kopijuoti', 'копировать', 'kopijuoja', 'kopijavo');
+  v('redaguoti', 'редактировать', 'redaguoja', 'redagavo');
+  v('perrašyti', 'переписать', 'perrašo', 'perrašė');
+  v('auginti', 'выращивать', 'augina', 'augino');
+  v('pernešti', 'перенести', 'perneša', 'pernešė');
+  v('padėti', 'положить; поставить', 'padeda', 'padėjo', { note: 'В значении «помочь» тот же глагол требует kam? (дательный): padėti draugui. Здесь — только «положить»: padėti knygą.' });
   v('kirpti', 'стричь; резать (ножницами)', 'kerpa', 'kirpo');
 
   /* ---------- спряжение ---------- */
@@ -830,14 +910,255 @@
     PROFILES[k].act = PROFILES[k].act.filter(function (id) { return VERB[id]; });
   });
 
+  /* ---------- сцены опубликованной версии 4 (приложение 37 ТЗ) ----------
+     Точные связи «предмет → описания → действия». Порядок — как в ТЗ;
+     эти предметы идут в конструкторе первыми. ---------- */
+  var SCENES_V4 = {
+    langas: { adj: ['švarus', 'naujas', 'didelis', 'platus', 'stiklinis', 'šviesus', 'senas', 'nešvarus'],
+      act: ['atidaryti', 'uždaryti', 'atverti', 'užverti', 'praverti', 'valyti', 'nuvalyti', 'plauti', 'šluostyti', 'pakeisti', 'keisti', 'įstatyti', 'išimti', 'dažyti', 'nudažyti', 'dekoruoti', 'fotografuoti', 'matuoti', 'išmatuoti', 'taisyti', 'remontuoti', 'sudaužyti', 'apžiūrėti', 'tikrinti', 'patikrinti', 'pirkti', 'nupirkti', 'užsakyti', 'pasirinkti'] },
+    durys: { adj: ['naujas', 'senas', 'platus', 'medinis', 'baltas', 'sunkus', 'gražus', 'švarus'],
+      act: ['atidaryti', 'uždaryti', 'atverti', 'užverti', 'praverti', 'valyti', 'nuvalyti', 'pakeisti', 'dažyti', 'nudažyti', 'dekoruoti', 'matuoti', 'taisyti', 'apžiūrėti', 'pirkti'] },
+    knyga: { adj: ['įdomus', 'naujas', 'senas', 'storas', 'plonas', 'brangus', 'naudingas', 'popierinis'],
+      act: ['skaityti', 'perskaityti', 'rašyti', 'pirkti', 'parduoti', 'paimti', 'nešti', 'rasti', 'pamesti', 'padovanoti', 'supakuoti', 'fotografuoti'] },
+    stalas: { adj: ['naujas', 'senas', 'medinis', 'švarus', 'didelis', 'mažas', 'stiklinis', 'sunkus'],
+      act: ['valyti', 'plauti', 'šluostyti', 'pakeisti', 'dažyti', 'matuoti', 'taisyti', 'pirkti', 'pastumti', 'pastatyti', 'pernešti', 'surinkti'] },
+    kėdė: { adj: ['patogus', 'naujas', 'senas', 'medinis', 'minkštas', 'lengvas', 'tvirtas', 'gražus'],
+      act: ['valyti', 'pakeisti', 'dažyti', 'taisyti', 'pirkti', 'parduoti', 'pastumti', 'pastatyti', 'pakelti', 'pernešti'] },
+    obuolys: { adj: ['raudonas', 'žalias', 'didelis', 'mažas', 'saldus', 'rūgštus', 'šviežias', 'skanus'],
+      act: ['matyti', 'pirkti', 'plauti', 'valgyti', 'suvalgyti', 'pjaustyti', 'supjaustyti', 'nulupti', 'ragauti', 'pasverti', 'rinkti', 'rūšiuoti'] },
+    siurblys: { adj: ['naujas', 'senas', 'elektrinis', 'brangus', 'pigus', 'garsus', 'patogus', 'lengvas'],
+      act: ['pirkti', 'parduoti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'sutaisyti', 'tikrinti', 'pakelti', 'pernešti', 'išpakuoti'] },
+    telefonas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'patogus', 'mažas', 'juodas', 'lengvas'],
+      act: ['pirkti', 'parduoti', 'įjungti', 'išjungti', 'įkrauti', 'naudoti', 'taisyti', 'rasti', 'pamesti', 'paimti', 'padovanoti'] },
+    puodelis: { adj: ['baltas', 'naujas', 'švarus', 'nešvarus', 'stiklinis', 'keraminis', 'gražus', 'mažas'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'laikyti', 'padėti', 'padovanoti', 'supakuoti', 'sudaužyti'] },
+    mašina: { adj: ['naujas', 'senas', 'greitas', 'raudonas', 'patogus', 'brangus', 'pigus', 'švarus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'plauti', 'nuplauti', 'taisyti', 'remontuoti', 'tikrinti', 'apžiūrėti', 'fotografuoti'] },
+    kuprinė: { adj: ['naujas', 'senas', 'sunkus', 'lengvas', 'patogus', 'mokyklinis', 'juodas', 'mažas'],
+      act: ['pirkti', 'parduoti', 'paimti', 'nešti', 'rasti', 'pamesti', 'naudoti', 'atidaryti', 'uždaryti', 'padovanoti'] },
+    nuotrauka: { adj: ['gražus', 'naujas', 'senas', 'įdomus', 'spalvotas', 'skaitmeninis', 'didelis', 'mažas'],
+      act: ['matyti', 'spausdinti', 'kopijuoti', 'siųsti', 'išsiųsti', 'gauti', 'redaguoti', 'rasti', 'pasirinkti'] },
+    tekstas: { adj: ['įdomus', 'trumpas', 'ilgas', 'aiškus', 'sudėtingas', 'paprastas', 'naudingas', 'svarbus'],
+      act: ['skaityti', 'perskaityti', 'rašyti', 'parašyti', 'perrašyti', 'redaguoti', 'spausdinti', 'kopijuoti', 'išversti', 'siųsti', 'tikrinti'] },
+    gėlė: { adj: ['gražus', 'baltas', 'raudonas', 'mažas', 'didelis', 'geltonas', 'mėlynas', 'šviežias'],
+      act: ['matyti', 'pirkti', 'auginti', 'sodinti', 'laistyti', 'fotografuoti', 'padovanoti', 'apžiūrėti'] },
+    sofa: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    fotelis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    komoda: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    spintelė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    suolas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    taburetė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    čiužinys: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    kilimas: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    kilimėlis: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    pagalvė: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    antklodė: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    paklodė: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    užvalkalas: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    rankšluostis: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    užuolaida: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    staltiesė: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    servetėlė: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    pledas: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    prijuostė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'baltas', 'juodas', 'gražus', 'patogus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'paimti', 'padėti', 'rasti', 'padovanoti', 'supakuoti'] },
+    šluostė: { adj: ['naujas', 'senas', 'minkštas', 'švarus', 'nešvarus', 'baltas', 'spalvotas', 'gražus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'pakeisti', 'pasirinkti', 'padovanoti'] },
+    dubuo: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    dubenėlis: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    stiklinė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    taurė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    ąsotis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    butelis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    stiklainis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    keptuvė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    dangtis: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    arbatinukas: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    virdulys: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    samtis: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    trintuvė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    sietelis: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    padėklas: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    lentelė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    kočėlas: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    mentelė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'gražus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'plauti', 'nuplauti', 'paimti', 'padėti', 'naudoti', 'pasirinkti'] },
+    indelis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    cukrinė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    druskinė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    šaldytuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    šaldiklis: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    orkaitė: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    viryklė: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    mikrobangė: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    skrudintuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    plakiklis: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    trintuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    indaplovė: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    skalbyklė: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    džiovyklė: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    lygintuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    ventiliatorius: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    šildytuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    šviestuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    žibintuvėlis: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    radijas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    spausdintuvas: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    monitorius: { adj: ['naujas', 'senas', 'brangus', 'pigus', 'didelis', 'mažas', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'įjungti', 'išjungti', 'naudoti', 'taisyti', 'tikrinti', 'pakeisti'] },
+    klaviatūra: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    pelė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    pultelis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    įkroviklis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    laidas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    baterija: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    lemputė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    laikrodis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'baltas', 'spalvotas', 'brangus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'padovanoti', 'paimti', 'padėti', 'fotografuoti', 'supakuoti'] },
+    vaza: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'baltas', 'spalvotas', 'brangus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'padovanoti', 'paimti', 'padėti', 'fotografuoti', 'supakuoti'] },
+    žvakė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'baltas', 'spalvotas', 'brangus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'padovanoti', 'paimti', 'padėti', 'fotografuoti', 'supakuoti'] },
+    žvakidė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'baltas', 'spalvotas', 'brangus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'padovanoti', 'paimti', 'padėti', 'fotografuoti', 'supakuoti'] },
+    vazonas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    rėmelis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'baltas', 'spalvotas', 'brangus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'padovanoti', 'paimti', 'padėti', 'fotografuoti', 'supakuoti'] },
+    figūrėlė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'baltas', 'spalvotas', 'brangus'],
+      act: ['matyti', 'pirkti', 'pasirinkti', 'padovanoti', 'paimti', 'padėti', 'fotografuoti', 'supakuoti'] },
+    dėklas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    pakaba: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    šepetys: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    šluota: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    kibiras: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    kempinė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    muilinė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    praustuvas: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'baltas', 'brangus'],
+      act: ['matyti', 'valyti', 'apžiūrėti', 'fotografuoti', 'pakeisti', 'pirkti', 'tikrinti', 'pasirinkti'] },
+    kriauklė: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'baltas', 'brangus'],
+      act: ['matyti', 'valyti', 'apžiūrėti', 'fotografuoti', 'pakeisti', 'pirkti', 'tikrinti', 'pasirinkti'] },
+    vonia: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'baltas', 'brangus'],
+      act: ['matyti', 'valyti', 'apžiūrėti', 'fotografuoti', 'pakeisti', 'pirkti', 'tikrinti', 'pasirinkti'] },
+    čiaupas: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'baltas', 'brangus'],
+      act: ['matyti', 'valyti', 'apžiūrėti', 'fotografuoti', 'pakeisti', 'pirkti', 'tikrinti', 'pasirinkti'] },
+    lentynėlė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'gražus', 'švarus', 'nešvarus', 'sunkus'],
+      act: ['matyti', 'pirkti', 'parduoti', 'valyti', 'pakeisti', 'apžiūrėti', 'fotografuoti', 'pasirinkti'] },
+    stalčius: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'pilnas', 'tuščias', 'švarus', 'nešvarus'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'pasirinkti', 'plauti'] },
+    rankenėlė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    jungiklis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    lizdas: { adj: ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'baltas', 'brangus'],
+      act: ['matyti', 'valyti', 'apžiūrėti', 'fotografuoti', 'pakeisti', 'pirkti', 'tikrinti', 'pasirinkti'] },
+    plaktukas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    atsuktuvas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    varžtas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    vinis: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    liniuotė: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    trintukas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'lengvas', 'sunkus', 'naudingas', 'reikalingas'],
+      act: ['matyti', 'pirkti', 'paimti', 'laikyti', 'padėti', 'naudoti', 'rasti', 'pasirinkti'] },
+    segtuvas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'baltas', 'spalvotas', 'gražus', 'plonas'],
+      act: ['matyti', 'pirkti', 'paimti', 'padėti', 'rasti', 'pasirinkti', 'fotografuoti', 'laikyti'] },
+    vokas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'baltas', 'spalvotas', 'gražus', 'plonas'],
+      act: ['matyti', 'pirkti', 'paimti', 'padėti', 'rasti', 'pasirinkti', 'fotografuoti', 'laikyti'] },
+    kalendorius: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'baltas', 'spalvotas', 'gražus', 'plonas'],
+      act: ['matyti', 'pirkti', 'paimti', 'padėti', 'rasti', 'pasirinkti', 'fotografuoti', 'laikyti'] },
+    žurnalas: { adj: ['naujas', 'senas', 'didelis', 'mažas', 'baltas', 'spalvotas', 'gražus', 'plonas'],
+      act: ['matyti', 'pirkti', 'paimti', 'padėti', 'rasti', 'pasirinkti', 'fotografuoti', 'laikyti'] }
+  };
+
   /* ---------- сцены ---------- */
   var SCENES = [];
   var SCENE = {};
+  Object.keys(SCENES_V4).forEach(function (id) {
+    if (!NOUN[id]) throw new Error('scene noun missing ' + id);
+    var s = { noun: id, adjectives: SCENES_V4[id].adj.slice(), actions: SCENES_V4[id].act.slice(), published: true };
+    s.adjectives.forEach(function (w) { if (!ADJ[w]) throw new Error('scene adj missing ' + id + ':' + w); });
+    s.actions.forEach(function (w) { if (!VERB[w]) throw new Error('scene verb missing ' + id + ':' + w); });
+    SCENES.push(s); SCENE[id] = s;
+  });
   NOUNS.forEach(function (nn) {
-    if (!nn.profile) return;
+    if (!nn.profile || SCENE[nn.id]) return;
     var p = PROFILES[nn.profile];
     if (!p) throw new Error('no profile ' + nn.profile + ' for ' + nn.id);
-    var s = { noun: nn.id, adjectives: p.adj.slice(0, 8), actions: p.act.slice() };
+    var s = { noun: nn.id, adjectives: p.adj.slice(0, 8), actions: p.act.slice(), published: false };
     SCENES.push(s); SCENE[nn.id] = s;
   });
 
@@ -947,7 +1268,7 @@
   /* ---------- экспорт ---------- */
   global.DD = {
     NOUNS: NOUNS, NOUN: NOUN, ADJS: ADJS, ADJ: ADJ, VERBS: VERBS, VERB: VERB,
-    PRONOUNS: PRONOUNS, PROFILES: PROFILES, SCENES: SCENES, SCENE: SCENE,
+    PRONOUNS: PRONOUNS, PROFILES: PROFILES, SCENES: SCENES, SCENE: SCENE, SCENES_V4: SCENES_V4,
     UMAS: UMAS, PAIRS: PAIRS, MATERIALS: MATERIALS, TRANSLATIONS: TRANSLATIONS,
     conjugate: conjugate, pal: pal, depal: depal
   };

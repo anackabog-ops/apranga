@@ -387,10 +387,15 @@
   /* ---------- конструктор «Предмет и действия» ---------- */
   var C = { noun: null, num: 0, adj: null, verb: null, pron: 'aš' };
   var objSel = document.getElementById('dd-object');
-  D.SCENES.forEach(function (sc) {
-    var nn = D.NOUN[sc.noun];
-    objSel.appendChild(el('option', { value: nn.id, text: nn.id + ' · ' + nn.ru }));
-  });
+  function fillSceneOptions(sel) {
+    var g1 = el('optgroup', { label: 'Предметы опубликованной версии' }), g2 = el('optgroup', { label: 'Дополнительные предметы' });
+    D.SCENES.forEach(function (sc) {
+      var nn = D.NOUN[sc.noun];
+      (sc.published ? g1 : g2).appendChild(el('option', { value: nn.id, text: nn.id + ' · ' + nn.ru }));
+    });
+    sel.appendChild(g1); sel.appendChild(g2);
+  }
+  fillSceneOptions(objSel);
   function selectNoun(id) {
     var sc = D.SCENE[id], nn = D.NOUN[id];
     C.noun = nn; C.adj = D.ADJ[sc.adjectives[0]]; C.verb = D.VERB[sc.actions[0]];
@@ -478,7 +483,7 @@
   var P = { mode: 'all', group: 'all', object: 'all', page: 0, review: false };
   var modeSel = document.getElementById('dd-f-mode'), groupSel = document.getElementById('dd-f-group'), objFSel = document.getElementById('dd-f-object');
   Object.keys(MODES).forEach(function (m) { modeSel.appendChild(el('option', { value: m, text: MODES[m] })); });
-  D.SCENES.forEach(function (sc) { var nn = D.NOUN[sc.noun]; objFSel.appendChild(el('option', { value: nn.id, text: nn.id + ' · ' + nn.ru })); });
+  fillSceneOptions(objFSel);
   function filtered() {
     return TASKS.filter(function (t) {
       if (P.mode !== 'all' && t.mode !== P.mode) return false;

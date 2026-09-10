@@ -68,6 +68,14 @@ D.SCENES.forEach(function (s) {
   s.actions.forEach(function (v) { ok(D.VERB[v], 'scene verb ref ' + s.noun + ':' + v); });
   ok(s.adjectives.length === new Set(s.adjectives).size && s.actions.length === new Set(s.actions).size, 'scene dup ' + s.noun);
 });
+/* --- сцены опубликованной версии: первые 114, порядок и состав как в приложении 37 --- */
+var v4 = Object.keys(D.SCENES_V4);
+eq(v4.length, 114, 'v4 count'); eq(v4[0], 'langas', 'v4 first'); eq(v4[113], 'žurnalas', 'v4 last');
+v4.forEach(function (id, i) { ok(D.SCENES[i].noun === id && D.SCENES[i].published, 'v4 order ' + id); });
+eq(D.SCENE.vonia.adjectives, ['naujas', 'senas', 'švarus', 'nešvarus', 'didelis', 'mažas', 'baltas', 'brangus'], 'vonia adj');
+eq(D.SCENE.langas.actions.length, 29, 'langas actions'); eq(D.SCENE.obuolys.actions[7], 'nulupti', 'obuolys nulupti');
+eq(c('pasirinkti').pres[0], 'pasirenku', 'pasirenku'); eq(c('apžiūrėti').pres[0], 'apžiūriu', 'apžiūriu'); eq(c('išimti').past[0], 'išėmiau', 'išėmiau');
+eq(D.NOUN.vinis.acc, ['vinį', 'vinis'], 'vinis'); eq(D.NOUN.laikrodis.nom[1], 'laikrodžiai', 'laikrodžiai'); eq(D.NOUN.praustuvas.acc[0], 'praustuvą', 'praustuvas');
 D.UMAS.forEach(function (u) { ok(D.ADJ[u.adj] && /umas$/.test(u.noun) && u.nounRu, 'umas ' + u.adj); });
 D.PAIRS.forEach(function (p) { ok(D.VERB[p.a] && D.VERB[p.b], 'pair ' + p.a); });
 D.MATERIALS.forEach(function (m) { ok(D.ADJ[m.adj], 'material ' + m.noun); });
